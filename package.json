@@ -1,0 +1,42 @@
+{
+  "name": "@radum/eslint-config",
+  "version": "0.0.0",
+  "description": "@radum Eslint config",
+  "keywords": [
+    "eslint",
+    "eslint-config"
+  ],
+  "author": "Radu Micu",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:radum/eslint-config.git"
+  },
+  "main": "index.js",
+  "files": [
+    "rules/**/*.js",
+    "index.js"
+  ],
+  "scripts": {
+    "test": "jest",
+    "watch": "jest --watch",
+    "release": "np --no-cleanup --no-yarn"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "eslint-plugin-eslint-comments": "^3.1.2",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.0.0",
+    "jest": "^24.8.0",
+    "np": "*"
+  },
+  "peerDependencies": {
+    "eslint": "^6.0.0"
+  }
+}
