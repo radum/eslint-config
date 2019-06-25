@@ -1,5 +1,5 @@
 const CLIEngine = require('eslint').CLIEngine;
-const configuration = require('../index');
+const configuration = require('..');
 
 const eslintOpts = {
 	useEslintrc: false,
@@ -10,13 +10,11 @@ const eslintOpts = {
 
 // The source files to lint.
 const testFiles = [
-	'./tests/js-valid.js',
-	'index.js'
+	'./tests/js-valid.js'
 ];
 
 describe('flags no errors or warnings with valid js', () => {
 	const report = new CLIEngine(eslintOpts).executeOnFiles(testFiles);
-
 
 	it('flags no errors', () => {
 		expect(report.errorCount).toBe(0);

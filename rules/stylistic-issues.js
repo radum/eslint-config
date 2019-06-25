@@ -8,12 +8,18 @@ module.exports = {
 		'camelcase': 0,
 		'capitalized-comments': 0,
 		'comma-dangle': 0,
-		'comma-spacing': 0,
-		'comma-style': 0,
+		'comma-spacing': [
+			'error',
+			{
+				'before': false,
+				'after': true
+			}
+		],
+		'comma-style': ['error', 'last'],
 		'computed-property-spacing': 0,
 		'consistent-this': 0,
-		'eol-last': 0,
-		'func-call-spacing': 0,
+		'eol-last': ['error', 'always'],
+		'func-call-spacing': ['error', 'never'],
 		'func-name-matching': 0,
 		'func-names': 0,
 		'func-style': 0,

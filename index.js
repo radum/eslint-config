@@ -8,8 +8,10 @@ module.exports = {
 	},
 	plugins: [
 		'import',
-		'eslint-comment',
+		'eslint-comments',
+		'jsdoc',
 		'promise',
+		'filenames',
 		'unicorn'
 	],
 	extends: [
@@ -36,6 +38,42 @@ module.exports = {
 		]
 	},
 	rules: {
+		'filenames/match-exported': 2,
+		'filenames/match-regex': [
+			2,
+			'^[A-Z]?[a-z]+(?:[A-Z][a-z]+)*$',
+			false
+		],
+		'filenames/no-index': 0,
+		"jsdoc/check-alignment": 1,
+		"jsdoc/check-examples": 0,
+		"jsdoc/check-indentation": 0,
+		"jsdoc/check-param-names": 1,
+		"jsdoc/check-syntax": 0,
+		"jsdoc/check-tag-names": 1,
+		"jsdoc/check-types": 1,
+		"jsdoc/implements-on-classes": 1,
+		"jsdoc/match-description": 0,
+		"jsdoc/newline-after-description": [
+			1,
+			"always"
+		],
+		"jsdoc/no-types": 0,
+		"jsdoc/no-undefined-types": 1,
+		"jsdoc/require-description": 0,
+		"jsdoc/require-description-complete-sentence": 0,
+		"jsdoc/require-example": 0,
+		"jsdoc/require-hyphen-before-param-description": 0,
+		"jsdoc/require-jsdoc": 0,
+		"jsdoc/require-param": 0,
+		"jsdoc/require-param-description": 1,
+		"jsdoc/require-param-name": 2,
+		"jsdoc/require-param-type": 1,
+		"jsdoc/require-returns": 1,
+		"jsdoc/require-returns-check": 0,
+		"jsdoc/require-returns-description": 0,
+		"jsdoc/require-returns-type": 0,
+		"jsdoc/valid-types": 1,
 		'unicorn/catch-error-name': 'error',
 		'unicorn/custom-error-definition': 'off',
 		'unicorn/error-message': 'error',
@@ -70,7 +108,7 @@ module.exports = {
 		'unicorn/prefer-starts-ends-with': 'error',
 		'unicorn/prefer-text-content': 'error',
 		'unicorn/prefer-type-error': 'error',
-		'unicorn/prevent-abbreviations': 'error',
+		'unicorn/prevent-abbreviations': 'warn',
 		'unicorn/regex-shorthand': 'error',
 		'unicorn/throw-new-error': 'error'
 	}

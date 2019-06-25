@@ -14,11 +14,29 @@ npm install -D @radum/eslint-config
 
 ## Usage
 
+This package includes the following configurations:
+
+* @radum/eslint-config - The base code style guide.
+* @radum/node - To be used in addition to "@radum/eslint-config" configuration by projects that use Node.
+* @radum/ava - To be used in addition to "@radum/eslint-config" configuration by projects that use [AVA](https://ava.li/).
+* @radum/jest - To be used in addition to "@radum/eslint-config" configuration by projects that use [jest](https://facebook.github.io/jest/).
+
 If you've installed `@radum/eslint-config` locally within your project, just set your eslint config to:
 
 ```bash
 {
   "extends": "@radum/eslint-config"
+}
+```
+
+or if you are working on a Node script:
+
+```bash
+{
+  "extends": [
+	  "@radum/eslint-config"
+	  "@radum/eslint-config/node"
+  ]
 }
 ```
 
