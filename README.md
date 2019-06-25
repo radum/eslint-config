@@ -114,4 +114,13 @@ npx eslint-find-rules
 
 More info here https://github.com/sarbbottam/eslint-find-rules
 
+### Inspiration
+
+This config is heavily inspired by the following configs and tools:
+
+- https://github.com/xojs/xo
+- https://github.com/airbnb/javascript
+- https://github.com/gajus/eslint-config-canonical
+- https://github.com/google/eslint-config-google
+
 ## [Changelog](CHANGELOG.md)

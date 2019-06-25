@@ -1,20 +1,21 @@
 const CLIEngine = require('eslint').CLIEngine;
 const configuration = require('..');
 
-const eslintOpts = {
+const eslintOptions = {
 	useEslintrc: false,
-	envs: ['node', 'browser'],
-	parserOptions: { ecmaVersion: 2019, sourceType: 'module' },
-	rules: configuration.rules
+	baseConfig: configuration
 };
 
 // The source files to lint.
-const testFiles = [
+const validTestFiles = [
 	'./tests/js-valid.js'
+];
+const invalidTestFiles = [
+	'./tests/js-invalid.js'
 ];
 
 describe('flags no errors or warnings with valid js', () => {
-	const report = new CLIEngine(eslintOpts).executeOnFiles(testFiles);
+	const report = new CLIEngine(eslintOptions).executeOnFiles(validTestFiles);
 
 	it('flags no errors', () => {
 		expect(report.errorCount).toBe(0);
@@ -28,4 +29,16 @@ describe('flags no errors or warnings with valid js', () => {
 	// repoFiles.forEach((file, index) => {
 	// 	assert(report.results[index].filePath.endsWith(file));
 	// });
+});
+
+describe('flags errors and warnings with invalid js', () => {
+	const report = new CLIEngine(eslintOptions).executeOnFiles(invalidTestFiles);
+
+	it('flags errors', () => {
+		expect(report.errorCount).toBe(3);
+	});
+
+	it('flags warnings', () => {
+		expect(report.warningCount).toBe(0);
+	});
 });
