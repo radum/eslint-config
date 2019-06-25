@@ -22,7 +22,16 @@ module.exports = {
 		'id-length': 0,
 		'id-match': 0,
 		'implicit-arrow-linebreak': 0,
-		'indent': 0,
+		'indent': [
+			2,
+			'tab',
+			{
+				'SwitchCase': 1,
+				'VariableDeclarator': 1,
+				'flatTernaryExpressions': false,
+				'ignoreComments': false
+			}
+		],
 		'jsx-quotes': 0,
 		'key-spacing': 0,
 		'keyword-spacing': 0,
@@ -31,7 +40,15 @@ module.exports = {
 		'lines-around-comment': 0,
 		'lines-between-class-members': 0,
 		'max-depth': 0,
-		'max-len': 0,
+		'max-len': [
+			2,
+			156,
+			2,
+			{
+				'ignoreUrls': true,
+				'ignoreComments': true
+			}
+		],
 		'max-lines': 0,
 		'max-lines-per-function': 0,
 		'max-nested-callbacks': 0,
@@ -49,14 +66,17 @@ module.exports = {
 		'no-inline-comments': 0,
 		'no-lonely-if': 0,
 		'no-mixed-operators': 0,
-		'no-mixed-spaces-and-tabs': 0,
+		'no-mixed-spaces-and-tabs': 2,
 		'no-multi-assign': 0,
 		'no-multiple-empty-lines': 0,
 		'no-negated-condition': 0,
 		'no-nested-ternary': 0,
 		'no-new-object': 0,
 		'no-plusplus': 0,
-		'no-restricted-syntax': 0,
+		'no-restricted-syntax': [
+			'error',
+			'WithStatement'
+		],
 		'no-tabs': 0,
 		'no-ternary': 0,
 		'no-trailing-spaces': 0,
