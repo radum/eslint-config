@@ -93,6 +93,7 @@ const getRuleConfiguration = (ruleset, ruleName) => {
 const engines = [canonicalEngine, airbnbEngine, googleEngine, standardEngine];
 
 for (const ruleName of ruleNames) {
+	// eslint-disable-next-line no-console
 	console.log(
 		"|" +
 			getRuleLink(ruleName, engines) +
