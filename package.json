@@ -1,7 +1,7 @@
 {
   "name": "@radum/eslint-config",
   "version": "0.0.0",
-  "description": "@radum Eslint config",
+  "description": "@radum ESLint Shareable Config",
   "keywords": [
     "eslint",
     "eslint-config"
@@ -13,10 +13,6 @@
     "url": "git@github.com:radum/eslint-config.git"
   },
   "main": "index.js",
-  "files": [
-    "rules/**/*.js",
-    "index.js"
-  ],
   "scripts": {
     "test": "jest",
     "watch": "jest --watch",
@@ -35,6 +31,7 @@
     "eslint-plugin-jsdoc": "^8.6.0",
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-react": "^7.14.2",
     "eslint-plugin-unicorn": "^9.1.1"
   },
   "devDependencies": {

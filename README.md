@@ -20,6 +20,7 @@ This package includes the following configurations:
 * @radum/node - To be used in addition to "@radum/eslint-config" configuration by projects that use Node.
 * @radum/ava - To be used in addition to "@radum/eslint-config" configuration by projects that use [AVA](https://ava.li/).
 * @radum/jest - To be used in addition to "@radum/eslint-config" configuration by projects that use [jest](https://facebook.github.io/jest/).
+* @radum/react - To be used in addition to "@radum/eslint-config" configuration by projects that react [React](https://facebook.github.io/react/).
 
 If you've installed `@radum/eslint-config` locally within your project, just set your eslint config to:
 
