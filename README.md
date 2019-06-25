@@ -17,10 +17,10 @@ npm install -D @radum/eslint-config
 This package includes the following configurations:
 
 * @radum/eslint-config - The base code style guide.
-* @radum/node - To be used in addition to "@radum/eslint-config" configuration by projects that use Node.
-* @radum/ava - To be used in addition to "@radum/eslint-config" configuration by projects that use [AVA](https://ava.li/).
-* @radum/jest - To be used in addition to "@radum/eslint-config" configuration by projects that use [jest](https://facebook.github.io/jest/).
-* @radum/react - To be used in addition to "@radum/eslint-config" configuration by projects that react [React](https://facebook.github.io/react/).
+* @radum/eslint-config/node - To be used in addition to "@radum/eslint-config" configuration by projects that use Node.
+* @radum/eslint-config/ava - To be used in addition to "@radum/eslint-config" configuration by projects that use [AVA](https://ava.li/).
+* @radum/eslint-config/jest - To be used in addition to "@radum/eslint-config" configuration by projects that use [jest](https://facebook.github.io/jest/).
+* @radum/eslint-config/react - To be used in addition to "@radum/eslint-config" configuration by projects that react [React](https://facebook.github.io/react/).
 
 If you've installed `@radum/eslint-config` locally within your project, just set your eslint config to:
 
@@ -72,15 +72,13 @@ For example, to change the comma-dangle rule to off:
 
 ## Deploy
 
-To deploy a new version, make sure you have a clean `node_modules` folder and then install the eslint dependency like this:
+To deploy a new version, make sure you have a clean `node_modules` folder and then install the npm modules:
 
 ```bash
-npm i eslint --no-save --no-package-lock
+npm i --no-package-lock
 ```
 
-Then run `np` or `npm run release`. This is because np needs to run without a cleanup to be able to run tests that need eslint.
-
-Until `np` adds an option for peer dependency use the flow above.
+Then run `np` or `npm run release`.
 
 ## Complementary tools
 
