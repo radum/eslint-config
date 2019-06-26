@@ -1,8 +1,11 @@
 {
   "dependencies": {
-    "eslint": "^6.0.0",
+    "@radum/eslint-config": "latest",
+    "eslint": "^5.0.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-canonical": "^17.0.0",
+    "eslint-config-google": "^0.13.0",
+    "eslint-config-standard": "^12.0.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-node": "^9.0.0",
     "eslint-plugin-standard": "^4.0.0"

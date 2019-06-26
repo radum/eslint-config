@@ -10,6 +10,16 @@ const getEngineForConfiguration = configuration => {
 	return engine;
 };
 
+const radumEngine = getEngineForConfiguration({
+	extends: [
+		"@radum/eslint-config",
+		"@radum/eslint-config/node",
+		"@radum/eslint-config/ava",
+		"@radum/eslint-config/jest",
+		"@radum/eslint-config/react"
+	]
+});
+
 const canonicalEngine = getEngineForConfiguration({
 	extends: [
 		"canonical",
@@ -36,6 +46,7 @@ const standardEngine = getEngineForConfiguration({
 
 const ruleNames = [
 	...new Set([
+		...Object.keys(radumEngine.config.baseConfig.rules),
 		...Object.keys(canonicalEngine.config.baseConfig.rules),
 		...Object.keys(airbnbEngine.config.baseConfig.rules),
 		...Object.keys(googleEngine.config.baseConfig.rules),
@@ -90,13 +101,18 @@ const getRuleConfiguration = (ruleset, ruleName) => {
 	return describeRuleValue(ruleset[ruleName][0]);
 };
 
-const engines = [canonicalEngine, airbnbEngine, googleEngine, standardEngine];
+const engines = [radumEngine, canonicalEngine, airbnbEngine, googleEngine, standardEngine];
 
 for (const ruleName of ruleNames) {
 	// eslint-disable-next-line no-console
 	console.log(
 		"|" +
 			getRuleLink(ruleName, engines) +
+			"|" +
+			getRuleConfiguration(
+				radumEngine.config.baseConfig.rules,
+				ruleName
+			) +
 			"|" +
 			getRuleConfiguration(
 				canonicalEngine.config.baseConfig.rules,
