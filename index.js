@@ -23,12 +23,14 @@ module.exports = {
 		'plugin:import/warnings',
 		'plugin:eslint-comments/recommended',
 		'plugin:promise/recommended',
-		'./rules/possible-errors',
-		'./rules/best-practices',
-		'./rules/variables',
-		'./rules/eslint-node',
-		'./rules/stylistic-issues',
-		'./rules/es6'
+		...[
+			'./rules/possible-errors',
+			'./rules/best-practices',
+			'./rules/variables',
+			'./rules/eslint-node',
+			'./rules/stylistic-issues',
+			'./rules/es6'
+		].map(require.resolve)
 	],
 	env: {
 		'es6': true,

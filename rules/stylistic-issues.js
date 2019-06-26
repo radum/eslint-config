@@ -1,10 +1,10 @@
 module.exports = {
 	rules: {
 		'array-bracket-newline': 0,
-		'array-bracket-spacing': 0,
+		'array-bracket-spacing': [2, 'never'],
 		'array-element-newline': 0,
-		'block-spacing': 0,
-		'brace-style': 0,
+		'block-spacing': ['error', 'always'],
+		'brace-style': ['error', '1tbs', { allowSingleLine: true }],
 		'camelcase': 0,
 		'capitalized-comments': 0,
 		'comma-dangle': 0,

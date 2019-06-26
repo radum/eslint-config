@@ -4,8 +4,8 @@ module.exports = {
 			1,
 			'as-needed'
 		],
-		'arrow-parens': 0,
-		'arrow-spacing': 0,
+		'arrow-parens': [2, 'always'],
+		'arrow-spacing': ['error', { before: true, after: true }],
 		'constructor-super': 2,
 		'generator-star-spacing': 0,
 		'no-class-assign': 2,
