@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.3.0]
+
+- Merge pull request #5 from radum/renovate/eslint-plugin-jsdoc-10.x  0e7642a
+- Update dependency eslint-plugin-jsdoc to v10  0530e36
+- Merge pull request #3 from radum/renovate/eslint-6.x  78d438e
+- Merge pull request #4 from radum/renovate/eslint-plugin-jsdoc-9.x  51ff9c9
+- Update dependency eslint-plugin-jsdoc to v9  b431248
+- Update changelog  9fb7c4d
+- Update dependency eslint to v6  e8d87a0
+
+https://github.com/radum/eslint-config/compare/v0.2.0...v0.3.0
+
 ## [0.2.0]
 
 - Update rules, fix rules loading for paths  450c96a
