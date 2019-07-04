@@ -7,19 +7,34 @@
     {
       "files": [ "tests/**/*.test.js" ],
       "env": {
-        "jest": true
+        "es6": true
       },
-      "plugins": ["jest"],
+      "plugins": ["ava"],
       "rules": {
-        "jest/no-alias-methods": 2,
-        "jest/no-disabled-tests": 2,
-        "jest/no-focused-tests": 2,
-        "jest/no-identical-title": 2,
-        "jest/no-test-callback": 2,
-        "jest/no-truthy-falsy": 2,
-        "jest/prefer-spy-on": 2,
-        "jest/prefer-to-contain": 2,
-        "jest/valid-expect": 2
+        "ava/assertion-arguments": 2,
+        "ava/max-asserts": [1, 5],
+        "ava/no-async-fn-without-await": 2,
+        "ava/no-cb-test": 2,
+        "ava/no-duplicate-modifiers": 2,
+        "ava/no-identical-title": 2,
+        "ava/no-ignored-test-files": 2,
+        "ava/no-invalid-end": 2,
+        "ava/no-nested-tests": 2,
+        "ava/no-only-test": 2,
+        "ava/no-skip-assert": 2,
+        "ava/no-skip-test": 2,
+        "ava/no-statement-after-end": 2,
+        "ava/no-todo-implementation": 2,
+        "ava/no-todo-test": 1,
+        "ava/no-unknown-modifiers": 2,
+        "ava/prefer-async-await": 2,
+        "ava/prefer-power-assert": 2,
+        "ava/test-ended": 2,
+        "ava/test-title": [2, "if-multiple"],
+        "ava/use-t": 2,
+        "ava/use-t-well": 2,
+        "ava/use-test": 2,
+        "ava/use-true-false": 2
       }
     }
   ]

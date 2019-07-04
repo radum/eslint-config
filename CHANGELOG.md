@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.4.0]
+
+- Update testing from Jest to AVA, this fixes an issue with Windows when runing `npm run test`
+
 ## [0.3.0]
 
 - Merge pull request #5 from radum/renovate/eslint-plugin-jsdoc-10.x  0e7642a

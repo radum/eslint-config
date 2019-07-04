@@ -14,8 +14,9 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "watch": "jest --watch",
+    "test": "ava",
+    "test:coverage": "nyc ava",
+    "test:watch": "ava --watch",
     "release": "np --no-cleanup --no-yarn"
   },
   "publishConfig": {
@@ -34,12 +35,13 @@
     "eslint-plugin-react": "^7.14.2",
     "eslint-plugin-unicorn": "^9.1.1"
   },
-  "devDependencies": {
-    "eslint": "^6.0.0",
-    "jest": "^24.8.0",
-    "np": "*"
-  },
   "peerDependencies": {
     "eslint": "^6.0.0"
+  },
+  "devDependencies": {
+    "ava": "^2.1.0",
+    "eslint": "^6.0.0",
+    "np": "*",
+    "nyc": "^14.1.1"
   }
 }
