@@ -18,7 +18,7 @@ This package includes the following configurations:
 
 * @radum/eslint-config - The base code style guide.
 * @radum/eslint-config/node - To be used in addition to "@radum/eslint-config" configuration by projects that use Node.
-* @radum/eslint-config/ava - To be used in addition to "@radum/eslint-config" configuration by projects that use [AVA](https://ava.li/).
+* @radum/eslint-config/avajs - To be used in addition to "@radum/eslint-config" configuration by projects that use [AVA](https://ava.li/).
 * @radum/eslint-config/jest - To be used in addition to "@radum/eslint-config" configuration by projects that use [jest](https://facebook.github.io/jest/).
 * @radum/eslint-config/react - To be used in addition to "@radum/eslint-config" configuration by projects that react [React](https://facebook.github.io/react/).
 

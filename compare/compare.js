@@ -1,7 +1,7 @@
 // https://github.com/gajus/eslint-config-canonical/tree/master/compare
 const CLIEngine = require("eslint").CLIEngine;
 
-const getEngineForConfiguration = configuration => {
+const getEngineForConfiguration = (configuration) => {
 	const engine = new CLIEngine({
 		baseConfig: configuration,
 		useEslintrc: false
@@ -14,7 +14,7 @@ const radumEngine = getEngineForConfiguration({
 	extends: [
 		"@radum/eslint-config",
 		"@radum/eslint-config/node",
-		"@radum/eslint-config/ava",
+		"@radum/eslint-config/avajs",
 		"@radum/eslint-config/jest",
 		"@radum/eslint-config/react"
 	]
@@ -71,7 +71,7 @@ const getRuleLink = (ruleName, engines) => {
 	return "`" + ruleName + "`";
 };
 
-const describeRuleValue = ruleValue => {
+const describeRuleValue = (ruleValue) => {
 	if (ruleValue === undefined) {
 		return "N/A 👻";
 	}
