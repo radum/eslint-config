@@ -7,7 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [0.4.0]
 
-- Update testing from Jest to AVA, this fixes an issue with Windows when runing `npm run test`
+- Update testing from Jest to AVA, this fixes an issue with Windows when runing `npm run test`  d17af0a
+- Add Github action  35f9f16
+- Update changelog  fbda11b
+
+https://github.com/radum/eslint-config/compare/v0.3.0...v0.4.0
 
 ## [0.3.0]
 
