@@ -2,6 +2,13 @@
 /* eslint-disable filenames/match-regex, no-console */
 const foo = 2;
 
+/**
+ * Test JSDoc
+ *
+ * @param {number} a Param a
+ * @param {number} b Param b
+ * @returns {number}
+ */
 function sum(a, b) {
 	return a + b;
 }

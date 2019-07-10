@@ -21,5 +21,5 @@ test('flags errors with invalid js', (t) => {
 });
 
 test('flags warnings with invalid js', (t) => {
-	t.assert(t.context.report.warningCount === 0);
+	t.assert(t.context.report.warningCount === 2);
 });
