@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.5.0]
+
+- Update changelog f3c5460
+- Fix compare code for Eslint 6 compatibility c9e6bb9
+- Update node config fixing #11, fix linting issues a83f8cb
+
+https://github.com/radum/eslint-config/compare/v0.4.2...v0.5.0
+
 ## [0.4.2]
 
 - chore: bump jsdoc and better tests  e2dc5c6
