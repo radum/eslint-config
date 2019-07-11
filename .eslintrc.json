@@ -1,7 +1,8 @@
 {
   "root": true,
   "extends": [
-    "./index.js"
+    "./index.js",
+    "./node.js"
   ],
   "overrides": [
     {

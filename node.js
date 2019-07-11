@@ -1,29 +1,36 @@
+'use strict';
+
 module.exports = {
-	plugins: ["node"],
+	plugins: ['node'],
 	extends: [
-		"plugin:node/recommended"
+		'plugin:node/recommended'
 	],
 	rules: {
-		"no-process-exit": "error",
+		'no-process-exit': 'error',
 
 		// Disabled because it causes too much churn and will be moot when we switch to ES2015 modules
 		// 'node/exports-style': [
 		// 	'error',
 		// 	'module.exports'
 		// ]
+		'node/exports-style': 'off',
 
-		"node/file-extension-in-import": 0,
-		"node/no-deprecated-api": "error",
+		'node/file-extension-in-import': 0,
+		'node/no-deprecated-api': 'error',
 
 		// Redundant with import/no-extraneous-dependencies
 		// 'node/no-extraneous-import': 'error',
 		// 'node/no-extraneous-require': 'error',
+		'node/no-extraneous-import': 'off',
+		'node/no-extraneous-require': 'off',
 
 		// Redundant with import/no-unresolved
 		// 'node/no-missing-import': 'error',
 		// 'node/no-missing-require': 'error',
+		'node/no-missing-import': 'off',
+		'node/no-missing-require': 'off',
 
-		"node/no-unpublished-bin": "error",
+		'node/no-unpublished-bin': 'error',
 
 		// Disabled because they're too annoying, see:
 		// https://github.com/mysticatea/eslint-plugin-node/issues/105
@@ -45,12 +52,14 @@ module.exports = {
 		// 		]
 		// 	}
 		// ],
+		'node/no-unpublished-import': 'off',
+		'node/no-unpublished-require': 'off',
 
 		// Disabled as the rule doesn't allow to exclude compiled sources
 		// 'node/no-unsupported-features': 'error',
-		// "node/no-unsupported-features/es-builtins": "error",
-		// "node/no-unsupported-features/es-syntax": ["error", { ignores: [] }],
-		// "node/no-unsupported-features/node-builtins": "error",
+		// 'node/no-unsupported-features/es-builtins': 'error',
+		// 'node/no-unsupported-features/es-syntax': ['error', { ignores: [] }],
+		// 'node/no-unsupported-features/node-builtins': 'error',
 
 		'node/prefer-global/buffer': [
 			'error',
@@ -80,9 +89,9 @@ module.exports = {
 			'error',
 			'always'
 		],
-		"node/prefer-promises/dns": 0,
-		"node/prefer-promises/fs": 0,
-		"node/process-exit-as-throw": "error"
+		'node/prefer-promises/dns': 0,
+		'node/prefer-promises/fs': 0,
+		'node/process-exit-as-throw': 'error'
 
 		// Disabled as the rule doesn't exclude scripts executed with `node` but not referenced in 'bin'. See https://github.com/mysticatea/eslint-plugin-node/issues/96
 		// 'node/shebang': '2'
