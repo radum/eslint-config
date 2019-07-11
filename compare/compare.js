@@ -44,13 +44,19 @@ const standardEngine = getEngineForConfiguration({
 	extends: ["standard"]
 });
 
+const radumEngineRules = radumEngine.getRules();
+const canonicalEngineRules = canonicalEngine.getRules();
+const airbnbEngineRules = airbnbEngine.getRules();
+const googleEngineRules = googleEngine.getRules();
+const standardEngineRules = standardEngine.getRules();
+
 const ruleNames = [
 	...new Set([
-		...Object.keys(radumEngine.config.baseConfig.rules),
-		...Object.keys(canonicalEngine.config.baseConfig.rules),
-		...Object.keys(airbnbEngine.config.baseConfig.rules),
-		...Object.keys(googleEngine.config.baseConfig.rules),
-		...Object.keys(standardEngine.config.baseConfig.rules)
+		...radumEngineRules.keys(),
+		...canonicalEngineRules.keys(),
+		...airbnbEngineRules.keys(),
+		...googleEngineRules.keys(),
+		...standardEngineRules.keys()
 	])
 ].sort();
 
@@ -72,19 +78,21 @@ const getRuleLink = (ruleName, engines) => {
 };
 
 const describeRuleValue = (ruleValue) => {
-	if (ruleValue === undefined) {
+	if (ruleValue === undefined || (Array.isArray(ruleValue) && ruleValue[0] === undefined)) {
 		return "N/A 👻";
 	}
 
-	if (ruleValue === 0 || ruleValue === "off") {
+	const _ruleValue = Array.isArray(ruleValue) ? ruleValue[0] : ruleValue;
+
+	if (_ruleValue === 0 || _ruleValue === "off") {
 		return "off";
 	}
 
-	if (ruleValue === 1 || ruleValue === "warn") {
+	if (_ruleValue === 1 || _ruleValue === "warn") {
 		return "warn ⚠️";
 	}
 
-	if (ruleValue === 2 || ruleValue === "error") {
+	if (_ruleValue === 2 || _ruleValue === "error") {
 		return "error 🚨";
 	}
 
@@ -110,27 +118,27 @@ for (const ruleName of ruleNames) {
 			getRuleLink(ruleName, engines) +
 			"|" +
 			getRuleConfiguration(
-				radumEngine.config.baseConfig.rules,
+				radumEngine.getConfigForFile('./compare.js').rules,
 				ruleName
 			) +
 			"|" +
 			getRuleConfiguration(
-				canonicalEngine.config.baseConfig.rules,
+				canonicalEngine.getConfigForFile('./compare.js').rules,
 				ruleName
 			) +
 			"|" +
 			getRuleConfiguration(
-				airbnbEngine.config.baseConfig.rules,
+				airbnbEngine.getConfigForFile('./compare.js').rules,
 				ruleName
 			) +
 			"|" +
 			getRuleConfiguration(
-				googleEngine.config.baseConfig.rules,
+				googleEngine.getConfigForFile('./compare.js').rules,
 				ruleName
 			) +
 			"|" +
 			getRuleConfiguration(
-				standardEngine.config.baseConfig.rules,
+				standardEngine.getConfigForFile('./compare.js').rules,
 				ruleName
 			) +
 			"|"
