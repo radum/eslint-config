@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
 	rules: {
 		'init-declarations': 0,

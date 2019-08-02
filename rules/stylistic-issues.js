@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
 	rules: {
 		'array-bracket-newline': 0,
