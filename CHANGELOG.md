@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.0.0]
+
+- Enable unicorn plugin e606717
+- Update dependency eslint-plugin-unicorn to v10 af05e85
+
+https://github.com/radum/eslint-config/compare/v0.5.0...v1.0.0
+
 ## [0.5.0]
 
 - Update changelog f3c5460
