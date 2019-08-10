@@ -2,7 +2,7 @@
   "dependencies": {
     "@radum/eslint-config": "latest",
     "eslint": "^6.0.1",
-    "eslint-config-airbnb": "^17.1.1",
+    "eslint-config-airbnb": "^18.0.0",
     "eslint-config-canonical": "^17.1.3",
     "eslint-config-google": "^0.13.0",
     "eslint-config-standard": "^13.0.0",
