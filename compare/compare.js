@@ -1,3 +1,5 @@
+'use strict';
+
 // https://github.com/gajus/eslint-config-canonical/tree/master/compare
 const CLIEngine = require("eslint").CLIEngine;
 
@@ -44,11 +46,16 @@ const standardEngine = getEngineForConfiguration({
 	extends: ["standard"]
 });
 
+const kentcdoddsEngine = getEngineForConfiguration({
+	extends: ["kentcdodds"]
+});
+
 const radumEngineRules = radumEngine.getRules();
 const canonicalEngineRules = canonicalEngine.getRules();
 const airbnbEngineRules = airbnbEngine.getRules();
 const googleEngineRules = googleEngine.getRules();
 const standardEngineRules = standardEngine.getRules();
+const kentcdoddsEngineRules = kentcdoddsEngine.getRules();
 
 const ruleNames = [
 	...new Set([
@@ -56,7 +63,8 @@ const ruleNames = [
 		...canonicalEngineRules.keys(),
 		...airbnbEngineRules.keys(),
 		...googleEngineRules.keys(),
-		...standardEngineRules.keys()
+		...standardEngineRules.keys(),
+		...kentcdoddsEngineRules.keys()
 	])
 ].sort();
 
@@ -109,7 +117,7 @@ const getRuleConfiguration = (ruleset, ruleName) => {
 	return describeRuleValue(ruleset[ruleName][0]);
 };
 
-const engines = [radumEngine, canonicalEngine, airbnbEngine, googleEngine, standardEngine];
+const engines = [radumEngine, canonicalEngine, airbnbEngine, googleEngine, standardEngine, kentcdoddsEngine];
 
 for (const ruleName of ruleNames) {
 	// eslint-disable-next-line no-console
@@ -139,6 +147,11 @@ for (const ruleName of ruleNames) {
 			"|" +
 			getRuleConfiguration(
 				standardEngine.getConfigForFile('./compare.js').rules,
+				ruleName
+			) +
+			"|" +
+			getRuleConfiguration(
+				kentcdoddsEngine.getConfigForFile('./compare.js').rules,
 				ruleName
 			) +
 			"|"
