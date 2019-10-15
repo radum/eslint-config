@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.2.0]
+
+- Update dependencis and add new unicorn rules  a83b89b
+- converted main.workflow to Actions V2 yml files  3f55a47
+- Update compare data with kentcdodds config  5f7cd5e
+- Update compare data  9c115b4
+
+https://github.com/radum/eslint-config/compare/v1.1.0...v1.2.0
+
 ## [1.1.0]
 
 - Update dependencis and add new ava rules  a3f67c4
