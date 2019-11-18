@@ -28,20 +28,20 @@
     "eslint-plugin-eslint-comments": "^3.1.2",
     "eslint-plugin-filenames": "^1.3.2",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jest": "^22.19.0",
-    "eslint-plugin-jsdoc": "^15.11.1",
+    "eslint-plugin-jest": "^23.0.4",
+    "eslint-plugin-jsdoc": "^18.0.1",
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-react": "^7.16.0",
-    "eslint-plugin-unicorn": "^12.1.0"
+    "eslint-plugin-unicorn": "^13.0.0"
   },
   "peerDependencies": {
-    "eslint": "^6.5.1"
+    "eslint": "^6.6.0"
   },
   "devDependencies": {
     "ava": "^2.4.0",
-    "eslint": "^6.5.1",
-    "np": "*",
+    "eslint": "^6.6.0",
+    "np": "^5.1.3",
     "nyc": "^14.1.1"
   }
 }
