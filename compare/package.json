@@ -3,7 +3,7 @@
     "@radum/eslint-config": "latest",
     "eslint": "^6.5.1",
     "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-canonical": "^17.7.0",
+    "eslint-config-canonical": "^18.0.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-kentcdodds": "^14.5.0",
     "eslint-config-standard": "^14.0.1",
