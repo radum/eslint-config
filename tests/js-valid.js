@@ -7,7 +7,7 @@ const foo = 2;
  *
  * @param {number} a Param a
  * @param {number} b Param b
- * @returns {number}
+ * @returns {number} A number
  */
 function sum(a, b) {
 	return a + b;
