@@ -5,9 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.3.1]
+
+- chore: bump deps  2bee460
+- chore: bump compare deps  8cb885c
+
+https://github.com/radum/eslint-config/compare/v1.3.0...v1.3.1
+
+## [1.3.0]
+
+- update tests to cater for new rules updates  3b2477f
+- chore: bump depds, update jsdoc rules  269363c
+- Update changeloc and compare data  824f8f1
+
+https://github.com/radum/eslint-config/compare/v1.2.0...v1.3.0
+
 ## [1.2.0]
 
 - Update dependencis and add new unicorn rules  a83b89b
+- Update CHANGELOG.md  9b940ce
 - converted main.workflow to Actions V2 yml files  3f55a47
 - Update compare data with kentcdodds config  5f7cd5e
 - Update compare data  9c115b4
