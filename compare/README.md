@@ -156,6 +156,7 @@ Bellow there is a table showing how this config compares with others.
 |[`generator-star-spacing`](https://eslint.org/docs/rules/generator-star-spacing)|off|error 🚨|error 🚨|error 🚨|error 🚨|off|
 |[`getter-return`](https://eslint.org/docs/rules/getter-return)|error 🚨|N/A 👻|error 🚨|N/A 👻|N/A 👻|error 🚨|
 |[`global-require`](https://eslint.org/docs/rules/global-require)|off|error 🚨|error 🚨|N/A 👻|N/A 👻|off|
+|[`grouped-accessor-pairs`](https://eslint.org/docs/rules/grouped-accessor-pairs)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|off|
 |[`guard-for-in`](https://eslint.org/docs/rules/guard-for-in)|error 🚨|error 🚨|error 🚨|error 🚨|N/A 👻|error 🚨|
 |[`handle-callback-err`](https://eslint.org/docs/rules/handle-callback-err)|error 🚨|error 🚨|off|N/A 👻|error 🚨|error 🚨|
 |[`id-blacklist`](https://eslint.org/docs/rules/id-blacklist)|off|N/A 👻|off|N/A 👻|N/A 👻|error 🚨|
@@ -201,51 +202,52 @@ Bellow there is a table showing how this config compares with others.
 |[`import/no-useless-path-segments`](https://github.com/benmosher/eslint-plugin-import/blob/v2.18.2/docs/rules/no-useless-path-segments.md)|N/A 👻|error 🚨|error 🚨|N/A 👻|N/A 👻|off|
 |[`import/no-webpack-loader-syntax`](https://github.com/benmosher/eslint-plugin-import/blob/v2.18.2/docs/rules/no-webpack-loader-syntax.md)|N/A 👻|error 🚨|error 🚨|N/A 👻|error 🚨|error 🚨|
 |[`import/order`](https://github.com/benmosher/eslint-plugin-import/blob/v2.18.2/docs/rules/order.md)|N/A 👻|error 🚨|error 🚨|N/A 👻|N/A 👻|warn ⚠️|
-|[`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/v2.18.2/docs/rules/prefer-default-export.md)|N/A 👻|warn ⚠️|error 🚨|N/A 👻|N/A 👻|off|
+|[`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/v2.18.2/docs/rules/prefer-default-export.md)|N/A 👻|off|error 🚨|N/A 👻|N/A 👻|off|
 |[`import/unambiguous`](https://github.com/benmosher/eslint-plugin-import/blob/v2.18.2/docs/rules/unambiguous.md)|N/A 👻|warn ⚠️|off|N/A 👻|N/A 👻|off|
 |[`indent`](https://eslint.org/docs/rules/indent)|error 🚨|error 🚨|error 🚨|error 🚨|error 🚨|off|
 |[`indent-legacy`](https://eslint.org/docs/rules/indent-legacy)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|off|
 |[`init-declarations`](https://eslint.org/docs/rules/init-declarations)|off|off|off|N/A 👻|N/A 👻|off|
-|[`jest/consistent-test-it`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/consistent-test-it.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/expect-expect`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/expect-expect.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/lowercase-name`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/lowercase-name.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/no-alias-methods`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/no-alias-methods.js.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/no-commented-out-tests`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/no-commented-out-tests.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/no-disabled-tests`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/no-disabled-tests.js.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/no-duplicate-hooks`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/no-duplicate-hooks.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/no-empty-title`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/no-empty-title.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/no-expect-resolves`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/no-expect-resolves.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/no-export`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/no-export.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/no-focused-tests`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/no-focused-tests.js.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/no-hooks`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/no-hooks.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/no-identical-title`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/no-identical-title.js.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/no-if`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/no-if.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/no-jasmine-globals`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/no-jasmine-globals.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/no-jest-import`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/no-jest-import.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/no-large-snapshots`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/no-large-snapshots.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/no-mocks-import`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/no-mocks-import.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/no-standalone-expect`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/no-standalone-expect.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/no-test-callback`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/no-test-callback.js.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/no-test-prefixes`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/no-test-prefixes.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/no-test-return-statement`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/no-test-return-statement.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/no-truthy-falsy`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/no-truthy-falsy.js.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/no-try-expect`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/no-try-expect.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/prefer-called-with`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/prefer-called-with.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/prefer-expect-assertions`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/prefer-expect-assertions.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/prefer-hooks-on-top`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/prefer-hooks-on-top.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/prefer-inline-snapshots`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/prefer-inline-snapshots.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/prefer-spy-on`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/prefer-spy-on.js.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/prefer-strict-equal`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/prefer-strict-equal.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/prefer-to-be-null`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/prefer-to-be-null.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/prefer-to-be-undefined`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/prefer-to-be-undefined.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/prefer-to-contain`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/prefer-to-contain.js.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/prefer-to-have-length`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/prefer-to-have-length.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/prefer-todo`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/prefer-todo.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/require-top-level-describe`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/require-top-level-describe.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/require-tothrow-message`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/require-tothrow-message.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/valid-describe`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/valid-describe.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/valid-expect`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/valid-expect.js.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`jest/valid-expect-in-promise`](https://github.com/jest-community/eslint-plugin-jest/blob/v22.19.0/docs/rules/valid-expect-in-promise.js.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/consistent-test-it`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/consistent-test-it.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/expect-expect`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/expect-expect.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/lowercase-name`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/lowercase-name.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/no-alias-methods`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/no-alias-methods.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/no-commented-out-tests`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/no-commented-out-tests.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/no-disabled-tests`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/no-disabled-tests.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/no-duplicate-hooks`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/no-duplicate-hooks.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/no-expect-resolves`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/no-expect-resolves.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/no-export`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/no-export.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/no-focused-tests`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/no-focused-tests.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/no-hooks`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/no-hooks.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/no-identical-title`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/no-identical-title.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/no-if`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/no-if.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/no-jasmine-globals`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/no-jasmine-globals.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/no-jest-import`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/no-jest-import.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/no-large-snapshots`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/no-large-snapshots.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/no-mocks-import`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/no-mocks-import.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/no-standalone-expect`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/no-standalone-expect.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/no-test-callback`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/no-test-callback.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/no-test-prefixes`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/no-test-prefixes.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/no-test-return-statement`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/no-test-return-statement.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/no-truthy-falsy`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/no-truthy-falsy.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/no-try-expect`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/no-try-expect.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/prefer-called-with`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/prefer-called-with.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/prefer-expect-assertions`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/prefer-expect-assertions.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/prefer-hooks-on-top`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/prefer-hooks-on-top.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/prefer-inline-snapshots`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/prefer-inline-snapshots.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/prefer-spy-on`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/prefer-spy-on.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/prefer-strict-equal`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/prefer-strict-equal.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/prefer-to-be-null`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/prefer-to-be-null.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/prefer-to-be-undefined`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/prefer-to-be-undefined.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/prefer-to-contain`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/prefer-to-contain.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/prefer-to-have-length`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/prefer-to-have-length.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/prefer-todo`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/prefer-todo.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/require-to-throw-message`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/require-to-throw-message.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/require-top-level-describe`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/require-top-level-describe.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/valid-describe`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/valid-describe.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/valid-expect`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/valid-expect.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/valid-expect-in-promise`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/valid-expect-in-promise.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`jest/valid-title`](https://github.com/jest-community/eslint-plugin-jest/blob/v23.2.0/docs/rules/valid-title.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|`jsdoc/check-access`|warn ⚠️|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |`jsdoc/check-alignment`|warn ⚠️|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |`jsdoc/check-examples`|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |`jsdoc/check-indentation`|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
@@ -253,6 +255,8 @@ Bellow there is a table showing how this config compares with others.
 |`jsdoc/check-syntax`|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |`jsdoc/check-tag-names`|warn ⚠️|warn ⚠️|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |`jsdoc/check-types`|warn ⚠️|warn ⚠️|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|`jsdoc/check-values`|warn ⚠️|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|`jsdoc/empty-tags`|warn ⚠️|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |`jsdoc/implements-on-classes`|warn ⚠️|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |`jsdoc/match-description`|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |`jsdoc/newline-after-description`|warn ⚠️|warn ⚠️|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
@@ -262,15 +266,15 @@ Bellow there is a table showing how this config compares with others.
 |`jsdoc/require-description-complete-sentence`|off|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |`jsdoc/require-example`|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |`jsdoc/require-hyphen-before-param-description`|off|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|`jsdoc/require-jsdoc`|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|`jsdoc/require-param`|off|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|`jsdoc/require-jsdoc`|warn ⚠️|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|`jsdoc/require-param`|warn ⚠️|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |`jsdoc/require-param-description`|warn ⚠️|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|`jsdoc/require-param-name`|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|`jsdoc/require-param-name`|warn ⚠️|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |`jsdoc/require-param-type`|warn ⚠️|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |`jsdoc/require-returns`|warn ⚠️|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|`jsdoc/require-returns-check`|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|`jsdoc/require-returns-description`|off|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|`jsdoc/require-returns-type`|off|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|`jsdoc/require-returns-check`|warn ⚠️|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|`jsdoc/require-returns-description`|warn ⚠️|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|`jsdoc/require-returns-type`|warn ⚠️|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |`jsdoc/valid-types`|warn ⚠️|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |[`jsx-a11y/accessible-emoji`](https://github.com/evcohen/eslint-plugin-jsx-a11y/tree/master/docs/rules/accessible-emoji.md)|N/A 👻|N/A 👻|error 🚨|N/A 👻|N/A 👻|N/A 👻|
 |[`jsx-a11y/alt-text`](https://github.com/evcohen/eslint-plugin-jsx-a11y/tree/master/docs/rules/alt-text.md)|N/A 👻|N/A 👻|error 🚨|N/A 👻|N/A 👻|N/A 👻|
@@ -410,6 +414,7 @@ Bellow there is a table showing how this config compares with others.
 |[`no-console`](https://eslint.org/docs/rules/no-console)|error 🚨|error 🚨|warn ⚠️|N/A 👻|N/A 👻|error 🚨|
 |[`no-const-assign`](https://eslint.org/docs/rules/no-const-assign)|error 🚨|error 🚨|error 🚨|N/A 👻|error 🚨|error 🚨|
 |[`no-constant-condition`](https://eslint.org/docs/rules/no-constant-condition)|error 🚨|warn ⚠️|warn ⚠️|N/A 👻|error 🚨|error 🚨|
+|[`no-constructor-return`](https://eslint.org/docs/rules/no-constructor-return)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|error 🚨|
 |[`no-continue`](https://eslint.org/docs/rules/no-continue)|off|off|error 🚨|N/A 👻|N/A 👻|error 🚨|
 |[`no-control-regex`](https://eslint.org/docs/rules/no-control-regex)|error 🚨|error 🚨|error 🚨|N/A 👻|error 🚨|error 🚨|
 |[`no-debugger`](https://eslint.org/docs/rules/no-debugger)|error 🚨|warn ⚠️|error 🚨|N/A 👻|error 🚨|error 🚨|
@@ -417,6 +422,7 @@ Bellow there is a table showing how this config compares with others.
 |[`no-div-regex`](https://eslint.org/docs/rules/no-div-regex)|error 🚨|error 🚨|off|N/A 👻|N/A 👻|error 🚨|
 |[`no-dupe-args`](https://eslint.org/docs/rules/no-dupe-args)|error 🚨|error 🚨|error 🚨|N/A 👻|error 🚨|error 🚨|
 |[`no-dupe-class-members`](https://eslint.org/docs/rules/no-dupe-class-members)|error 🚨|error 🚨|error 🚨|N/A 👻|error 🚨|error 🚨|
+|[`no-dupe-else-if`](https://eslint.org/docs/rules/no-dupe-else-if)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|error 🚨|
 |[`no-dupe-keys`](https://eslint.org/docs/rules/no-dupe-keys)|error 🚨|error 🚨|error 🚨|N/A 👻|error 🚨|error 🚨|
 |[`no-duplicate-case`](https://eslint.org/docs/rules/no-duplicate-case)|error 🚨|error 🚨|error 🚨|N/A 👻|error 🚨|error 🚨|
 |[`no-duplicate-imports`](https://eslint.org/docs/rules/no-duplicate-imports)|error 🚨|off|off|N/A 👻|N/A 👻|error 🚨|
@@ -495,6 +501,7 @@ Bellow there is a table showing how this config compares with others.
 |[`no-self-assign`](https://eslint.org/docs/rules/no-self-assign)|error 🚨|error 🚨|error 🚨|N/A 👻|error 🚨|error 🚨|
 |[`no-self-compare`](https://eslint.org/docs/rules/no-self-compare)|error 🚨|error 🚨|error 🚨|N/A 👻|error 🚨|error 🚨|
 |[`no-sequences`](https://eslint.org/docs/rules/no-sequences)|error 🚨|error 🚨|error 🚨|N/A 👻|error 🚨|error 🚨|
+|[`no-setter-return`](https://eslint.org/docs/rules/no-setter-return)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|error 🚨|
 |[`no-shadow`](https://eslint.org/docs/rules/no-shadow)|error 🚨|error 🚨|error 🚨|N/A 👻|N/A 👻|error 🚨|
 |[`no-shadow-restricted-names`](https://eslint.org/docs/rules/no-shadow-restricted-names)|error 🚨|error 🚨|error 🚨|N/A 👻|error 🚨|error 🚨|
 |[`no-spaced-func`](https://eslint.org/docs/rules/no-spaced-func)|N/A 👻|error 🚨|error 🚨|N/A 👻|N/A 👻|off|
@@ -534,34 +541,34 @@ Bellow there is a table showing how this config compares with others.
 |[`no-warning-comments`](https://eslint.org/docs/rules/no-warning-comments)|error 🚨|warn ⚠️|off|N/A 👻|N/A 👻|error 🚨|
 |[`no-whitespace-before-property`](https://eslint.org/docs/rules/no-whitespace-before-property)|off|error 🚨|error 🚨|N/A 👻|error 🚨|off|
 |[`no-with`](https://eslint.org/docs/rules/no-with)|off|error 🚨|error 🚨|error 🚨|error 🚨|off|
-|[`node/exports-style`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/exports-style.md)|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`node/file-extension-in-import`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/file-extension-in-import.md)|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`node/no-callback-literal`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/no-callback-literal.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`node/no-deprecated-api`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/no-deprecated-api.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|error 🚨|N/A 👻|
-|[`node/no-exports-assign`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/no-exports-assign.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`node/no-extraneous-import`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/no-extraneous-import.md)|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`node/no-extraneous-require`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/no-extraneous-require.md)|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`node/no-hide-core-modules`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/no-hide-core-modules.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`node/no-missing-import`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/no-missing-import.md)|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`node/no-missing-require`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/no-missing-require.md)|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`node/no-unpublished-bin`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/no-unpublished-bin.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`node/no-unpublished-import`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/no-unpublished-import.md)|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`node/no-unpublished-require`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/no-unpublished-require.md)|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`node/no-unsupported-features`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/no-unsupported-features.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`node/no-unsupported-features/es-builtins`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/no-unsupported-features/es-builtins.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`node/no-unsupported-features/es-syntax`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/no-unsupported-features/es-syntax.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`node/no-unsupported-features/node-builtins`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/no-unsupported-features/node-builtins.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`node/prefer-global/buffer`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/prefer-global/buffer.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`node/prefer-global/console`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/prefer-global/console.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`node/prefer-global/process`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/prefer-global/process.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`node/prefer-global/text-decoder`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/prefer-global/text-decoder.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`node/prefer-global/text-encoder`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/prefer-global/text-encoder.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`node/prefer-global/url`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/prefer-global/url.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`node/prefer-global/url-search-params`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/prefer-global/url-search-params.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`node/prefer-promises/dns`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/prefer-promises/dns.md)|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`node/prefer-promises/fs`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/prefer-promises/fs.md)|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`node/process-exit-as-throw`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/process-exit-as-throw.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|error 🚨|N/A 👻|
-|[`node/shebang`](https://github.com/mysticatea/eslint-plugin-node/blob/v10.0.0/docs/rules/shebang.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`node/exports-style`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/exports-style.md)|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`node/file-extension-in-import`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/file-extension-in-import.md)|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`node/no-callback-literal`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/no-callback-literal.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`node/no-deprecated-api`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/no-deprecated-api.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|error 🚨|N/A 👻|
+|[`node/no-exports-assign`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/no-exports-assign.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`node/no-extraneous-import`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/no-extraneous-import.md)|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`node/no-extraneous-require`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/no-extraneous-require.md)|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`node/no-hide-core-modules`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/no-hide-core-modules.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`node/no-missing-import`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/no-missing-import.md)|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`node/no-missing-require`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/no-missing-require.md)|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`node/no-unpublished-bin`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/no-unpublished-bin.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`node/no-unpublished-import`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/no-unpublished-import.md)|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`node/no-unpublished-require`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/no-unpublished-require.md)|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`node/no-unsupported-features`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/no-unsupported-features.md)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`node/no-unsupported-features/es-builtins`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/no-unsupported-features/es-builtins.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`node/no-unsupported-features/es-syntax`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/no-unsupported-features/es-syntax.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`node/no-unsupported-features/node-builtins`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/no-unsupported-features/node-builtins.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`node/prefer-global/buffer`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/prefer-global/buffer.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`node/prefer-global/console`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/prefer-global/console.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`node/prefer-global/process`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/prefer-global/process.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`node/prefer-global/text-decoder`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/prefer-global/text-decoder.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`node/prefer-global/text-encoder`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/prefer-global/text-encoder.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`node/prefer-global/url`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/prefer-global/url.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`node/prefer-global/url-search-params`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/prefer-global/url-search-params.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`node/prefer-promises/dns`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/prefer-promises/dns.md)|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`node/prefer-promises/fs`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/prefer-promises/fs.md)|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`node/process-exit-as-throw`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/process-exit-as-throw.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|error 🚨|N/A 👻|
+|[`node/shebang`](https://github.com/mysticatea/eslint-plugin-node/blob/v11.0.0/docs/rules/shebang.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |[`nonblock-statement-body-position`](https://eslint.org/docs/rules/nonblock-statement-body-position)|off|error 🚨|error 🚨|N/A 👻|N/A 👻|off|
 |[`object-curly-newline`](https://eslint.org/docs/rules/object-curly-newline)|off|N/A 👻|error 🚨|N/A 👻|error 🚨|off|
 |[`object-curly-spacing`](https://eslint.org/docs/rules/object-curly-spacing)|off|off|error 🚨|error 🚨|error 🚨|off|
@@ -576,6 +583,7 @@ Bellow there is a table showing how this config compares with others.
 |[`prefer-arrow-callback`](https://eslint.org/docs/rules/prefer-arrow-callback)|off|error 🚨|error 🚨|N/A 👻|N/A 👻|off|
 |[`prefer-const`](https://eslint.org/docs/rules/prefer-const)|error 🚨|error 🚨|error 🚨|error 🚨|error 🚨|error 🚨|
 |[`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring)|off|off|error 🚨|N/A 👻|N/A 👻|off|
+|[`prefer-exponentiation-operator`](https://eslint.org/docs/rules/prefer-exponentiation-operator)|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|warn ⚠️|
 |[`prefer-named-capture-group`](https://eslint.org/docs/rules/prefer-named-capture-group)|off|off|off|N/A 👻|N/A 👻|off|
 |[`prefer-numeric-literals`](https://eslint.org/docs/rules/prefer-numeric-literals)|error 🚨|error 🚨|error 🚨|N/A 👻|N/A 👻|error 🚨|
 |[`prefer-object-spread`](https://eslint.org/docs/rules/prefer-object-spread)|off|N/A 👻|error 🚨|N/A 👻|N/A 👻|warn ⚠️|
@@ -698,7 +706,8 @@ Bellow there is a table showing how this config compares with others.
 |[`semi-spacing`](https://eslint.org/docs/rules/semi-spacing)|off|error 🚨|error 🚨|error 🚨|error 🚨|off|
 |[`semi-style`](https://eslint.org/docs/rules/semi-style)|off|error 🚨|error 🚨|N/A 👻|N/A 👻|off|
 |[`sort-imports`](https://eslint.org/docs/rules/sort-imports)|off|N/A 👻|off|N/A 👻|N/A 👻|off|
-|[`sort-keys`](https://eslint.org/docs/rules/sort-keys)|off|error 🚨|off|N/A 👻|N/A 👻|off|
+|[`sort-keys`](https://eslint.org/docs/rules/sort-keys)|off|off|off|N/A 👻|N/A 👻|off|
+|[`sort-keys-fix/sort-keys-fix`](https://github.com/leo-buneev/eslint-plugin-sort-keys-fix)|N/A 👻|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |[`sort-vars`](https://eslint.org/docs/rules/sort-vars)|off|error 🚨|off|N/A 👻|N/A 👻|off|
 |[`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks)|off|error 🚨|error 🚨|error 🚨|error 🚨|off|
 |[`space-before-function-paren`](https://eslint.org/docs/rules/space-before-function-paren)|off|error 🚨|error 🚨|error 🚨|error 🚨|off|
@@ -717,11 +726,11 @@ Bellow there is a table showing how this config compares with others.
 |[`template-tag-spacing`](https://eslint.org/docs/rules/template-tag-spacing)|off|error 🚨|error 🚨|N/A 👻|error 🚨|off|
 |[`unicode-bom`](https://eslint.org/docs/rules/unicode-bom)|off|error 🚨|error 🚨|N/A 👻|error 🚨|off|
 |[`unicorn/catch-error-name`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/catch-error-name.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`unicorn/consistent-function-scoping`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/consistent-function-scoping.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`unicorn/consistent-function-scoping`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/consistent-function-scoping.md)|error 🚨|warn ⚠️|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |[`unicorn/custom-error-definition`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/custom-error-definition.md)|off|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |[`unicorn/error-message`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/error-message.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |[`unicorn/escape-case`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/escape-case.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`unicorn/expiring-todo-comments`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/expiring-todo-comments.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`unicorn/expiring-todo-comments`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/expiring-todo-comments.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |[`unicorn/explicit-length-check`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/explicit-length-check.md)|error 🚨|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |[`unicorn/filename-case`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/filename-case.md)|error 🚨|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |[`unicorn/import-index`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/import-index.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
@@ -733,7 +742,7 @@ Bellow there is a table showing how this config compares with others.
 |[`unicorn/no-for-loop`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/no-for-loop.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |[`unicorn/no-hex-escape`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/no-hex-escape.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |[`unicorn/no-keyword-prefix`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/no-keyword-prefix.md)|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`unicorn/no-nested-ternary`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/no-nested-ternary.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`unicorn/no-nested-ternary`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/no-nested-ternary.md)|error 🚨|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |[`unicorn/no-new-buffer`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/no-new-buffer.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |[`unicorn/no-process-exit`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/no-process-exit.md)|error 🚨|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |[`unicorn/no-unreadable-array-destructuring`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/no-unreadable-array-destructuring.md)|error 🚨|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
@@ -742,7 +751,7 @@ Bellow there is a table showing how this config compares with others.
 |[`unicorn/no-zero-fractions`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/no-zero-fractions.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |[`unicorn/number-literal-case`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/number-literal-case.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |[`unicorn/prefer-add-event-listener`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/prefer-add-event-listener.md)|error 🚨|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`unicorn/prefer-dataset`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/prefer-dataset.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`unicorn/prefer-dataset`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/prefer-dataset.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |[`unicorn/prefer-event-key`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/prefer-event-key.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |[`unicorn/prefer-exponentiation-operator`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/prefer-exponentiation-operator.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |[`unicorn/prefer-flat-map`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/prefer-flat-map.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
@@ -750,10 +759,10 @@ Bellow there is a table showing how this config compares with others.
 |[`unicorn/prefer-node-append`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/prefer-node-append.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |[`unicorn/prefer-node-remove`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/prefer-node-remove.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |[`unicorn/prefer-query-selector`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/prefer-query-selector.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`unicorn/prefer-reflect-apply`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/prefer-reflect-apply.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`unicorn/prefer-reflect-apply`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/prefer-reflect-apply.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |[`unicorn/prefer-spread`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/prefer-spread.md)|error 🚨|off|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |[`unicorn/prefer-starts-ends-with`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/prefer-starts-ends-with.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
-|[`unicorn/prefer-string-slice`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/prefer-string-slice.md)|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
+|[`unicorn/prefer-string-slice`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/prefer-string-slice.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |[`unicorn/prefer-text-content`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/prefer-text-content.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |[`unicorn/prefer-type-error`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/prefer-type-error.md)|error 🚨|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
 |[`unicorn/prevent-abbreviations`](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v12.1.0/docs/rules/prevent-abbreviations.md)|warn ⚠️|error 🚨|N/A 👻|N/A 👻|N/A 👻|N/A 👻|
