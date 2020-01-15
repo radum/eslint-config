@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.0.0]
+
+- chore: bump deps, shrink the size of the module  fae35b2
+- Update compare chart  b726234
+- Update changelog  6d28568
+
+https://github.com/radum/eslint-config/compare/v1.3.1...v2.0.0
+
 ## [1.3.1]
 
 - chore: bump deps  2bee460
