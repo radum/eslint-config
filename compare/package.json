@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@radum/eslint-config": "2.0.0",
+    "@radum/eslint-config": "2.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-canonical": "^18.1.0",
