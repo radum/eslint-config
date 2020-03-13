@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.2.0]
+
+- bump deps  d2420f4
+- update eslint-config-canonical for compare  b7a6ef8
+- bump np version  3673c4a
+- bump eslint-plugin-jsdoc  4a588fb
+- bump eslint-plugin-jsdoc  f1a4ddd
+- update eslint-config-canonical for compare  23e8074
+- Update dependency np to v6  7925119
+- Update dependency ava to v3  1ed9ceb
+- Update dependency eslint-plugin-ava to v10  8f27b3d
+
 ## [2.1.0]
 
 - minimum node version 10  433d96f
