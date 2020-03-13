@@ -58,6 +58,7 @@ module.exports = {
 		// 	false
 		// ],
 		'filenames/no-index': 0,
+		'unicorn/better-regex': 'error',
 		'unicorn/catch-error-name': 'error',
 		'unicorn/consistent-function-scoping': 'error',
 		'unicorn/custom-error-definition': 'off',
@@ -87,7 +88,6 @@ module.exports = {
 		'unicorn/prefer-add-event-listener': 'error',
 		'unicorn/prefer-dataset': 'error',
 		'unicorn/prefer-event-key': 'error',
-		'unicorn/prefer-exponentiation-operator': 'error',
 		'unicorn/prefer-flat-map': 'error',
 		'unicorn/prefer-includes': 'error',
 		'unicorn/prefer-modern-dom-apis': 'warn',
@@ -96,6 +96,7 @@ module.exports = {
 		'unicorn/prefer-node-remove': 'error',
 		'unicorn/prefer-query-selector': 'error',
 		'unicorn/prefer-reflect-apply': 'error',
+		'unicorn/prefer-replace-all': 'off',
 		'unicorn/prefer-spread': 'error',
 		'unicorn/prefer-starts-ends-with': 'error',
 		'unicorn/prefer-string-slice': 'error',
@@ -103,7 +104,7 @@ module.exports = {
 		'unicorn/prefer-trim-start-end': 'error',
 		'unicorn/prefer-type-error': 'error',
 		'unicorn/prevent-abbreviations': 'warn',
-		'unicorn/regex-shorthand': 'error',
+		'unicorn/string-content': 'off',
 		'unicorn/throw-new-error': 'error'
 	}
 };
