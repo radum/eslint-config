@@ -4,9 +4,8 @@ os:
   - windows
 language: node_js
 node_js:
-  - '13'
+  - '14'
   - '12'
-  - '10'
 scripts:
   - npm run test
 notifications:
