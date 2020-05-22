@@ -1,6 +1,6 @@
 {
   "name": "@radum/eslint-config",
-  "version": "2.2.1",
+  "version": "3.0.0",
   "description": "@radum ESLint Shareable Config",
   "keywords": [
     "eslint",
