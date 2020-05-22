@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [3.0.0]
+
+- Remove support for node 10 and 13, bump deps, update rules  58d63cb
+- Merge pull request #62 from radum/dependabot/npm_and_yarn/eslint-plugin-unicorn-19.0.1  0f91a2b
+- Merge pull request #69 from radum/dependabot/npm_and_yarn/eslint-plugin-jsdoc-25.4.2  a6309ea
+- Bump eslint-plugin-jsdoc from 24.0.6 to 25.4.2  2c5994b
+- Merge pull request #65 from radum/dependabot/npm_and_yarn/eslint-plugin-jsdoc-24.0.6  8e2870c
+- Bump eslint-plugin-jsdoc from 22.2.0 to 24.0.6  f7d92c1
+- Bump eslint-plugin-unicorn from 17.2.0 to 19.0.1  d6b3561
+- Update push.yml  f05eaf8
+- Merge branch &#39;master&#39; of github.com:radum/eslint-config  96bcff2
+- Remove renovate.json as it was deprecated  1351fa0
+- Merge pull request #56 from radum/renovate/radum-eslint-config-2.x  5743805
+- fix(deps): update dependency @radum/eslint-config to v2.2.1  d94ce30
+
+https://github.com/radum/eslint-config/compare/v2.2.1...v3.0.0
+
 ## [2.2.0]
 
 - bump deps  d2420f4
@@ -16,6 +33,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Update dependency np to v6  7925119
 - Update dependency ava to v3  1ed9ceb
 - Update dependency eslint-plugin-ava to v10  8f27b3d
+
+https://github.com/radum/eslint-config/compare/v2.1.0...v2.2.0
 
 ## [2.1.0]
 
