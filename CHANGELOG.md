@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [4.0.0]
+
+- bump deps  7270f75
+- Create SECURITY.md 8828c53
+
 ## [3.0.0]
 
 - Remove support for node 10 and 13, bump deps, update rules  58d63cb
