@@ -7,8 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [4.0.0]
 
+- update github workflows  8816a3e
+- update minimum required node version to 12  40ddf5c
 - bump deps  7270f75
-- Create SECURITY.md 8828c53
+- Create SECURITY.md  8828c53
 
 ## [3.0.0]
 
