@@ -1,5 +1,4 @@
-/* eslint-disable eslint-comments/disable-enable-pair */
-/* eslint-disable filenames/match-regex, no-console */
+/* eslint-disable eslint-comments/disable-enable-pair, filenames/match-regex, no-console, strict */
 const foo = 2;
 
 /**

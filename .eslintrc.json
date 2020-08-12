@@ -6,7 +6,7 @@
   ],
   "overrides": [
     {
-      "files": [ "tests/**/*.test.js" ],
+      "files": ["tests/**/*.test.js"],
       "env": {
         "es6": true
       },

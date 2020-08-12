@@ -28,7 +28,7 @@
     "test": "ava",
     "test:coverage": "nyc ava",
     "test:watch": "ava --watch",
-    "lint:js": "eslint --cache --cache-location './.cache/eslint' '**/*.js'",
+    "lint:js": "eslint --cache --cache-location './.cache/eslint' --ignore-pattern 'tests/mocks' --ignore-pattern 'ava.config.js' '**/*.js'",
     "release": "np --no-cleanup --no-yarn",
     "semantic-release": "semantic-release",
     "semantic-release2": "semantic-release pre && npm publish && semantic-release post"

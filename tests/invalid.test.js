@@ -1,3 +1,5 @@
+'use strict';
+
 const test = require('ava');
 const CLIEngine = require('eslint').CLIEngine;
 const configuration = require('..');
@@ -9,7 +11,7 @@ const eslintOptions = {
 
 // The source files to lint.
 const invalidTestFiles = [
-	'./tests/js-invalid.js'
+	'./tests/mocks/js-invalid.mock.js'
 ];
 
 test.before((t) => {

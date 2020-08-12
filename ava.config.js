@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 export default {
 	cache: true,
 	files: ["**/?(*.)(spec|test).js"],

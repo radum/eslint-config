@@ -1,5 +1,3 @@
-/* eslint-disable eslint-comments/disable-enable-pair */
-/* eslint-disable filenames/match-regex */
 const foo =2;
 
 /**
