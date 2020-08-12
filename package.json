@@ -28,7 +28,10 @@
     "test": "ava",
     "test:coverage": "nyc ava",
     "test:watch": "ava --watch",
-    "release": "np --no-cleanup --no-yarn"
+    "lint:js": "eslint --cache --cache-location './.cache/eslint' '**/*.js'",
+    "release": "np --no-cleanup --no-yarn",
+    "semantic-release": "semantic-release",
+    "semantic-release2": "semantic-release pre && npm publish && semantic-release post"
   },
   "publishConfig": {
     "access": "public"
@@ -53,6 +56,7 @@
     "ava": "^3.8.2",
     "eslint": "^7.0.0",
     "np": "^6.2.3",
-    "nyc": "^15.0.1"
+    "nyc": "^15.0.1",
+    "semantic-release": "^17.1.1"
   }
 }
