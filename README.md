@@ -1,4 +1,4 @@
-# @radum Eslint config [![Build Status](https://travis-ci.com/radum/eslint-config.svg?branch=master)](https://travis-ci.com/radum/eslint-config)
+# @radum Eslint config
 
 > Personal recommended shareable config for eslint.
 
