@@ -1,3 +1,29 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+# [4.0.0](https://github.com/radum/eslint-config/compare/v3.0.0...v4.0.0) (2020-12-16)
+
+
+### Bug Fixes
+
+* fixed CD GH token ([6763bea](https://github.com/radum/eslint-config/commit/6763bea5dee35076f753634876efc6db9fd91bbf))
+
+
+### Features
+
+* add semantic release ([d3ed33a](https://github.com/radum/eslint-config/commit/d3ed33a85fc37af2b949f13520fcafc45f847dd9))
+* add semantic release ([271a116](https://github.com/radum/eslint-config/commit/271a116100cb21ab82d225f4b45244fe05af7ffc))
+* new semantic release pipeline ([10e4212](https://github.com/radum/eslint-config/commit/10e4212f5a02eafc33e0790a83f77c0a322153bf))
+
+
+### BREAKING CHANGES
+
+* Fixing the GH token will ensure we publish to GH also.
+* Using semantic-release to publish.
 
 # Changelog [OLD PRE semantic-release]
 
