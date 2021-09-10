@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file. See
 
 This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+# [4.2.0](https://github.com/radum/eslint-config/compare/v4.1.1...v4.2.0) (2021-09-10)
+
+
+### Features
+
+* update unicorn plugin rules ([e5c59ea](https://github.com/radum/eslint-config/commit/e5c59ea2e6f8ad600ded6d511d18023f4b8fb52a))
+
 ## [4.1.1](https://github.com/radum/eslint-config/compare/v4.1.0...v4.1.1) (2021-09-10)
 
 
