@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file. See
 
 This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+# [5.0.0](https://github.com/radum/eslint-config/compare/v4.2.0...v5.0.0) (2021-09-10)
+
+
+### Features
+
+* force to always use semicolons ([1703971](https://github.com/radum/eslint-config/commit/1703971b7d1ae84d6ce2f8016ae2eed450983dd2))
+
+
+### BREAKING CHANGES
+
+* - force to always use semicolons
+
 # [4.2.0](https://github.com/radum/eslint-config/compare/v4.1.1...v4.2.0) (2021-09-10)
 
 
