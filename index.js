@@ -32,7 +32,7 @@ module.exports = {
 			'./rules/eslint-node',
 			'./rules/stylistic-issues',
 			'./rules/es6'
-		// eslint-disable-next-line unicorn/no-fn-reference-in-iterator
+		// eslint-disable-next-line unicorn/no-array-callback-reference
 		].map(require.resolve)
 	],
 	env: {
