@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file. See
 
 This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [6.0.1](https://github.com/radum/eslint-config/compare/v6.0.0...v6.0.1) (2021-09-16)
+
+
+### Bug Fixes
+
+* fix eslint unicorn rules ([c2f593c](https://github.com/radum/eslint-config/commit/c2f593cde7e662cd09a69f38ef040ceaaee8461d))
+
 # [6.0.0](https://github.com/radum/eslint-config/compare/v5.0.0...v6.0.0) (2021-09-16)
 
 
