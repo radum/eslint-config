@@ -123,7 +123,7 @@ module.exports = {
 		'unicorn/prefer-keyboard-event-key': 'error',
 		'unicorn/prefer-math-trunc': 'error',
 		'unicorn/prefer-modern-dom-apis': 'error',
-		'unicorn/prefer-module': 'error',
+		'unicorn/prefer-module': 'off',
 		'unicorn/prefer-negative-index': 'error',
 		'unicorn/prefer-node-protocol': 'error',
 		'unicorn/prefer-number-properties': 'error',
