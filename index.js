@@ -2,7 +2,7 @@
 
 module.exports = {
 	parserOptions: {
-		ecmaVersion: 2019,
+		ecmaVersion: 12,
 		sourceType: 'module',
 		ecmaFeatures: {
 			jsx: true
@@ -36,6 +36,7 @@ module.exports = {
 		].map(require.resolve)
 	],
 	env: {
+		es2021: true,
 		es6: true,
 		browser: true,
 		node: true
