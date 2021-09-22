@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file. See
 
 This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+# [6.1.0](https://github.com/radum/eslint-config/compare/v6.0.1...v6.1.0) (2021-09-22)
+
+
+### Bug Fixes
+
+* eslint error ([59a3117](https://github.com/radum/eslint-config/commit/59a31179d8b7bd29a9572f02414efa3875149b66))
+
+
+### Features
+
+* update eslint parser ecmaVersion to 12 ([bf960f4](https://github.com/radum/eslint-config/commit/bf960f47fd998773c9ce71e7aecb9487471c0a58))
+
 ## [6.0.1](https://github.com/radum/eslint-config/compare/v6.0.0...v6.0.1) (2021-09-16)
 
 
