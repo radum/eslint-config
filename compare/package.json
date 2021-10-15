@@ -1,15 +1,15 @@
 {
   "dependencies": {
-    "@radum/eslint-config": "2.2.1",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-canonical": "^19.0.0",
+    "@radum/eslint-config": "6.1.0",
+    "eslint": "^8.0.1",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-canonical": "^28.0.1",
     "eslint-config-google": "^0.14.0",
-    "eslint-config-kentcdodds": "^14.7.0",
-    "eslint-config-standard": "^14.0.1",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-standard": "^4.0.1"
+    "eslint-config-kentcdodds": "^19.2.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-standard": "^4.1.0"
   },
   "scripts": {
     "compare": "node compare.js"

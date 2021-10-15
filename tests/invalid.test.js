@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require('ava');
-const CLIEngine = require('eslint').CLIEngine;
+const ESLint = require('eslint').ESLint;
 const configuration = require('..');
 
 const eslintOptions = {
@@ -14,14 +14,14 @@ const invalidTestFiles = [
 	'./tests/mocks/js-invalid.mock.js'
 ];
 
-test.before((t) => {
-	t.context.report = new CLIEngine(eslintOptions).executeOnFiles(invalidTestFiles);
+test.before(async (t) => {
+	t.context.report = await new ESLint(eslintOptions).lintFiles(invalidTestFiles);
 });
 
 test('flags errors with invalid js', (t) => {
-	t.assert(t.context.report.errorCount === 3);
+	t.assert(t.context.report[0].errorCount === 3);
 });
 
 test('flags warnings with invalid js', (t) => {
-	t.assert(t.context.report.warningCount === 3);
+	t.assert(t.context.report[0].warningCount === 3);
 });

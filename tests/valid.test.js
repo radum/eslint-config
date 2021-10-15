@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require('ava');
-const CLIEngine = require('eslint').CLIEngine;
+const ESLint = require('eslint').ESLint;
 const configuration = require('..');
 
 const eslintOptions = {
@@ -14,14 +14,14 @@ const validTestFiles = [
 	'./tests/mocks/js-valid.mock.js'
 ];
 
-test.before((t) => {
-	t.context.report = new CLIEngine(eslintOptions).executeOnFiles(validTestFiles);
+test.before(async (t) => {
+	t.context.report = await new ESLint(eslintOptions).lintFiles(validTestFiles);
 });
 
 test('flags no errors with valid js', (t) => {
-	t.assert(t.context.report.errorCount === 0);
+	t.assert(t.context.report[0].errorCount === 0);
 });
 
 test('flags no warnings with valid js', (t) => {
-	t.assert(t.context.report.warningCount === 0);
+	t.assert(t.context.report[0].warningCount === 0);
 });
