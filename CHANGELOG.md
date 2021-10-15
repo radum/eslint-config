@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file. See
 
 This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+# [6.2.0](https://github.com/radum/eslint-config/compare/v6.1.0...v6.2.0) (2021-10-15)
+
+
+### Features
+
+* update ESLint to version 8 ([720a6bf](https://github.com/radum/eslint-config/commit/720a6bf98c74b431e962d8beb2e4a1951892a86b))
+* update github workflow node version ([ea2bd79](https://github.com/radum/eslint-config/commit/ea2bd79f39633de3fbd129f1f100751b9bcc42f8))
+
 # [6.1.0](https://github.com/radum/eslint-config/compare/v6.0.1...v6.1.0) (2021-09-22)
 
 
