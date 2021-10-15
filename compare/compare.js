@@ -1,10 +1,10 @@
 'use strict';
 
 // https://github.com/gajus/eslint-config-canonical/tree/master/compare
-const CLIEngine = require("eslint").CLIEngine;
+const ESLint = require("eslint").ESLint;
 
 const getEngineForConfiguration = (configuration) => {
-	const engine = new CLIEngine({
+	const engine = new ESLint({
 		baseConfig: configuration,
 		useEslintrc: false
 	});
