@@ -148,7 +148,7 @@ module.exports = {
 		'unicorn/prevent-abbreviations': 'warn',
 		'unicorn/require-array-join-separator': 'error',
 		'unicorn/require-number-to-fixed-digits-argument': 'error',
-		'unicorn/require-post-message-target-origin': 'error',
+		'unicorn/require-post-message-target-origin': 'off',
 		'unicorn/string-content': 'off',
 		'unicorn/throw-new-error': 'error'
 	}
