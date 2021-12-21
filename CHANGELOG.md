@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file. See
 
 This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [6.2.1](https://github.com/radum/eslint-config/compare/v6.2.0...v6.2.1) (2021-12-21)
+
+
+### Bug Fixes
+
+* **deps:** bump eslint-plugin-jsdoc from 36.1.1 to 37.4.0 ([166e36b](https://github.com/radum/eslint-config/commit/166e36bba9d0c0d2157aa40454776d355b08487b))
+
 # [6.2.0](https://github.com/radum/eslint-config/compare/v6.1.0...v6.2.0) (2021-10-15)
 
 
