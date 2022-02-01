@@ -62,6 +62,6 @@
     "eslint": "^8.5.0",
     "np": "^7.6.0",
     "nyc": "^15.1.0",
-    "semantic-release": "^18.0.1"
+    "semantic-release": "^19.0.2"
   }
 }
