@@ -19,10 +19,11 @@
   "files": [
     "rules/**/*.js",
     "avajs.js",
+    "index.js",
     "jest.js",
+    "jsdoc.js",
     "node.js",
-    "react.js",
-    "index.js"
+    "react.js"
   ],
   "scripts": {
     "test": "ava",

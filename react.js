@@ -16,8 +16,8 @@ module.exports = {
 	},
 	rules: {
 		'react/jsx-one-expression-per-line': 0,
-		'react/jsx-indent': 0, //[2, 'tab'],
-		'react/jsx-indent-props': 0,
+		'react/jsx-indent': 0, // TODO: to use tabs
+		'react/jsx-indent-props': 0, // TODO: to use tabs
 
 		'react/jsx-filename-extension': [
 			'error',
