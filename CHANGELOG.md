@@ -1,3 +1,19 @@
+# v7.1.0 (Mon Apr 11 2022)
+
+#### 🚀 Enhancement
+
+- Update package.json file to include jsdoc [#166](https://github.com/radum/eslint-config/pull/166) ([@radum](https://github.com/radum))
+
+#### ⚠️ Pushed to `main`
+
+- Update package.json file to include jsdoc ([@radum](https://github.com/radum))
+
+#### Authors: 1
+
+- Radu Micu ([@radum](https://github.com/radum))
+
+---
+
 # v7.0.0 (Mon Apr 11 2022)
 
 #### 💥 Breaking Change
