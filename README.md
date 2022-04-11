@@ -18,32 +18,53 @@ This package includes the following configurations:
 
 * @radum/eslint-config - The base code style guide.
 * @radum/eslint-config/node - To be used in addition to "@radum/eslint-config" configuration by projects that use Node.
+* @radum/eslint-config/jsdoc - To be used in addition to "@radum/eslint-config" configuration to enable [JSDoc](https://www.npmjs.com/package/eslint-plugin-jsdoc).
 * @radum/eslint-config/avajs - To be used in addition to "@radum/eslint-config" configuration by projects that use [AVA](https://ava.li/).
 * @radum/eslint-config/jest - To be used in addition to "@radum/eslint-config" configuration by projects that use [jest](https://facebook.github.io/jest/).
 * @radum/eslint-config/react - To be used in addition to "@radum/eslint-config" configuration by projects that react [React](https://facebook.github.io/react/).
 
 If you've installed `@radum/eslint-config` locally within your project, just set your eslint config to:
 
-```bash
+```json
 {
-  "extends": "@radum/eslint-config"
+	"extends": "@radum/eslint-config",
+	"parserOptions": {
+		"ecmaVersion": 12,
+		"sourceType": "module"
+	},
+	"env": {
+		"browser": true,
+		"es2021": true,
+		"node": false
+	}
 }
 ```
 
 or if you are working on a Node script:
 
-```bash
+```json
 {
-  "extends": [
-	  "@radum/eslint-config"
-	  "@radum/eslint-config/node"
-  ]
+	"extends": [
+		"@radum/eslint-config"
+		"@radum/eslint-config/node"
+	],
+	"parserOptions": {
+		"ecmaVersion": 12,
+		"sourceType": "module"
+	},
+	"env": {
+		"browser": false,
+		"es2021": true,
+		"node": true
+	}
 }
 ```
 
+> NOTE: The config doesn't specify the [parser options](https://eslint.org/docs/user-guide/configuring/language-options#specifying-parser-options) or the [environment](https://eslint.org/docs/user-guide/configuring/language-options#specifying-environments), allowing you to set them based on your current setup.
+
 If you've globally installed @radum/eslint-config using the -g flag, then you'll need to use the absolute path to @radum/eslint-config in your config e.g.
 
-```bash
+```json
 {
   "extends": "/absolute/path/to/@radum/eslint-config"
 }
@@ -51,9 +72,11 @@ If you've globally installed @radum/eslint-config using the -g flag, then you'll
 
 You can also simply use the globally installed configuration name instead of the absolute path:
 
+```json
 {
   "extends": "@radum/eslint-config"
 }
+```
 
 ### Extending the config
 
@@ -63,22 +86,13 @@ For example, to change the comma-dangle rule to off:
 
 ```json
 {
-  "extends": "@radum/eslint-config",
-  "rules": {
-    "comma-dangle": "off",
-  }
+	"extends": "@radum/eslint-config",
+	// Always define the `parserOptions` and/or the `env` settings to tailor the settings for your environment.
+	"rules": {
+		"comma-dangle": "off",
+	}
 }
 ```
-
-## Deploy
-
-To deploy a new version, make sure you have a clean `node_modules` folder and then install the npm modules:
-
-```bash
-npm i --no-package-lock
-```
-
-Then run `np` or `npm run release`.
 
 ## Complementary tools
 

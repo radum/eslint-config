@@ -15,15 +15,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           persist-credentials: false
       - name: Setup Node.js
-        uses: actions/setup-node@v2.5.0
+        uses: actions/setup-node@v3.1.0
         with:
           node-version: 14
       - name: Cache npm dependencies
-        uses: actions/cache@v2.1.7
+        uses: actions/cache@v3.0.1
         with:
           key: npm-${{ hashFiles('package-lock.json') }}
           path: ~/.npm
@@ -31,9 +31,9 @@ jobs:
             npm-
       - name: Install dependencies
         run: npm i --ignore-scripts --no-audit --no-progress --prefer-offline
-      - name: Semantic Release
+      - name: Intuit Auto
         if: success()
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
+        run: npx auto

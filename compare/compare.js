@@ -1,7 +1,7 @@
 'use strict';
 
 // https://github.com/gajus/eslint-config-canonical/tree/master/compare
-const ESLint = require("eslint").ESLint;
+const ESLint = require('eslint').ESLint;
 
 const getEngineForConfiguration = (configuration) => {
 	const engine = new ESLint({
@@ -14,40 +14,40 @@ const getEngineForConfiguration = (configuration) => {
 
 const radumEngine = getEngineForConfiguration({
 	extends: [
-		"@radum/eslint-config",
-		"@radum/eslint-config/node",
-		"@radum/eslint-config/avajs",
-		"@radum/eslint-config/jest",
-		"@radum/eslint-config/react"
+		'@radum/eslint-config',
+		'@radum/eslint-config/node',
+		'@radum/eslint-config/avajs',
+		'@radum/eslint-config/jest',
+		'@radum/eslint-config/react'
 	]
 });
 
 const canonicalEngine = getEngineForConfiguration({
 	extends: [
-		"canonical",
-		"canonical/ava",
-		"canonical/flowtype",
-		"canonical/jest",
-		"canonical/lodash",
-		"canonical/mocha",
-		"canonical/react"
+		'canonical',
+		'canonical/ava',
+		'canonical/flowtype',
+		'canonical/jest',
+		'canonical/lodash',
+		'canonical/mocha',
+		'canonical/react'
 	]
 });
 
 const airbnbEngine = getEngineForConfiguration({
-	extends: ["airbnb"]
+	extends: ['airbnb']
 });
 
 const googleEngine = getEngineForConfiguration({
-	extends: ["google"]
+	extends: ['google']
 });
 
 const standardEngine = getEngineForConfiguration({
-	extends: ["standard"]
+	extends: ['standard']
 });
 
 const kentcdoddsEngine = getEngineForConfiguration({
-	extends: ["kentcdodds"]
+	extends: ['kentcdodds']
 });
 
 const radumEngineRules = radumEngine.getRules();
@@ -78,30 +78,30 @@ const getRuleLink = (ruleName, engines) => {
 			subjectRule.meta.docs &&
 			subjectRule.meta.docs.url
 		) {
-			return "[`" + ruleName + "`](" + subjectRule.meta.docs.url + ")";
+			return '[`' + ruleName + '`](' + subjectRule.meta.docs.url + ')';
 		}
 	}
 
-	return "`" + ruleName + "`";
+	return '`' + ruleName + '`';
 };
 
 const describeRuleValue = (ruleValue) => {
 	if (ruleValue === undefined || (Array.isArray(ruleValue) && ruleValue[0] === undefined)) {
-		return "N/A 👻";
+		return 'N/A 👻';
 	}
 
 	const _ruleValue = Array.isArray(ruleValue) ? ruleValue[0] : ruleValue;
 
-	if (_ruleValue === 0 || _ruleValue === "off") {
-		return "off";
+	if (_ruleValue === 0 || _ruleValue === 'off') {
+		return 'off';
 	}
 
-	if (_ruleValue === 1 || _ruleValue === "warn") {
-		return "warn ⚠️";
+	if (_ruleValue === 1 || _ruleValue === 'warn') {
+		return 'warn ⚠️';
 	}
 
-	if (_ruleValue === 2 || _ruleValue === "error") {
-		return "error 🚨";
+	if (_ruleValue === 2 || _ruleValue === 'error') {
+		return 'error 🚨';
 	}
 
 	return false;
@@ -122,38 +122,38 @@ const engines = [radumEngine, canonicalEngine, airbnbEngine, googleEngine, stand
 for (const ruleName of ruleNames) {
 	// eslint-disable-next-line no-console
 	console.log(
-		"|" +
+		'|' +
 			getRuleLink(ruleName, engines) +
-			"|" +
+			'|' +
 			getRuleConfiguration(
 				radumEngine.getConfigForFile('./compare.js').rules,
 				ruleName
 			) +
-			"|" +
+			'|' +
 			getRuleConfiguration(
 				canonicalEngine.getConfigForFile('./compare.js').rules,
 				ruleName
 			) +
-			"|" +
+			'|' +
 			getRuleConfiguration(
 				airbnbEngine.getConfigForFile('./compare.js').rules,
 				ruleName
 			) +
-			"|" +
+			'|' +
 			getRuleConfiguration(
 				googleEngine.getConfigForFile('./compare.js').rules,
 				ruleName
 			) +
-			"|" +
+			'|' +
 			getRuleConfiguration(
 				standardEngine.getConfigForFile('./compare.js').rules,
 				ruleName
 			) +
-			"|" +
+			'|' +
 			getRuleConfiguration(
 				kentcdoddsEngine.getConfigForFile('./compare.js').rules,
 				ruleName
 			) +
-			"|"
+			'|'
 	);
 }

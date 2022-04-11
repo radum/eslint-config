@@ -1,5 +1,3 @@
-'use strict';
-
 const test = require('ava');
 const ESLint = require('eslint').ESLint;
 const configuration = require('..');
@@ -19,9 +17,9 @@ test.before(async (t) => {
 });
 
 test('flags errors with invalid js', (t) => {
-	t.assert(t.context.report[0].errorCount === 3);
+	t.assert(t.context.report[0].errorCount === 10);
 });
 
 test('flags warnings with invalid js', (t) => {
-	t.assert(t.context.report[0].warningCount === 3);
+	t.assert(t.context.report[0].warningCount === 1);
 });

@@ -47,6 +47,7 @@ module.exports = {
 		'no-new': 2,
 		'no-new-func': 2,
 		'no-new-wrappers': 2,
+		'no-nested-ternary': 0, // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-nested-ternary.md#disabling-eslint-no-nested-ternary
 		'no-octal': 2,
 		'no-octal-escape': 2,
 		'no-param-reassign': 0,

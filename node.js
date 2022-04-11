@@ -3,6 +3,9 @@
 module.exports = {
 	plugins: ['node'],
 	extends: [
+		// https://github.com/mysticatea/eslint-plugin-node#-configs
+		// If "type":"module" field existed in package.json then it considers files as ES Modules.
+		// Otherwise it considers files as CommonJS. In addition, it considers *.mjs files as ES Modules and *.cjs files as CommonJS.
 		'plugin:node/recommended'
 	],
 	rules: {

@@ -1,4 +1,4 @@
-/* eslint-disable eslint-comments/disable-enable-pair, filenames/match-regex, no-console, strict */
+/* eslint-disable strict */
 const foo = 2;
 
 /**
@@ -16,4 +16,4 @@ sum(foo, 2);
 
 const set1 = new Set([1, 2, 3, 4, 5]);
 
-console.log(set1.has(1));
+set1.has(1);

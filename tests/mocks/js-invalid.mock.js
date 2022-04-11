@@ -1,4 +1,7 @@
+'use strict';
+
 const foo =2;
+const thing = foo ? 1 : foo === 1 ? 3 : 4;
 
 /**
  * Test JSDoc
@@ -10,4 +13,10 @@ function sum(a, b) {
   return a + b;
 }
 
-sum (2, 2);
+sum (2, 2, { a:1});
+sum(1,2)
+sum(thing, 2)
+
+let x = {
+	a: 1,
+};

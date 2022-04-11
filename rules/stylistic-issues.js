@@ -9,7 +9,7 @@ module.exports = {
 		'brace-style': ['error', '1tbs', { allowSingleLine: true }],
 		'camelcase': 0,
 		'capitalized-comments': 0,
-		'comma-dangle': 0,
+		'comma-dangle': 2,
 		'comma-spacing': [
 			'error',
 			{
@@ -93,7 +93,7 @@ module.exports = {
 		'no-whitespace-before-property': 0,
 		'nonblock-statement-body-position': 0,
 		'object-curly-newline': 0,
-		'object-curly-spacing': 0,
+		'object-curly-spacing': [2, 'always'],
 		'object-property-newline': 0,
 		'one-var': 0,
 		'one-var-declaration-per-line': 0,
@@ -103,8 +103,8 @@ module.exports = {
 		'padding-line-between-statements': 0,
 		'prefer-object-spread': 0,
 		'quote-props': 0,
-		'quotes': 0,
-		'semi': [2, "always", { "omitLastInOneLineBlock": true}],
+		'quotes': [1, 'single'],
+		'semi': [2, 'always', { 'omitLastInOneLineBlock': true }],
 		'semi-spacing': 0,
 		'semi-style': 0,
 		'sort-keys': 0,

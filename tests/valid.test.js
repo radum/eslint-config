@@ -1,5 +1,3 @@
-'use strict';
-
 const test = require('ava');
 const ESLint = require('eslint').ESLint;
 const configuration = require('..');

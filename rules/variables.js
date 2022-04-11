@@ -1,5 +1,7 @@
 'use strict';
 
+const confusingBrowserGlobals = require('confusing-browser-globals');
+
 module.exports = {
 	rules: {
 		'init-declarations': 0,
@@ -7,8 +9,7 @@ module.exports = {
 		'no-label-var': 2,
 		'no-restricted-globals': [
 			'error',
-			'event',
-			'fdescribe'
+			...confusingBrowserGlobals
 		],
 		'no-shadow': 2,
 		'no-shadow-restricted-names': 2,
