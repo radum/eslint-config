@@ -13,6 +13,7 @@ jobs:
   build:
     name: Release
     runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -23,7 +24,7 @@ jobs:
         with:
           node-version: 14
       - name: Cache npm dependencies
-        uses: actions/cache@v3.0.2
+        uses: actions/cache@v3.0.1
         with:
           key: npm-${{ hashFiles('package-lock.json') }}
           path: ~/.npm
@@ -34,6 +35,6 @@ jobs:
       - name: Intuit Auto
         if: success()
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx auto
+        run: npx auto shipit
