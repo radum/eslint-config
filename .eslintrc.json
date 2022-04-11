@@ -20,6 +20,25 @@
       "extends": [
         "./avajs.js"
       ]
+    },
+    {
+      "files": ["tests/**/*.jsx"],
+      "extends": [
+        "./index.js",
+        "./react.js"
+      ],
+      "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "ecmaFeatures": {
+          "jsx": true
+        }
+      },
+      "env": {
+        "browser": true,
+        "es2021": true,
+        "node": false
+      }
     }
   ]
 }
