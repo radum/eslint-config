@@ -62,6 +62,12 @@ or if you are working on a Node script:
 
 > NOTE: The config doesn't specify the [parser options](https://eslint.org/docs/user-guide/configuring/language-options#specifying-parser-options) or the [environment](https://eslint.org/docs/user-guide/configuring/language-options#specifying-environments), allowing you to set them based on your current setup.
 
+The ESLint file name for ESM or CJS project should be different:
+
+> JavaScript - use .eslintrc.js and export an object containing your configuration.
+
+> JavaScript (ESM) - use .eslintrc.cjs when running ESLint in JavaScript packages that specify "type":"module" in their package.json. Note that ESLint does not support ESM configuration at this time.
+
 If you've globally installed @radum/eslint-config using the -g flag, then you'll need to use the absolute path to @radum/eslint-config in your config e.g.
 
 ```json
