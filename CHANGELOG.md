@@ -1,3 +1,31 @@
+# v7.0.0 (Mon Apr 11 2022)
+
+#### 💥 Breaking Change
+
+- Update changelog file [#165](https://github.com/radum/eslint-config/pull/165) ([@radum](https://github.com/radum))
+- Update react rules and add some tests for it [#163](https://github.com/radum/eslint-config/pull/163) ([@radum](https://github.com/radum))
+
+#### 🚀 Enhancement
+
+- Update the CD to intuit auto [#164](https://github.com/radum/eslint-config/pull/164) ([@radum](https://github.com/radum))
+
+#### 🐛 Bug Fix
+
+- chore(deps): bump actions/cache from 3.0.1 to 3.0.2 [#162](https://github.com/radum/eslint-config/pull/162) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### ⚠️ Pushed to `main`
+
+- Update CD pipeline to fetch tags ([@radum](https://github.com/radum))
+- Add intuit auto ([@radum](https://github.com/radum))
+- Lots of fixes, semnatic release removed, rules changes ([@radum](https://github.com/radum))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Radu Micu ([@radum](https://github.com/radum))
+
+---
+
 # Changelog [OLD PRE intuit auto]
 
 All notable changes to this project will be documented in this file. See
