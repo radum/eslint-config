@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Cache npm dependencies
-        uses: actions/cache@v3.0.4
+        uses: actions/cache@v3.0.5
         with:
           key: npm-${{ hashFiles('package-lock.json') }}
           path: ~/.npm
@@ -53,7 +53,7 @@ jobs:
         # https://github.com/actions/cache/issues/187 is fixed.
         if: runner.os == 'Linux'
         name: Cache npm dependencies
-        uses: actions/cache@v3.0.4
+        uses: actions/cache@v3.0.5
         with:
           path: ${{ steps.npm-cache.outputs.dir }}
           key: |
