@@ -1,12 +1,11 @@
-'use strict';
-
-module.exports = {
+/** @type {import("@types/eslint").Linter.FlatConfig} */
+export const possibleErrors = {
 	rules: {
 		'for-direction': 2,
 		'getter-return': [
 			'error',
 			{
-				'allowImplicit': true
+				allowImplicit: true
 			}
 		],
 		'no-async-promise-executor': 0,

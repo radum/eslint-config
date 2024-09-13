@@ -1,16 +1,12 @@
-'use strict';
+import confusingBrowserGlobals from 'confusing-browser-globals';
 
-const confusingBrowserGlobals = require('confusing-browser-globals');
-
-module.exports = {
+/** @type {import("@types/eslint").Linter.FlatConfig} */
+export const variables = {
 	rules: {
 		'init-declarations': 0,
 		'no-delete-var': 2,
 		'no-label-var': 2,
-		'no-restricted-globals': [
-			'error',
-			...confusingBrowserGlobals
-		],
+		'no-restricted-globals': ['error', ...confusingBrowserGlobals],
 		'no-shadow': 2,
 		'no-shadow-restricted-names': 2,
 		'no-undef': 2,
@@ -19,15 +15,12 @@ module.exports = {
 		'no-unused-vars': [
 			2,
 			{
-				'argsIgnorePattern': '^_',
-				'varsIgnorePattern': '^ignored',
-				'args': 'after-used',
-				'ignoreRestSiblings': true
+				argsIgnorePattern: '^_',
+				varsIgnorePattern: '^ignored',
+				args: 'after-used',
+				ignoreRestSiblings: true
 			}
 		],
-		'no-use-before-define': [
-			'error',
-			'nofunc'
-		]
+		'no-use-before-define': ['error', 'nofunc']
 	}
 };

@@ -1,19 +1,23 @@
-const test = require('ava');
-const ESLint = require('eslint').ESLint;
-const configuration = require('..');
+import test from 'ava';
+import pkg from 'eslint/use-at-your-own-risk';
+import configuration from '../index.js';
+// const test = require('ava');
+// const ESLint = require('eslint').ESLint;
+// const configuration = require('..');
 
 const eslintOptions = {
-	useEslintrc: false,
+	overrideConfigFile: true,
 	baseConfig: configuration
 };
 
+const { FlatESLint } = pkg;
+const eslint = new FlatESLint(eslintOptions);
+
 // The source files to lint.
-const validTestFiles = [
-	'./tests/mocks/js-valid.mock.js'
-];
+const validTestFiles = ['./tests/mocks/js-valid.mock.js'];
 
 test.before(async (t) => {
-	t.context.report = await new ESLint(eslintOptions).lintFiles(validTestFiles);
+	t.context.report = await eslint.lintFiles(validTestFiles);
 });
 
 test('flags no errors with valid js', (t) => {

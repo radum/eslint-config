@@ -1,15 +1,15 @@
-'use strict';
+import plugin from 'eslint-plugin-jsdoc';
+const { configs } = plugin;
 
-module.exports = {
-	plugins: [
-		'jsdoc'
-	],
-	extends: [
-		'plugin:jsdoc/recommended'
-	],
-	settings: {
-		jsdoc: {
-			mode: 'typescript'
+export default {
+	configs: {
+		'flat/recommended-error': {
+			plugins: { jsdoc: plugin },
+			rules: configs['recommended-error'].rules
+		},
+		'flat/recommended-typescript-error': {
+			plugins: { jsdoc: plugin },
+			rules: configs['recommended-typescript-error'].rules
 		}
 	}
 };

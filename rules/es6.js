@@ -1,11 +1,7 @@
-'use strict';
-
-module.exports = {
+/** @type {import("@types/eslint").Linter.FlatConfig} */
+export const es6 = {
 	rules: {
-		'arrow-body-style': [
-			1,
-			'as-needed'
-		],
+		'arrow-body-style': [1, 'as-needed'],
 		'arrow-parens': [2, 'always'],
 		'arrow-spacing': ['error', { before: true, after: true }],
 		'constructor-super': 2,

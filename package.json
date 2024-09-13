@@ -15,8 +15,12 @@
   "engines": {
     "node": ">=12"
   },
+  "type": "module",
   "main": "index.js",
   "files": [
+    "CHANGELOG.md",
+    "LICENSE.md",
+    "README.md",
     "rules/**/*.js",
     "avajs.js",
     "index.js",
@@ -29,39 +33,36 @@
     "test": "ava",
     "test:coverage": "nyc ava",
     "test:watch": "ava --watch",
-    "lint:js": "eslint --cache --cache-location './.cache/eslint' --ignore-pattern 'tests/mocks' --ignore-pattern 'ava.config.mjs' '**/*.js'"
+    "lint:js": "eslint --cache --cache-location './.cache/eslint' --ignore-pattern 'tests/mocks' '**/*.js'"
   },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
     "confusing-browser-globals": "^1.0.11",
-    "eslint-plugin-ava": "^13.2.0",
-    "eslint-plugin-compat": "^4.0.2",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jest": "^26.1.4",
-    "eslint-plugin-jsdoc": "^39.1.0",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-react": "^7.29.4",
-    "eslint-plugin-react-form-fields": "^1.2.12",
-    "eslint-plugin-react-hook-form": "^0.2.4",
-    "eslint-plugin-react-hooks": "^4.4.0",
-    "eslint-plugin-react-perf": "^3.3.1",
-    "eslint-plugin-unicorn": "^42.0.0"
+    "eslint-plugin-ava": "^15.0.1",
+    "eslint-plugin-compat": "^6.0.1",
+    "eslint-plugin-import": "^2.30.0",
+    "eslint-plugin-jest": "^28.8.3",
+    "eslint-plugin-jsdoc": "^50.2.3",
+    "eslint-plugin-jsx-a11y": "^6.10.0",
+    "eslint-plugin-n": "^17.10.2",
+    "eslint-plugin-promise": "^7.1.0",
+    "eslint-plugin-sort-class-members": "^1.20.0",
+    "eslint-plugin-unicorn": "^55.0.0"
   },
   "peerDependencies": {
-    "eslint": "^8.13.0"
+    "eslint": "^9.10.0"
   },
   "devDependencies": {
-    "@auto-it/all-contributors": "^10.36.5",
-    "@auto-it/first-time-contributor": "^10.36.5",
-    "@auto-it/npm": "^10.36.5",
-    "@auto-it/released": "^10.36.5",
-    "auto": "^10.36.5",
-    "ava": "^4.2.0",
-    "eslint": "^8.13.0",
-    "nyc": "^15.1.0"
+    "@auto-it/all-contributors": "^11.2.1",
+    "@auto-it/first-time-contributor": "^11.2.1",
+    "@auto-it/npm": "^11.2.1",
+    "@auto-it/released": "^11.2.1",
+    "@types/eslint": "^9.6.1",
+    "auto": "^11.2.1",
+    "ava": "^6.1.3",
+    "eslint": "^9.10.0",
+    "nyc": "^17.0.0"
   }
 }

@@ -1,10 +1,11 @@
-'use strict';
+import plugin from 'eslint-plugin-ava';
+const { configs } = plugin;
 
-module.exports = {
-	plugins: [
-		'ava'
-	],
-	extends: [
-		'plugin:ava/recommended'
-	]
+export default {
+	configs: {
+		'flat/recommended': {
+			plugins: { ava: plugin },
+			rules: configs.recommended.rules
+		}
+	}
 };

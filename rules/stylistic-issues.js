@@ -1,6 +1,5 @@
-'use strict';
-
-module.exports = {
+/** @type {import("@types/eslint").Linter.FlatConfig} */
+export const stylisticIssues = {
 	rules: {
 		'array-bracket-newline': 0,
 		'array-bracket-spacing': [2, 'never'],
@@ -13,8 +12,8 @@ module.exports = {
 		'comma-spacing': [
 			'error',
 			{
-				'before': false,
-				'after': true
+				before: false,
+				after: true
 			}
 		],
 		'comma-style': ['error', 'last'],
@@ -34,10 +33,10 @@ module.exports = {
 			2,
 			'tab',
 			{
-				'SwitchCase': 1,
-				'VariableDeclarator': 1,
-				'flatTernaryExpressions': false,
-				'ignoreComments': false
+				SwitchCase: 1,
+				VariableDeclarator: 1,
+				flatTernaryExpressions: false,
+				ignoreComments: false
 			}
 		],
 		'jsx-quotes': 0,
@@ -53,8 +52,8 @@ module.exports = {
 			156,
 			2,
 			{
-				'ignoreUrls': true,
-				'ignoreComments': true
+				ignoreUrls: true,
+				ignoreComments: true
 			}
 		],
 		'max-lines': 0,
@@ -81,10 +80,7 @@ module.exports = {
 		'no-nested-ternary': 0,
 		'no-new-object': 0,
 		'no-plusplus': 0,
-		'no-restricted-syntax': [
-			'error',
-			'WithStatement'
-		],
+		'no-restricted-syntax': ['error', 'WithStatement'],
 		'no-tabs': 0,
 		'no-ternary': 0,
 		'no-trailing-spaces': 0,
@@ -104,7 +100,7 @@ module.exports = {
 		'prefer-object-spread': 0,
 		'quote-props': 0,
 		'quotes': [1, 'single'],
-		'semi': [2, 'always', { 'omitLastInOneLineBlock': true }],
+		'semi': [2, 'always', { omitLastInOneLineBlock: true }],
 		'semi-spacing': 0,
 		'semi-style': 0,
 		'sort-keys': 0,

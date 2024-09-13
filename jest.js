@@ -1,13 +1,11 @@
-'use strict';
+import plugin from 'eslint-plugin-jest';
+const { configs } = plugin;
 
-module.exports = {
-	plugins: [
-		'jest'
-	],
-	env: {
-		jest: true
-	},
-	extends: [
-		'plugin:jest/all'
-	]
+export default {
+	configs: {
+		'flat/recommended': {
+			plugins: { jest: plugin },
+			rules: configs.recommended.rules
+		}
+	}
 };

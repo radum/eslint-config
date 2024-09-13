@@ -6,6 +6,9 @@ It turns on all the possible errors rules within eslint based on my own JS style
 
 Use it as is or as a foundation for your own config. You can extend or clone and change.
 
+> [!IMPORTANT]\
+> These shareable configurations use ESLint's new "flat" configuration file format, which may not be suitable for every project. See [the official documentation](https://eslint.org/docs/latest/use/configure/configuration-files-new) for details.
+
 ## Installation
 
 ```bash
@@ -21,7 +24,6 @@ This package includes the following configurations:
 * @radum/eslint-config/jsdoc - To be used in addition to "@radum/eslint-config" configuration to enable [JSDoc](https://www.npmjs.com/package/eslint-plugin-jsdoc).
 * @radum/eslint-config/avajs - To be used in addition to "@radum/eslint-config" configuration by projects that use [AVA](https://ava.li/).
 * @radum/eslint-config/jest - To be used in addition to "@radum/eslint-config" configuration by projects that use [jest](https://facebook.github.io/jest/).
-* @radum/eslint-config/react - To be used in addition to "@radum/eslint-config" configuration by projects that react [React](https://facebook.github.io/react/).
 
 If you've installed `@radum/eslint-config` locally within your project, just set your eslint config to:
 
@@ -33,9 +35,9 @@ If you've installed `@radum/eslint-config` locally within your project, just set
 		"sourceType": "module"
 	},
 	"env": {
-		"browser": true,
-		"es2021": true,
-		"node": false
+		"browser": true, // Browser global variables.
+		"es2024": true, // Adds all ECMAScript 2024 globals and automatically sets the ecmaVersion parser option to 15
+		"node": false // Node.js global variables and Node.js scoping.
 	}
 }
 ```
@@ -64,9 +66,31 @@ or if you are working on a Node script:
 
 The ESLint file name for ESM or CJS project should be different:
 
-> JavaScript - use .eslintrc.js and export an object containing your configuration.
+The ESLint configuration file is named eslint.config.js. It should be placed in the root directory of your project and export an array of configuration objects. Here’s an example:
 
-> JavaScript (ESM) - use .eslintrc.cjs when running ESLint in JavaScript packages that specify "type":"module" in their package.json. Note that ESLint does not support ESM configuration at this time.
+```js
+export default [
+    {
+        rules: {
+            semi: "error",
+            "prefer-const": "error"
+        }
+    }
+];
+```
+
+If your project does not specify "type":"module" in its package.json file, then eslint.config.js must be in CommonJS format, such as:
+
+```js
+module.exports = [
+    {
+        rules: {
+            semi: "error",
+            "prefer-const": "error"
+        }
+    }
+];
+```
 
 If you've globally installed @radum/eslint-config using the -g flag, then you'll need to use the absolute path to @radum/eslint-config in your config e.g.
 
@@ -99,6 +123,35 @@ For example, to change the comma-dangle rule to off:
 	}
 }
 ```
+
+### Visualise all configured rules
+
+Use `npx eslint-flat-config-viewer` to see all rules.
+
+## Deploy
+
+Betwween releases you can raise PRs and merge them, and / or commit straight into `main`. All of them will be used to generate a changelog and a release.
+
+To deploy a new version merge the final PR and add a `release` label to it + a label that will be used to do a `major`, `minor`, or `patch` and merge it.
+
+### Deploy Locally
+
+Make sure the `GITHUB_TOKEN` and `NPM_TOKEN` env vars are set. Also if you have 2FA enabled Auto only works properly if you manually update your local `~/.npmrc` file with the NPM token above like this `//registry.npmjs.org/:_authToken={TOOKEN VALUE HERE}`. Unless I do that it fails to npm publish. Until that is fixed either use CI or this for deployments.
+
+Then run `npm run release` or `npx auto shipit` which will run Intuit Auto.
+
+Example:
+
+```bash
+export GITHUB_TOKEN=...
+export NPM_TOKEN=...
+npx auto shipit
+# This is to remove them from your local
+unset GITHUB_TOKEN
+unset NPM_TOKEN
+```
+
+> Also don't forget to remove the token from your local `.npmrc` file.
 
 ## Complementary tools
 

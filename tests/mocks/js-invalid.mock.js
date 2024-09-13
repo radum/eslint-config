@@ -20,3 +20,9 @@ sum(thing, 2)
 let x = {
 	a: 1,
 };
+
+// Warn
+const warn1 = "Test";
+const warn2 = 'Test';
+
+(function warn() { return warn1 + warn2 })();

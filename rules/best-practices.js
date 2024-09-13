@@ -1,15 +1,11 @@
-'use strict';
-
-module.exports = {
+/** @type {import("@types/eslint").Linter.FlatConfig} */
+export const bestPractices = {
 	rules: {
 		'accessor-pairs': 2,
 		'array-callback-return': 2,
 		'block-scoped-var': 2,
 		'class-methods-use-this': 0,
-		'complexity': [
-			'error',
-			14
-		],
+		'complexity': ['error', 14],
 		'consistent-return': 2,
 		'curly': 0,
 		'default-case': 2,
@@ -73,10 +69,8 @@ module.exports = {
 		'no-warning-comments': [
 			'error',
 			{
-				'terms': [
-					'fixme'
-				],
-				'location': 'anywhere'
+				terms: ['fixme'],
+				location: 'anywhere'
 			}
 		],
 		'no-with': 0,

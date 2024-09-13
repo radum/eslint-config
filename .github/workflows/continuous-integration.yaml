@@ -7,73 +7,23 @@ on:
       - synchronize
 
 jobs:
-  lint-javascript:
-    name: Lint JavaScript
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          persist-credentials: false
-      - name: Setup Node.js
-        uses: actions/setup-node@v3.4.1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: Cache npm dependencies
-        uses: actions/cache@v3.0.8
-        with:
-          key: npm-${{ hashFiles('package-lock.json') }}
-          path: ~/.npm
-          restore-keys: |
-            npm-
-      - name: Install dependencies
-        run: npm i --ignore-scripts --no-audit --no-progress --prefer-offline
-      - name: Lint
-        run: npm run lint:js
   test:
     name: Test
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
       - name: Setup Node.js
-        uses: actions/setup-node@v3.4.1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - id: npm-cache
-        # Re-enable for all operating systems by removing the following once
-        # https://github.com/actions/cache/issues/187 is fixed.
-        if: runner.os == 'Linux'
-        name: Get npm cache directory
-        run: |
-          echo "::set-output name=dir::$(npm config get cache)"
-      - # Enable for all operating systems by removing the following once
-        # https://github.com/actions/cache/issues/187 is fixed.
-        if: runner.os == 'Linux'
-        name: Cache npm dependencies
-        uses: actions/cache@v3.0.8
-        with:
-          path: ${{ steps.npm-cache.outputs.dir }}
-          key: |
-            npm-${{ runner.os }}-${{ matrix.node-version }}-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            npm-${{ runner.os }}-${{ matrix.node-version }}-
       - name: Install dependencies
         run: npm i --ignore-scripts --no-audit --no-progress --prefer-offline
-      # The following conditional can be removed once tests are fully migrated
-      # to Mocha. Alternatively a grep command used to select correct files can
-      # be refactored to work on Windows. Ideally all tests should be run across
-      # all platforms.
-      - if: runner.os != 'Windows'
-        name: Test
-        run: npm run test
-      - if: runner.os == 'Windows'
-        name: Test
+      - name: Test
         run: npm run test
     strategy:
-      fail-fast: false
       matrix:
-        node-version: [14]
+        node-version: [18]
         os: [ubuntu-latest]
