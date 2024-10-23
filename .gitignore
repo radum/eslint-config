@@ -6,12 +6,26 @@
 node_modules
 npm-debug.log
 
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
 # Build, cache
 .cache
 .esm-cache
 .eslintcache
 .sass-cache
 .tmp
+dist
 
 # Env settings / local env files
 .env
@@ -24,4 +38,13 @@ coverage
 .coverage
 
 # Editors
-.vscode
+.vscode/*
+!.vscode/settings.json
+
+_fixtures
+.temp
+TEMP
+.history
+
+src/typegen.d.ts
+.eslint-config-inspector

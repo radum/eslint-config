@@ -13,25 +13,18 @@ jobs:
   build:
     name: Release
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
+    if: '!contains(github.event.head_commit.message, "ci skip") && !contains(github.event.head_commit.message, "skip ci")'
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
       - name: Prepare repository
         run: git fetch --unshallow --tags
       - name: Setup Node.js
-        uses: actions/setup-node@v3.4.1
+        uses: actions/setup-node@v3
         with:
           node-version: 14
-      - name: Cache npm dependencies
-        uses: actions/cache@v3.0.8
-        with:
-          key: npm-${{ hashFiles('package-lock.json') }}
-          path: ~/.npm
-          restore-keys: |
-            npm-
       - name: Install dependencies
         run: npm i --ignore-scripts --no-audit --no-progress --prefer-offline
       - name: Intuit Auto
