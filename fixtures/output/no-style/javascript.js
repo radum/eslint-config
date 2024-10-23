@@ -61,14 +61,6 @@ setTimeout(() => {
 	log('This code runs after a delay of 2 seconds.')
 }, 2000)
 
-const myPromise = new Promise((resolve) => {
-	resolve()
-});
-
-myPromise.then(() => {
-	log('Require returning inside each then()');
-});
-
 let a, b, c,   d,   foo
 
 if (a

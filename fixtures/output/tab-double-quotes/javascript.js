@@ -53,7 +53,7 @@ catch (error) {
 }
 
 // Use a ternary conditional operator
-const isEven = num => num % 2 === 0;
+const isEven = (num) => num % 2 === 0;
 const number = 7;
 log(`${number} is ${isEven(number) ? "even" : "odd"}.`);
 
@@ -61,14 +61,6 @@ log(`${number} is ${isEven(number) ? "even" : "odd"}.`);
 setTimeout(() => {
 	log("This code runs after a delay of 2 seconds.");
 }, 2000);
-
-const myPromise = new Promise((resolve) => {
-	resolve();
-});
-
-myPromise.then(() => {
-	log("Require returning inside each then()");
-});
 
 let a, b, c, d, foo;
 
