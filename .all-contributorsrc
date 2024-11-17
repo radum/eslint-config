@@ -9,6 +9,19 @@
   "imageSize": 100,
   "commit": false,
   "commitConvention": "none",
-  "contributors": [],
+  "contributors": [
+    {
+      "login": "radum",
+      "name": "Radu Micu",
+      "avatar_url": "https://avatars.githubusercontent.com/u/46779?v=4",
+      "profile": "http://radumicu.com/",
+      "contributions": [
+        "doc",
+        "code",
+        "infra",
+        "test"
+      ]
+    }
+  ],
   "contributorsPerLine": 7
 }
