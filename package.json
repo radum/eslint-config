@@ -2,7 +2,7 @@
   "name": "@radum/eslint-config",
   "type": "module",
   "version": "7.1.0",
-  "packageManager": "pnpm@9.12.2",
+  "packageManager": "pnpm@9.13.2",
   "description": "@radum ESLint Shareable Config",
   "author": "Radu Micu",
   "license": "MIT",
@@ -147,10 +147,10 @@
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@auto-it/all-contributors": "^11.2.1",
-    "@auto-it/first-time-contributor": "^11.2.1",
-    "@auto-it/npm": "^11.2.1",
-    "@auto-it/released": "^11.2.1",
+    "@auto-it/all-contributors": "^11.3.0",
+    "@auto-it/first-time-contributor": "^11.3.0",
+    "@auto-it/npm": "^11.3.0",
+    "@auto-it/released": "^11.3.0",
     "@eslint-react/eslint-plugin": "^1.15.0",
     "@eslint/config-inspector": "^0.5.4",
     "@prettier/plugin-xml": "^3.4.1",

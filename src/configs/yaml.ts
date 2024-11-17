@@ -8,6 +8,10 @@ export async function yaml(options: OptionsOverrides & OptionsStylistic & Option
 
 	const { indent = 2, quotes = 'single' } = typeof stylistic === 'boolean' ? {} : stylistic;
 
+	if (quotes !== 'single' && quotes !== 'double') {
+		throw new Error(`[yaml config] Expected 'single' or 'double' for 'quotes', but received '${quotes}'.`);
+	}
+
 	const [pluginYaml, parserYaml] = await Promise.all([
 		interopDefault(import('eslint-plugin-yml')),
 		interopDefault(import('yaml-eslint-parser'))

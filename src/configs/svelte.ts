@@ -10,6 +10,10 @@ export async function svelte(
 
 	const { indent = 2, quotes = 'single' } = typeof stylistic === 'boolean' ? {} : stylistic;
 
+	if (quotes !== 'single' && quotes !== 'double') {
+		throw new Error(`[svelte config] Expected 'single' or 'double' for 'quotes', but received '${quotes}'.`);
+	}
+
 	await ensurePackages(['eslint-plugin-svelte']);
 
 	const [pluginSvelte, parserSvelte] = await Promise.all([
