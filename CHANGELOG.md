@@ -1,3 +1,35 @@
+# v8.0.0 (Sun Nov 17 2024)
+
+#### 💥 Breaking Change
+
+- Eslint v9 updates [#207](https://github.com/radum/eslint-config/pull/207) ([@radum](https://github.com/radum))
+
+#### ⚠️ Pushed to `main`
+
+- Update readme file with more usage info ([@radum](https://github.com/radum))
+
+#### 📝 Documentation
+
+- Eslint v9 [#205](https://github.com/radum/eslint-config/pull/205) ([@radum](https://github.com/radum))
+
+#### 🔩 Dependency Updates
+
+- chore(deps): bump actions/setup-node from 3.3.0 to 3.4.1 [#176](https://github.com/radum/eslint-config/pull/176) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): bump actions/cache from 3.0.4 to 3.0.8 [#178](https://github.com/radum/eslint-config/pull/178) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): bump actions/setup-node from 3.2.0 to 3.3.0 [#172](https://github.com/radum/eslint-config/pull/172) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): bump actions/cache from 3.0.3 to 3.0.4 [#173](https://github.com/radum/eslint-config/pull/173) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): bump actions/cache from 3.0.2 to 3.0.3 [#171](https://github.com/radum/eslint-config/pull/171) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): bump actions/setup-node from 3.1.1 to 3.2.0 [#170](https://github.com/radum/eslint-config/pull/170) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): bump actions/cache from 3.0.1 to 3.0.2 [#167](https://github.com/radum/eslint-config/pull/167) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): bump actions/setup-node from 3.1.0 to 3.1.1 [#168](https://github.com/radum/eslint-config/pull/168) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Radu Micu ([@radum](https://github.com/radum))
+
+---
+
 # v8.0.0 (Tue Nov 12 2024)
 
 #### 💥 Breaking Change
