@@ -8,7 +8,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:radum/eslint-config.git"
+    "url": "git+ssh://git@github.com/radum/eslint-config.git"
   },
   "keywords": [
     "eslint",
@@ -22,7 +22,9 @@
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "bin": "./bin/index.js",
+  "bin": {
+    "eslint-config": "bin/index.js"
+  },
   "files": [
     "CHANGELOG.md",
     "LICENSE.md",

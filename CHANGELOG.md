@@ -3,14 +3,11 @@
 #### 💥 Breaking Change
 
 - Eslint v9 updates [#207](https://github.com/radum/eslint-config/pull/207) ([@radum](https://github.com/radum))
+- Eslint v9 [#205](https://github.com/radum/eslint-config/pull/205) ([@radum](https://github.com/radum))
 
 #### ⚠️ Pushed to `main`
 
 - Update readme file with more usage info ([@radum](https://github.com/radum))
-
-#### 📝 Documentation
-
-- Eslint v9 [#205](https://github.com/radum/eslint-config/pull/205) ([@radum](https://github.com/radum))
 
 #### 🔩 Dependency Updates
 
@@ -29,8 +26,6 @@
 - Radu Micu ([@radum](https://github.com/radum))
 
 ---
-
-# v8.0.0 (Tue Nov 12 2024)
 
 #### 💥 Breaking Change
 
