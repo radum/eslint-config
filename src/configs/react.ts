@@ -1,28 +1,58 @@
-import type { OptionsFiles, OptionsOverrides, OptionsTypeScriptWithTypes, TypedFlatConfigItem } from '../types';
+import type { OptionsFiles, OptionsOverrides, OptionsTypeScriptParserOptions, OptionsTypeScriptWithTypes, TypedFlatConfigItem } from '../types';
 
 import { isPackageExists } from 'local-pkg';
-import { GLOB_SRC } from '../globs';
+import { GLOB_ASTRO_TS, GLOB_MARKDOWN, GLOB_SRC, GLOB_TS, GLOB_TSX } from '../globs';
 
-import { ensurePackages, interopDefault, toArray } from '../utils';
+import { ensurePackages, interopDefault } from '../utils';
 
 // react refresh
-const ReactRefreshAllowConstantExportPackages = ['vite'];
-const RemixPackages = ['@remix-run/node', '@remix-run/react', '@remix-run/serve', '@remix-run/dev'];
-const NextJsPackages = ['next'];
+const ReactRefreshAllowConstantExportPackages = [
+	'vite'
+];
+const RemixPackages = [
+	'@remix-run/node',
+	'@remix-run/react',
+	'@remix-run/serve',
+	'@remix-run/dev'
+];
+const NextJsPackages = [
+	'next'
+];
 
-export async function react(options: OptionsTypeScriptWithTypes & OptionsOverrides & OptionsFiles = {}): Promise<TypedFlatConfigItem[]> {
-	const { files = [GLOB_SRC], overrides = {} } = options;
+export async function react(
+	options: OptionsTypeScriptParserOptions & OptionsTypeScriptWithTypes & OptionsOverrides & OptionsFiles = {}
+): Promise<TypedFlatConfigItem[]> {
+	const {
+		files = [GLOB_SRC],
+		filesTypeAware = [GLOB_TS, GLOB_TSX],
+		ignoresTypeAware = [
+			`${GLOB_MARKDOWN}/**`,
+			GLOB_ASTRO_TS
+		],
+		overrides = {},
+		tsconfigPath
+	} = options;
 
-	await ensurePackages(['@eslint-react/eslint-plugin', 'eslint-plugin-react-hooks', 'eslint-plugin-react-refresh']);
+	await ensurePackages([
+		'@eslint-react/eslint-plugin',
+		'eslint-plugin-react-hooks',
+		'eslint-plugin-react-refresh'
+	]);
 
-	const tsconfigPath = options?.tsconfigPath ? toArray(options.tsconfigPath) : undefined;
 	const isTypeAware = !!tsconfigPath;
 
-	const [pluginReact, pluginReactHooks, pluginReactRefresh, parserTs] = await Promise.all([
+	const typeAwareRules: TypedFlatConfigItem['rules'] = {
+		'react/no-leaked-conditional-rendering': 'warn'
+	};
+
+	const [
+		pluginReact,
+		pluginReactHooks,
+		pluginReactRefresh
+	] = await Promise.all([
 		interopDefault(import('@eslint-react/eslint-plugin')),
 		interopDefault(import('eslint-plugin-react-hooks')),
-		interopDefault(import('eslint-plugin-react-refresh')),
-		interopDefault(import('@typescript-eslint/parser'))
+		interopDefault(import('eslint-plugin-react-refresh'))
 	] as const);
 
 	const isAllowConstantExport = ReactRefreshAllowConstantExportPackages.some((i) => isPackageExists(i));
@@ -46,12 +76,10 @@ export async function react(options: OptionsTypeScriptWithTypes & OptionsOverrid
 		{
 			files,
 			languageOptions: {
-				parser: parserTs,
 				parserOptions: {
 					ecmaFeatures: {
 						jsx: true
-					},
-					...(isTypeAware ? { project: tsconfigPath } : {})
+					}
 				},
 				sourceType: 'module'
 			},
@@ -97,7 +125,15 @@ export async function react(options: OptionsTypeScriptWithTypes & OptionsOverrid
 										'generateViewport'
 									]
 								: []),
-							...(isUsingRemix ? ['meta', 'links', 'headers', 'loader', 'action'] : [])
+							...(isUsingRemix
+								? [
+										'meta',
+										'links',
+										'headers',
+										'loader',
+										'action'
+									]
+								: [])
 						]
 					}
 				],
@@ -140,15 +176,19 @@ export async function react(options: OptionsTypeScriptWithTypes & OptionsOverrid
 				'react/prefer-shorthand-boolean': 'warn',
 				'react/prefer-shorthand-fragment': 'warn',
 
-				...(isTypeAware
-					? {
-							'react/no-leaked-conditional-rendering': 'warn'
-						}
-					: {}),
-
 				// overrides
 				...overrides
 			}
-		}
+		},
+		...isTypeAware
+			? [{
+					files: filesTypeAware,
+					ignores: ignoresTypeAware,
+					name: 'radum/react/type-aware-rules',
+					rules: {
+						...typeAwareRules
+					}
+				}]
+			: []
 	];
 }

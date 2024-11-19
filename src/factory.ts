@@ -217,6 +217,7 @@ export function radum(
 	if (enableReact) {
 		configs.push(
 			react({
+				...typescriptOptions,
 				overrides: getOverrides(options, 'react'),
 				tsconfigPath
 			})
