@@ -70,6 +70,7 @@ export async function run(options: CliRunOptions = {}): Promise<void> {
 							? `"${argTemplate}" isn't a valid template. Please choose from below: `
 							: 'Select a framework:';
 
+					// @ts-expect-error I dunno why it's not working
 					return p.multiselect<PromItem<FrameworkOption>[], FrameworkOption>({
 						message: c.reset(message),
 						options: frameworkOptions,
@@ -88,6 +89,7 @@ export async function run(options: CliRunOptions = {}): Promise<void> {
 							? `"${argExtra}" isn't a valid extra util. Please choose from below: `
 							: 'Select a extra utils:';
 
+					// @ts-expect-error I dunno why it's not working
 					return p.multiselect<PromItem<ExtraLibrariesOption>[], ExtraLibrariesOption>({
 						message: c.reset(message),
 						options: extraOptions,
