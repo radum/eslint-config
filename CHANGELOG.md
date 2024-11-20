@@ -1,3 +1,19 @@
+# v8.1.0 (Wed Nov 20 2024)
+
+#### 🚀 Enhancement
+
+- Update deps, Seperate the type aware rules for react, Don't throw quotes TS error for svelte and yml [#208](https://github.com/radum/eslint-config/pull/208) ([@radum](https://github.com/radum))
+
+#### ⚠️ Pushed to `main`
+
+- Update deployment docs, fix package.json json data ([@radum](https://github.com/radum))
+
+#### Authors: 1
+
+- Radu Micu ([@radum](https://github.com/radum))
+
+---
+
 # v8.0.0 (Sun Nov 17 2024)
 
 #### 💥 Breaking Change
