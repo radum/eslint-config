@@ -8,10 +8,6 @@ export async function yaml(options: OptionsOverrides & OptionsStylistic & Option
 
 	const { indent = 2, quotes = 'single' } = typeof stylistic === 'boolean' ? {} : stylistic;
 
-	if (quotes !== 'single' && quotes !== 'double') {
-		throw new Error(`[yaml config] Expected 'single' or 'double' for 'quotes', but received '${quotes}'.`);
-	}
-
 	const [pluginYaml, parserYaml] = await Promise.all([
 		interopDefault(import('eslint-plugin-yml')),
 		interopDefault(import('yaml-eslint-parser'))
@@ -53,7 +49,7 @@ export async function yaml(options: OptionsOverrides & OptionsStylistic & Option
 							'yaml/indent': ['error', indent === 'tab' ? 2 : indent],
 							'yaml/key-spacing': 'error',
 							'yaml/no-tab-indent': 'error',
-							'yaml/quotes': ['error', { avoidEscape: false, prefer: quotes }],
+							'yaml/quotes': ['error', { avoidEscape: true, prefer: quotes === 'backtick' ? 'single' : quotes }],
 							'yaml/spaced-comment': 'error'
 						}
 					: {}),

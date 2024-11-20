@@ -78,6 +78,22 @@ runWithConfig(
 	}
 );
 
+// https://github.com/antfu/eslint-config/issues/618
+runWithConfig(
+	'ts-strict-with-react',
+	{
+		typescript: {
+			tsconfigPath: './tsconfig.json'
+		},
+		react: true
+	},
+	{
+		rules: {
+			'ts/no-unsafe-return': ['off']
+		}
+	}
+);
+
 runWithConfig('with-formatters', {
 	typescript: true,
 	vue: true,
