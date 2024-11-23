@@ -54,6 +54,7 @@ export async function javascript(options: OptionsIsInEditor & OptionsOverrides =
 				'no-alert': 'error',
 				'no-array-constructor': 'error',
 				'no-async-promise-executor': 'error',
+				'no-await-in-loop': 'error',
 				'no-caller': 'error',
 				'no-case-declarations': 'error',
 				'no-class-assign': 'error',
