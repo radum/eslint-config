@@ -1,3 +1,26 @@
+# v9.0.0 (Mon Dec 02 2024)
+
+#### 💥 Breaking Change
+
+- chore(deps): bump actions/setup-node from 3 to 4 [#206](https://github.com/radum/eslint-config/pull/206) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### 🚀 Enhancement
+
+- Bump deps and disable antfu/no-top-level-await for Astro [#214](https://github.com/radum/eslint-config/pull/214) ([@radum](https://github.com/radum))
+
+#### ⚠️ Pushed to `main`
+
+- Bump deps and added no-await-in-loop error ([@radum](https://github.com/radum))
+- Add Netlify inspector webpage ([@radum](https://github.com/radum))
+- Update README.md ([@radum](https://github.com/radum))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Radu Micu ([@radum](https://github.com/radum))
+
+---
+
 # v8.1.0 (Wed Nov 20 2024)
 
 #### 🚀 Enhancement
