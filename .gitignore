@@ -41,6 +41,7 @@ coverage
 .vscode/*
 !.vscode/settings.json
 
+# TEMP
 _fixtures
 .temp
 TEMP

@@ -3,7 +3,7 @@
 [![npm](https://img.shields.io/npm/v/@radum/eslint-config?color=444&label=)](https://npmjs.com/package/@radum/eslint-config)
 
 > Personal recommended shareable config for eslint.
-> Started as a rip-off of [Anthony's ESLint config preset](https://github.com/antfu/eslint-config/releases/tag/v3.9.2) amazing config but added my own flavour to it.
+> Started as a rip-off of [Anthony's ESLint config preset](https://github.com/antfu/eslint-config/releases/tag/v3.11.2) amazing config but added my own flavour to it.
 > Use it as is or as a foundation for your own config. You can extend or clone and change.
 
 - Auto fix for formatting (aimed to be used standalone **without** Prettier)
