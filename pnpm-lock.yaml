@@ -76,7 +76,7 @@ importers:
         version: 3.3.0
       eslint-plugin-perfectionist:
         specifier: ^4.1.2
-        version: 4.1.2(eslint@9.15.0(jiti@2.4.1))(typescript@5.7.2)
+        version: 4.4.0(eslint@9.15.0(jiti@2.4.1))(typescript@5.7.2)
       eslint-plugin-promise:
         specifier: ^7.2.1
         version: 7.2.1(eslint@9.15.0(jiti@2.4.1))
@@ -1248,6 +1248,10 @@ packages:
     resolution: {integrity: sha512-NzrHj6thBAOSE4d9bsuRNMvk+BvaQvmY4dDglgkgGC0EW/tB3Kelnp3tAKH87GEwzoxgeQn9fNGRyFJM/xd+GQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
+  '@typescript-eslint/types@8.19.0':
+    resolution: {integrity: sha512-8XQ4Ss7G9WX8oaYvD4OOLCjIQYgRQxO+qCiR2V2s2GxI9AUpo7riNwo6jDhKtTcaJjT8PY54j2Yb33kWtSJsmA==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
   '@typescript-eslint/typescript-estree@8.14.0':
     resolution: {integrity: sha512-OPXPLYKGZi9XS/49rdaCbR5j/S14HazviBlUQFvSKz3npr3NikF+mrgK7CFVur6XEt95DZp/cmke9d5i3vtVnQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
@@ -2088,8 +2092,8 @@ packages:
     resolution: {integrity: sha512-brcKcxGnISN2CcVhXJ/kEQlNa0MEfGRtwKtWA16SkqXHKitaKIMrfemJKLKX1YqDU5C/5JY3PvZXd5jEW04e0Q==}
     engines: {node: '>=5.0.0'}
 
-  eslint-plugin-perfectionist@4.1.2:
-    resolution: {integrity: sha512-YjXPWB/rKe/gPUsyuxw75wTUrzN5MuJnRV0PH9NoonFvgcdVIXk551mkBKPr59nRZCbu7S3dFHwfo4gA42DB2w==}
+  eslint-plugin-perfectionist@4.4.0:
+    resolution: {integrity: sha512-B78pWxCsA2sClourpWEmWziCcjEsAEyxsNV5G6cxxteu/NI0/2en9XZUONf5e/+O+dgoLZsEPHQEhnIxJcnUvA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     peerDependencies:
       eslint: ^9.12.0
@@ -4930,7 +4934,7 @@ snapshots:
     dependencies:
       '@eslint-react/tools': 1.17.2
       '@eslint-react/types': 1.17.2(eslint@9.15.0(jiti@2.4.1))(typescript@5.7.2)
-      '@typescript-eslint/types': 8.16.0
+      '@typescript-eslint/types': 8.19.0
       '@typescript-eslint/typescript-estree': 8.16.0(typescript@5.7.2)
       '@typescript-eslint/utils': 8.14.0(eslint@9.15.0(jiti@2.4.1))(typescript@5.7.2)
       birecord: 0.1.1
@@ -4951,7 +4955,7 @@ snapshots:
       '@eslint-react/var': 1.17.2(eslint@9.15.0(jiti@2.4.1))(typescript@5.7.2)
       '@typescript-eslint/scope-manager': 8.16.0
       '@typescript-eslint/type-utils': 8.16.0(eslint@9.15.0(jiti@2.4.1))(typescript@5.7.2)
-      '@typescript-eslint/types': 8.16.0
+      '@typescript-eslint/types': 8.19.0
       '@typescript-eslint/utils': 8.14.0(eslint@9.15.0(jiti@2.4.1))(typescript@5.7.2)
       birecord: 0.1.1
       short-unique-id: 5.2.0
@@ -4989,7 +4993,7 @@ snapshots:
       '@eslint-react/types': 1.17.2(eslint@9.15.0(jiti@2.4.1))(typescript@5.7.2)
       '@eslint-react/var': 1.17.2(eslint@9.15.0(jiti@2.4.1))(typescript@5.7.2)
       '@typescript-eslint/scope-manager': 8.16.0
-      '@typescript-eslint/types': 8.16.0
+      '@typescript-eslint/types': 8.19.0
       '@typescript-eslint/utils': 8.14.0(eslint@9.15.0(jiti@2.4.1))(typescript@5.7.2)
       birecord: 0.1.1
       ts-pattern: 5.5.0
@@ -5028,7 +5032,7 @@ snapshots:
       '@eslint-react/tools': 1.17.2
       '@eslint-react/types': 1.17.2(eslint@9.15.0(jiti@2.4.1))(typescript@5.7.2)
       '@typescript-eslint/scope-manager': 8.16.0
-      '@typescript-eslint/types': 8.16.0
+      '@typescript-eslint/types': 8.19.0
       '@typescript-eslint/utils': 8.14.0(eslint@9.15.0(jiti@2.4.1))(typescript@5.7.2)
       ts-pattern: 5.5.0
     transitivePeerDependencies:
@@ -5488,6 +5492,8 @@ snapshots:
   '@typescript-eslint/types@8.14.0': {}
 
   '@typescript-eslint/types@8.16.0': {}
+
+  '@typescript-eslint/types@8.19.0': {}
 
   '@typescript-eslint/typescript-estree@8.14.0(typescript@5.7.2)':
     dependencies:
@@ -6570,9 +6576,9 @@ snapshots:
 
   eslint-plugin-no-only-tests@3.3.0: {}
 
-  eslint-plugin-perfectionist@4.1.2(eslint@9.15.0(jiti@2.4.1))(typescript@5.7.2):
+  eslint-plugin-perfectionist@4.4.0(eslint@9.15.0(jiti@2.4.1))(typescript@5.7.2):
     dependencies:
-      '@typescript-eslint/types': 8.16.0
+      '@typescript-eslint/types': 8.19.0
       '@typescript-eslint/utils': 8.14.0(eslint@9.15.0(jiti@2.4.1))(typescript@5.7.2)
       eslint: 9.15.0(jiti@2.4.1)
       natural-orderby: 5.0.0
