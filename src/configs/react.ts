@@ -15,6 +15,12 @@ const RemixPackages = [
 	'@remix-run/serve',
 	'@remix-run/dev'
 ];
+const ReactRouterPackages = [
+	'@react-router/node',
+	'@react-router/react',
+	'@react-router/serve',
+	'@react-router/dev',
+]
 const NextJsPackages = [
 	'next'
 ];
@@ -57,6 +63,7 @@ export async function react(
 
 	const isAllowConstantExport = ReactRefreshAllowConstantExportPackages.some((i) => isPackageExists(i));
 	const isUsingRemix = RemixPackages.some((i) => isPackageExists(i));
+	const isUsingReactRouter = ReactRouterPackages.some(i => isPackageExists(i));
 	const isUsingNext = NextJsPackages.some((i) => isPackageExists(i));
 
 	const plugins = pluginReact.configs.all.plugins;
@@ -70,7 +77,8 @@ export async function react(
 				'react-hooks': pluginReactHooks,
 				'react-hooks-extra': plugins['@eslint-react/hooks-extra'],
 				'react-naming-convention': plugins['@eslint-react/naming-convention'],
-				'react-refresh': pluginReactRefresh
+				'react-refresh': pluginReactRefresh,
+				'react-web-api': plugins['@eslint-react/web-api']
 			}
 		},
 		{
@@ -125,7 +133,7 @@ export async function react(
 										'generateViewport'
 									]
 								: []),
-							...(isUsingRemix
+							...(isUsingRemix || isUsingReactRouter
 								? [
 										'meta',
 										'links',
@@ -137,6 +145,13 @@ export async function react(
 						]
 					}
 				],
+				// recommended rules from @eslint-react/web-api
+				'react-web-api/no-leaked-event-listener': 'warn',
+
+				'react-web-api/no-leaked-interval': 'warn',
+				'react-web-api/no-leaked-resize-observer': 'warn',
+
+				'react-web-api/no-leaked-timeout': 'warn',
 
 				// recommended rules from @eslint-react
 				'react/ensure-forward-ref-using-ref': 'warn',
