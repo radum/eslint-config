@@ -6,9 +6,14 @@
   "description": "@radum ESLint Shareable Config",
   "author": "Radu Micu",
   "license": "MIT",
+  "funding": "https://github.com/sponsors/radum",
+  "homepage": "https://github.com/radum/eslint-config",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/radum/eslint-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/radum/eslint-config/issues"
   },
   "keywords": [
     "eslint",
@@ -35,13 +40,13 @@
     "node": ">=18"
   },
   "scripts": {
-    "build": "pnpm typegen && tsup --clean --dts",
+    "build": "pnpm gen && tsup --clean --dts",
     "stub": "tsup",
     "dev": "npx @eslint/config-inspector --config eslint.config.ts",
     "build:inspector": "pnpm build && npx @eslint/config-inspector build",
     "watch": "tsup --watch",
     "lint": "eslint",
-    "typegen": "tsx scripts/typegen.ts",
+    "gen": "tsx scripts/typegen.ts && tsx scripts/versiongen.ts",
     "prepack": "pnpm build",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
@@ -55,7 +60,7 @@
     "@prettier/plugin-xml": "^3.4.1",
     "@unocss/eslint-plugin": ">=0.50.0",
     "astro-eslint-parser": "^1.0.2",
-    "eslint": "^9.10.0",
+    "eslint": "^9.24.0",
     "eslint-plugin-astro": "^1.2.0",
     "eslint-plugin-format": ">=0.1.0",
     "eslint-plugin-react-hooks": "^5.0.0",
@@ -131,6 +136,7 @@
     "eslint-plugin-n": "^17.17.0",
     "eslint-plugin-no-only-tests": "^3.3.0",
     "eslint-plugin-perfectionist": "^4.11.0",
+    "eslint-plugin-pnpm": "^0.3.0",
     "eslint-plugin-promise": "^7.2.1",
     "eslint-plugin-regexp": "^2.7.0",
     "eslint-plugin-toml": "^0.12.0",
@@ -157,10 +163,7 @@
     "@prettier/plugin-xml": "^3.4.1",
     "@radum/eslint-config": "workspace:*",
     "@stylistic/eslint-plugin-migrate": "^4.2.0",
-    "@types/fs-extra": "^11.0.4",
     "@types/node": "^22.14.0",
-    "@types/prompts": "^2.4.9",
-    "@types/yargs": "^17.0.33",
     "@unocss/eslint-plugin": "^66.0.0",
     "astro-eslint-parser": "^1.2.2",
     "auto": "^11.3.0",
@@ -173,16 +176,15 @@
     "eslint-plugin-svelte": "^3.5.1",
     "eslint-typegen": "^2.1.0",
     "execa": "^9.5.2",
-    "fast-glob": "^3.3.3",
-    "fs-extra": "^11.3.0",
     "husky": "^9.1.7",
     "jiti": "^2.4.2",
     "lint-staged": "^15.5.0",
+    "pnpm-workspace-yaml": "^0.3.1",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-slidev": "^1.0.5",
-    "rimraf": "^6.0.1",
     "svelte": "^5.25.8",
     "svelte-eslint-parser": "^1.1.2",
+    "tinyglobby": "^0.2.12",
     "tsup": "^8.4.0",
     "tsx": "^4.19.3",
     "typescript": "^5.8.3",
@@ -190,10 +192,10 @@
     "vue": "^3.5.13"
   },
   "resolutions": {
-    "@eslint-community/eslint-utils": "^4.4.0",
-    "@typescript-eslint/utils": "^8.9.0",
-    "eslint": "^9.12.0",
-    "tsx": "^4.19.1"
+    "@eslint-community/eslint-utils": "^4.5.1",
+    "@typescript-eslint/utils": "^8.27.0",
+    "eslint": "^9.24.0",
+    "tsx": "^4.19.3"
   },
   "lint-staged": {
     "*": "eslint --fix"

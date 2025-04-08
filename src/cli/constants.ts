@@ -102,9 +102,12 @@ export const extra: ExtraLibrariesOption[] = extraOptions.map(({ value }) => val
 
 export const dependenciesMap = {
 	astro: ['eslint-plugin-astro', 'astro-eslint-parser'],
+	formatter: ['eslint-plugin-format'],
+	formatterAstro: ['prettier-plugin-astro'],
 	react: ['@eslint-react/eslint-plugin', 'eslint-plugin-react-hooks', 'eslint-plugin-react-refresh'],
 	slidev: ['prettier-plugin-slidev'],
 	solid: ['eslint-plugin-solid'],
 	svelte: ['eslint-plugin-svelte', 'svelte-eslint-parser'],
+	unocss: ['@unocss/eslint-plugin'],
 	vue: []
 } as const;

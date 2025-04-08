@@ -18,6 +18,7 @@ import {
 	markdown,
 	node,
 	perfectionist,
+	pnpm,
 	promise,
 	react,
 	solid,
@@ -83,6 +84,7 @@ export function radum(
 		componentExts = [],
 		gitignore: enableGitignore = true,
 		jsx: enableJsx = true,
+		pnpm: enableCatalogs = false, // TODO: smart detect
 		react: enableReact = false,
 		regexp: enableRegexp = true,
 		solid: enableSolid = false,
@@ -272,6 +274,12 @@ export function radum(
 		);
 	}
 
+	if (enableCatalogs) {
+		configs.push(
+			pnpm()
+		);
+	}
+
 	if (options.yaml ?? true) {
 		configs.push(
 			yaml({
@@ -334,10 +342,10 @@ export function radum(
 			.disableRulesFix([
 				'unused-imports/no-unused-imports',
 				'test/no-only-tests',
-				'prefer-const',
+				'prefer-const'
 			], {
-				builtinRules: () => import(['eslint', 'use-at-your-own-risk'].join('/')).then(r => r.builtinRules),
-			})
+				builtinRules: () => import(['eslint', 'use-at-your-own-risk'].join('/')).then((r) => r.builtinRules)
+			});
 	}
 
 	return composer;

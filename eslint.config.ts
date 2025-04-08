@@ -11,10 +11,11 @@ export default radum(
 		astro: true,
 		typescript: true,
 		formatters: true,
+		pnpm: false,
 		type: 'lib'
 	},
 	{
-		ignores: ['fixtures', '_fixtures']
+		ignores: ['fixtures', '_fixtures', '**/constants-generated.ts']
 	},
 	{
 		files: ['src/**/*.ts'],

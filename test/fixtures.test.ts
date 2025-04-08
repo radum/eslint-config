@@ -1,9 +1,9 @@
 import type { OptionsConfig, TypedFlatConfigItem } from '../src/types';
 
+import fs from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { execa } from 'execa';
-import fg from 'fast-glob';
-import fs from 'fs-extra';
+import { glob } from 'tinyglobby';
 
 import { afterAll, beforeAll, it } from 'vitest';
 
@@ -50,7 +50,6 @@ runWithConfig(
 	}
 );
 
-// https://github.com/radum/eslint-config/issues/255
 runWithConfig(
 	'ts-override',
 	{
@@ -63,7 +62,6 @@ runWithConfig(
 	}
 );
 
-// https://github.com/radum/eslint-config/issues/255
 runWithConfig(
 	'ts-strict',
 	{
@@ -78,7 +76,6 @@ runWithConfig(
 	}
 );
 
-// https://github.com/antfu/eslint-config/issues/618
 runWithConfig(
 	'ts-strict-with-react',
 	{
@@ -118,7 +115,8 @@ function runWithConfig(name: string, configs: OptionsConfig, ...items: TypedFlat
 			const output = resolve('fixtures/output', name);
 			const target = resolve('_fixtures', name);
 
-			await fs.copy(from, target, {
+			await fs.cp(from, target, {
+				recursive: true,
 				filter: (src) => {
 					return !src.includes('node_modules');
 				}
@@ -141,7 +139,7 @@ export default radum(
 				stdio: 'pipe'
 			});
 
-			const files = await fg('**/*', {
+			const files = await glob('**/*', {
 				ignore: ['node_modules', 'eslint.config.js'],
 				cwd: target
 			});
@@ -152,8 +150,7 @@ export default radum(
 					const source = await fs.readFile(join(from, file), 'utf-8');
 					const outputPath = join(output, file);
 					if (content === source) {
-						if (fs.existsSync(outputPath))
-							await fs.remove(outputPath);
+						await fs.rm(outputPath, { force: true });
 						return;
 					}
 					await expect.soft(content).toMatchFileSnapshot(join(output, file));
