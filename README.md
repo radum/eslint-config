@@ -3,7 +3,7 @@
 [![npm](https://img.shields.io/npm/v/@radum/eslint-config?color=444&label=)](https://npmjs.com/package/@radum/eslint-config)
 
 > Personal recommended shareable config for eslint.
-> Started as a rip-off of [Anthony's ESLint config preset](https://github.com/antfu/eslint-config/releases/tag/v3.11.2) amazing config but added my own flavour to it.
+> Started as a rip-off of [Anthony's ESLint config preset](https://github.com/antfu/eslint-config/releases/tag/v4.11.0) amazing config but added my own flavour to it.
 > Use it as is or as a foundation for your own config. You can extend or clone and change.
 
 - Auto fix for formatting (aimed to be used standalone **without** Prettier)
@@ -542,6 +542,27 @@ export default radum({
 
 As it's in maintenance mode, we only accept bug fixes for Vue 2. It might also be removed in the future when `eslint-plugin-vue` drops support for Vue 2. We recommend upgrading to Vue 3 if possible.
 
+#### Vue Accessibility
+
+To enable Vue accessibility support, you need to explicitly turn it on:
+
+```js
+// eslint.config.js
+import radum from '@radum/eslint-config';
+
+export default radum({
+	vue: {
+		a11y: true
+	}
+});
+```
+
+Running `npx eslint` should prompt you to install the required dependencies, otherwise, you can install them manually:
+
+```bash
+npm i -D eslint-plugin-vuejs-accessibility
+```
+
 ### Optional Configs
 
 We provide some optional configs for specific use cases, that we don't include their dependencies by default.
@@ -831,6 +852,17 @@ export default radum({
 ### I prefer XXX...
 
 Sure, you can configure and override rules locally in your project to fit your needs. If that still does not work for you, you can always fork this repo and maintain your own.
+
+### How do I check what are the latest dependencies?
+
+You can run the following command to check what are the latest dependencies:
+
+```bash
+# For all dependencies and devDependencies
+npx npm-check-updates --format group -i
+# For only peer dependencies
+npx npm-check-updates --dep peer --format group -i
+```
 
 ## Check Also
 
