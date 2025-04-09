@@ -1,3 +1,19 @@
+# v10.0.0 (Wed Apr 09 2025)
+
+#### 💥 Breaking Change
+
+- Bump deps other major changes [#227](https://github.com/radum/eslint-config/pull/227) ([@radum](https://github.com/radum))
+
+#### ⚠️ Pushed to `main`
+
+- Bump deps ([@radum](https://github.com/radum))
+
+#### Authors: 1
+
+- Radu Micu ([@radum](https://github.com/radum))
+
+---
+
 # v9.0.0 (Mon Dec 02 2024)
 
 #### 💥 Breaking Change
