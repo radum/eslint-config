@@ -20,7 +20,7 @@ for (const person of people) {
 }
 
 // Define a generic function
-function identity< T >(arg: T): T {
+function identity<T>(arg: T): T {
 	return arg;
 }
 
@@ -90,6 +90,6 @@ export function* generator1() {
 		yield id++;
 	}
 }
-export function * generator2() {
-	yield* generator1()
+export function* generator2() {
+	yield* generator1();
 }

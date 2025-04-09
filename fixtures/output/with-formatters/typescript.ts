@@ -90,6 +90,6 @@ export function* generator1() {
 		yield id++;
 	}
 }
-export function * generator2() {
-	yield* generator1()
+export function* generator2() {
+	yield* generator1();
 }
