@@ -12,6 +12,7 @@ export * from './jsx';
 export * from './markdown';
 export * from './node';
 export * from './perfectionist';
+export * from './pnpm';
 export * from './promise';
 export * from './react';
 export * from './regexp';

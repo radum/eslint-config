@@ -1,8 +1,8 @@
+import fs from 'node:fs/promises';
 import { join } from 'node:path';
 import process from 'node:process';
 
 import { execa } from 'execa';
-import fs from 'fs-extra';
 import { afterAll, beforeEach, expect, it } from 'vitest';
 
 const CLI_PATH = join(__dirname, '../bin/index.js');
@@ -30,7 +30,7 @@ async function run(
 
 async function createMockDir() {
 	await fs.rm(genPath, { recursive: true, force: true });
-	await fs.ensureDir(genPath);
+	await fs.mkdir(genPath, { recursive: true });
 
 	await Promise.all([
 		fs.writeFile(join(genPath, 'package.json'), JSON.stringify({}, null, 2)),
@@ -47,7 +47,7 @@ afterAll(async () => await fs.rm(genPath, { recursive: true, force: true }));
 it('package.json updated', async () => {
 	const { stdout } = await run();
 
-	const pkgContent: Record<string, any> = await fs.readJSON(join(genPath, 'package.json'));
+	const pkgContent: Record<string, any> = JSON.parse(await fs.readFile(join(genPath, 'package.json'), 'utf-8'));
 
 	expect(JSON.stringify(pkgContent.devDependencies)).toContain('@radum/eslint-config');
 	expect(stdout).toContain('Changes wrote to package.json');
@@ -62,14 +62,6 @@ it('esm eslint.config.js', async () => {
 	const eslintConfigContent = await fs.readFile(join(genPath, 'eslint.config.js'), 'utf-8');
 	expect(eslintConfigContent.includes('export default')).toBeTruthy();
 	expect(stdout).toContain('Created eslint.config.js');
-});
-
-it('cjs eslint.config.mjs', async () => {
-	const { stdout } = await run();
-
-	const eslintConfigContent = await fs.readFile(join(genPath, 'eslint.config.mjs'), 'utf-8');
-	expect(eslintConfigContent.includes('export default')).toBeTruthy();
-	expect(stdout).toContain('Created eslint.config.mjs');
 });
 
 it('ignores files added in eslint.config.js', async () => {

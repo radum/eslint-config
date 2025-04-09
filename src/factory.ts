@@ -18,6 +18,7 @@ import {
 	markdown,
 	node,
 	perfectionist,
+	pnpm,
 	promise,
 	react,
 	solid,
@@ -34,7 +35,6 @@ import {
 	yaml
 } from './configs';
 import { formatters } from './configs/formatters';
-
 import { regexp } from './configs/regexp';
 import { interopDefault, isInEditorEnv } from './utils';
 
@@ -84,6 +84,7 @@ export function radum(
 		componentExts = [],
 		gitignore: enableGitignore = true,
 		jsx: enableJsx = true,
+		pnpm: enableCatalogs = false, // TODO: smart detect
 		react: enableReact = false,
 		regexp: enableRegexp = true,
 		solid: enableSolid = false,
@@ -273,6 +274,12 @@ export function radum(
 		);
 	}
 
+	if (enableCatalogs) {
+		configs.push(
+			pnpm()
+		);
+	}
+
 	if (options.yaml ?? true) {
 		configs.push(
 			yaml({
@@ -330,13 +337,24 @@ export function radum(
 		composer = composer.renamePlugins(defaultPluginRenaming);
 	}
 
+	if (isInEditor) {
+		composer = composer
+			.disableRulesFix([
+				'unused-imports/no-unused-imports',
+				'test/no-only-tests',
+				'prefer-const'
+			], {
+				builtinRules: () => import(['eslint', 'use-at-your-own-risk'].join('/')).then((r) => r.builtinRules)
+			});
+	}
+
 	return composer;
 }
 
 export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>;
 
 export function resolveSubOptions<K extends keyof OptionsConfig>(options: OptionsConfig, key: K): ResolvedOptions<OptionsConfig[K]> {
-	return typeof options[key] === 'boolean' ? ({} as any) : options[key] || {};
+	return typeof options[key] === 'boolean' ? ({} as any) : options[key] || {} as any;
 }
 
 export function getOverrides<K extends keyof OptionsConfig>(options: OptionsConfig, key: K): Partial<Linter.RulesRecord & RuleOptions> {

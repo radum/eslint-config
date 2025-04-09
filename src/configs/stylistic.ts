@@ -36,7 +36,6 @@ export async function stylistic(options: StylisticOptions = {}): Promise<TypedFl
 	const config = pluginStylistic.configs.customize({
 		arrowParens,
 		commaDangle,
-		flat: true,
 		indent,
 		jsx,
 		pluginName: 'style',
@@ -66,6 +65,9 @@ export async function stylistic(options: StylisticOptions = {}): Promise<TypedFl
 							'antfu/if-newline': 'error',
 							'antfu/top-level-function': 'error'
 						}),
+
+				'style/generator-star-spacing': ['error', { after: true, before: false }],
+				'style/yield-star-spacing': ['error', { after: true, before: false }],
 
 				...overrides
 			}

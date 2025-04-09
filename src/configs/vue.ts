@@ -2,21 +2,28 @@ import type { OptionsFiles, OptionsHasTypeScript, OptionsOverrides, OptionsStyli
 
 import { mergeProcessors } from 'eslint-merge-processors';
 import { GLOB_VUE } from '../globs';
-import { interopDefault } from '../utils';
+import { ensurePackages, interopDefault } from '../utils';
 
 export async function vue(
 	options: OptionsVue & OptionsHasTypeScript & OptionsOverrides & OptionsStylistic & OptionsFiles = {}
 ): Promise<TypedFlatConfigItem[]> {
-	const { files = [GLOB_VUE], overrides = {}, stylistic = true, vueVersion = 3 } = options;
+	const { a11y = false, files = [GLOB_VUE], overrides = {}, stylistic = true, vueVersion = 3 } = options;
 
 	const sfcBlocks = options.sfcBlocks === true ? {} : (options.sfcBlocks ?? {});
 
 	const { indent = 2 } = typeof stylistic === 'boolean' ? {} : stylistic;
 
-	const [pluginVue, parserVue, processorVueBlocks] = await Promise.all([
+	if (a11y) {
+		await ensurePackages([
+			'eslint-plugin-vuejs-accessibility'
+		]);
+	}
+
+	const [pluginVue, parserVue, processorVueBlocks, pluginVueA11y] = await Promise.all([
 		interopDefault(import('eslint-plugin-vue')),
 		interopDefault(import('vue-eslint-parser')),
-		interopDefault(import('eslint-processor-vue-blocks'))
+		interopDefault(import('eslint-processor-vue-blocks')),
+		...a11y ? [interopDefault(import('eslint-plugin-vuejs-accessibility'))] : []
 	] as const);
 
 	return [
@@ -43,7 +50,8 @@ export async function vue(
 			},
 			name: 'radum/vue/setup',
 			plugins: {
-				vue: pluginVue
+				vue: pluginVue,
+				...a11y ? { 'vue-a11y': pluginVueA11y } : {}
 			}
 		},
 		{
@@ -64,28 +72,28 @@ export async function vue(
 				sfcBlocks === false
 					? pluginVue.processors['.vue']
 					: mergeProcessors([
-						pluginVue.processors['.vue'],
-						processorVueBlocks({
-							...sfcBlocks,
-							blocks: {
-								styles: true,
-								...sfcBlocks.blocks
-							}
-						})
-					]),
+							pluginVue.processors['.vue'],
+							processorVueBlocks({
+								...sfcBlocks,
+								blocks: {
+									styles: true,
+									...sfcBlocks.blocks
+								}
+							})
+						]),
 			rules: {
 				...(pluginVue.configs.base.rules as any),
 
 				...(vueVersion === 2
 					? {
-							...(pluginVue.configs.essential.rules as any),
-							...(pluginVue.configs['strongly-recommended'].rules as any),
-							...(pluginVue.configs.recommended.rules as any)
+							...pluginVue.configs['vue2-essential'].rules as any,
+							...pluginVue.configs['vue2-strongly-recommended'].rules as any,
+							...pluginVue.configs['vue2-recommended'].rules as any
 						}
 					: {
-							...(pluginVue.configs['vue3-essential'].rules as any),
-							...(pluginVue.configs['vue3-strongly-recommended'].rules as any),
-							...(pluginVue.configs['vue3-recommended'].rules as any)
+							...pluginVue.configs['flat/essential'].map((c) => c.rules).reduce((acc, c) => ({ ...acc, ...c }), {}) as any,
+							...pluginVue.configs['flat/strongly-recommended'].map((c) => c.rules).reduce((acc, c) => ({ ...acc, ...c }), {}) as any,
+							...pluginVue.configs['flat/recommended'].map((c) => c.rules).reduce((acc, c) => ({ ...acc, ...c }), {}) as any
 						}),
 
 				'antfu/no-top-level-await': 'off',
@@ -178,6 +186,33 @@ export async function vue(
 							'vue/template-curly-spacing': 'error'
 						}
 					: {}),
+
+				...a11y
+					? {
+							'vue-a11y/alt-text': 'error',
+							'vue-a11y/anchor-has-content': 'error',
+							'vue-a11y/aria-props': 'error',
+							'vue-a11y/aria-role': 'error',
+							'vue-a11y/aria-unsupported-elements': 'error',
+							'vue-a11y/click-events-have-key-events': 'error',
+							'vue-a11y/form-control-has-label': 'error',
+							'vue-a11y/heading-has-content': 'error',
+							'vue-a11y/iframe-has-title': 'error',
+							'vue-a11y/interactive-supports-focus': 'error',
+							'vue-a11y/label-has-for': 'error',
+							'vue-a11y/media-has-caption': 'warn',
+							'vue-a11y/mouse-events-have-key-events': 'error',
+							'vue-a11y/no-access-key': 'error',
+							'vue-a11y/no-aria-hidden-on-focusable': 'error',
+							'vue-a11y/no-autofocus': 'warn',
+							'vue-a11y/no-distracting-elements': 'error',
+							'vue-a11y/no-redundant-roles': 'error',
+							'vue-a11y/no-role-presentation-on-focusable': 'error',
+							'vue-a11y/no-static-element-interactions': 'error',
+							'vue-a11y/role-has-required-aria-props': 'error',
+							'vue-a11y/tabindex-no-positive': 'warn'
+						}
+					: {},
 
 				...overrides
 			}

@@ -226,9 +226,9 @@ export async function formatters(options: OptionsFormatters | true = {}, stylist
 					'error',
 					formater === 'prettier'
 						? mergePrettierOptions(prettierOptions, {
-							embeddedLanguageFormatting: 'off',
-							parser: 'markdown'
-						})
+								embeddedLanguageFormatting: 'off',
+								parser: 'markdown'
+							})
 						: {
 								...dprintOptions,
 								language: 'markdown'

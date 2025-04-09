@@ -1,21 +1,23 @@
-// @ts-expect-error missing types
 import styleMigrate from '@stylistic/eslint-plugin-migrate';
 
 import { radum } from './src';
 
 export default radum(
 	{
-		vue: true,
+		vue: {
+			a11y: true
+		},
 		react: true,
 		solid: true,
 		svelte: true,
 		astro: true,
 		typescript: true,
 		formatters: true,
+		pnpm: false,
 		type: 'lib'
 	},
 	{
-		ignores: ['fixtures', '_fixtures']
+		ignores: ['fixtures', '_fixtures', '**/constants-generated.ts']
 	},
 	{
 		files: ['src/**/*.ts'],
