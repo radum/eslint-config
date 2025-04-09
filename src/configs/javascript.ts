@@ -179,8 +179,8 @@ export async function javascript(options: OptionsIsInEditor & OptionsOverrides =
 					isInEditor ? 'warn' : 'error',
 					{
 						destructuring: 'all',
-						ignoreReadBeforeAssign: true,
-					},
+						ignoreReadBeforeAssign: true
+					}
 				],
 				'prefer-exponentiation-operator': 'error',
 				'prefer-promise-reject-errors': 'error',

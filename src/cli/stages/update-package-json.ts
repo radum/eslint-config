@@ -22,7 +22,7 @@ export async function updatePackageJson(result: PromptResult): Promise<void> {
 	const pkg: Record<string, any> = JSON.parse(pkgContent);
 
 	pkg.devDependencies ??= {};
-	pkg.devDependencies['@antfu/eslint-config'] = `^${version}`;
+	pkg.devDependencies['@radum/eslint-config'] = `^${version}`;
 	pkg.devDependencies.eslint ??= versionsMap.eslint;
 
 	const addedPackages: string[] = [];
