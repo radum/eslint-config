@@ -58,7 +58,7 @@ export const defaultPluginRenaming = {
 
 	'@stylistic': 'style',
 	'@typescript-eslint': 'ts',
-	'import-x': 'import',
+	'import-lite': 'import',
 	'n': 'node',
 	'vitest': 'test',
 	'yml': 'yaml'
@@ -83,6 +83,7 @@ export function radum(
 		autoRenamePlugins = true,
 		componentExts = [],
 		gitignore: enableGitignore = true,
+		imports: enableImports = true,
 		jsx: enableJsx = true,
 		pnpm: enableCatalogs = false, // TODO: smart detect
 		react: enableReact = false,
@@ -157,6 +158,19 @@ export function radum(
 		perfectionist(),
 		promise()
 	);
+
+	if (enableImports) {
+		configs.push(
+			imports(enableImports === true
+				? {
+						stylistic: stylisticOptions
+					}
+				: {
+						stylistic: stylisticOptions,
+						...enableImports
+					})
+		);
+	}
 
 	if (enableUnicorn) {
 		configs.push(unicorn(enableUnicorn === true ? {} : enableUnicorn));

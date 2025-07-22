@@ -1,5 +1,4 @@
 import type { OptionsOverrides, StylisticConfig, TypedFlatConfigItem } from '../types';
-
 import { pluginAntfu } from '../plugins';
 import { interopDefault } from '../utils';
 

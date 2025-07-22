@@ -12,12 +12,14 @@ Unless I do that it fails to npm publish. Until that is fixed either use CI or t
 
 Then run `npx auto shipit` on the `main` branc which will run Intuit Auto.
 
+If canary versions are released this should be used `npx auto shipit --only-graduate-with-release-label` ([docs here](https://intuit.github.io/auto/docs/generated/shipit)).
+
 Example:
 
 ```bash
 export GITHUB_TOKEN=...
 export NPM_TOKEN=...
-npx auto shipit --only-graduate-with-release-label
+npx auto shipit
 # This is to remove them from your local
 unset GITHUB_TOKEN
 unset NPM_TOKEN

@@ -30,6 +30,9 @@
 >
 > If you are using this config directly, I'd suggest you **review the changes everytime you update**. Or if you want more control over the rules, always feel free to fork it. Thanks!
 
+> [!TIP]
+> If you are interested in the tooling and the philosophy behind this config, Antfu gave a talk about ESLint flat config at [JSNation 2024 - ESLint One for All Made Easy](https://gitnation.com/contents/eslint-one-for-all-made-easy), slides are [here](https://talks.antfu.me/2024/jsnation).
+
 ## Usage
 
 ### Starter Wizard
@@ -383,7 +386,7 @@ Since flat config requires us to explicitly provide the plugin names (instead of
 
 | New Prefix | Original Prefix        | Source Plugin                                                                              |
 | ---------- | ---------------------- | ------------------------------------------------------------------------------------------ |
-| `import/*` | `import-x/*`           | [eslint-plugin-import-x](https://github.com/un-es/eslint-plugin-import-x)                  |
+| `import/*` | `import-lite/*`        | [eslint-plugin-import-lite](https://github.com/9romise/eslint-plugin-import-lite)          |
 | `node/*`   | `n/*`                  | [eslint-plugin-n](https://github.com/eslint-community/eslint-plugin-n)                     |
 | `yaml/*`   | `yml/*`                | [eslint-plugin-yml](https://github.com/ota-meshi/eslint-plugin-yml)                        |
 | `ts/*`     | `@typescript-eslint/*` | [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint) |
@@ -402,7 +405,7 @@ type foo = { bar: 2 }
 > [!NOTE]
 > About plugin renaming - it is actually rather a dangerous move that might leading to potential naming collisions, pointed out [here](https://github.com/eslint/eslint/discussions/17766) and [here](https://github.com/prettier/eslint-config-prettier#eslintconfigjs-flat-config-plugin-caveat). As this config also very **personal** and **opinionated**, I ambitiously position this config as the only **"top-level"** config per project, that might pivots the taste of how rules are named.
 >
-> This config cares more about the user-facings DX, and try to ease out the implementation details. For example, users could keep using the semantic `import/order` without ever knowing the underlying plugin has migrated twice to `eslint-plugin-i` and then to `eslint-plugin-import-x`. User are also not forced to migrate to the implicit `i/order` halfway only because we swapped the implementation to a fork.
+> This config cares more about the user-facings DX, and try to ease out the implementation details. For example, users could keep using the semantic `import/order` without ever knowing the underlying plugin has migrated thrice to `eslint-plugin-i` and then to `eslint-plugin-import-x` and then to `eslint-plugin-import-lite`. User are also not forced to migrate to the implicit `i/order` halfway only because we swapped the implementation to a fork.
 >
 > That said, it's probably still not a good idea. You might not want to doing this if you are maintaining your own eslint config.
 >
@@ -497,10 +500,10 @@ export default radum()
 	)
 	// overrides any named configs
 	.override(
-		'radum/imports',
+		'radum/stylistic/rules',
 		{
 			rules: {
-				'import/order': ['error', { 'newlines-between': 'always' }],
+				'style/generator-star-spacing': ['error', { after: true, before: false }]
 			}
 		}
 	)
