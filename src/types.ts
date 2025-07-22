@@ -12,7 +12,7 @@ export interface Rules extends RuleOptions {};
 
 export type { ConfigNames };
 
-export type TypedFlatConfigItem = Omit<Linter.Config<Linter.RulesRecord & Rules>, 'plugins'> & {
+export type TypedFlatConfigItem = Omit<Linter.Config<Linter.RulesRecord & Rules>, 'plugins' | 'rules'> & {
 	// Relax plugins type limitation, as most of the plugins did not have correct type info yet.
 	/**
 	 * An object containing a name-value mapping of plugin names to plugin objects. When `files` is specified, these plugins are only available to the matching files.
@@ -20,6 +20,11 @@ export type TypedFlatConfigItem = Omit<Linter.Config<Linter.RulesRecord & Rules>
 	 * @see [Using plugins in your configuration](https://eslint.org/docs/latest/user-guide/configuring/configuration-files-new#using-plugins-in-your-configuration)
 	 */
 	plugins?: Record<string, any>;
+
+	/**
+	 * Rules configuration. More flexible to allow plugin rules that may not be perfectly typed.
+	 */
+	rules?: Record<string, Linter.RuleEntry<any> | undefined>;
 };
 
 export interface OptionsFiles {
@@ -142,7 +147,7 @@ export interface OptionsComponentExts {
 	componentExts?: string[];
 }
 
-export interface OptionsUnicorn {
+export interface OptionsUnicorn extends OptionsOverrides {
 	/**
 	 * Include all rules recommended by `eslint-plugin-unicorn`, instead of only ones picked by Anthony.
 	 *
@@ -283,6 +288,13 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType 
 	unicorn?: boolean | OptionsUnicorn;
 
 	/**
+	 * Options for eslint-plugin-import-lite.
+	 *
+	 * @default true
+	 */
+	imports?: boolean | OptionsOverrides;
+
+	/**
 	 * Enable test support.
 	 *
 	 * @default true
@@ -384,7 +396,7 @@ export interface OptionsConfig extends OptionsComponentExts, OptionsProjectType 
 	 *
 	 * @default false
 	 */
-	svelte?: boolean;
+	svelte?: boolean | OptionsOverrides;
 
 	/**
 	 * Enable unocss rules.

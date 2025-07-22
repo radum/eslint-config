@@ -76,7 +76,7 @@ export function renameRules(rules: Record<string, any>, map: Record<string, stri
  *
  * export default renamePluginInConfigs(someConfigs, {
  *   '@typescript-eslint': 'ts',
- *   'import-x': 'import',
+ *   '@stylistic': 'style'
  * })
  * ```
  */

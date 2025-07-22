@@ -65,8 +65,8 @@ export async function run(options: CliRunOptions = {}): Promise<void> {
 					if (!results.uncommittedConfirmed || isArgTemplateValid)
 						return;
 
-					const message
-						= !isArgTemplateValid && argTemplate
+					const message =
+						!isArgTemplateValid && argTemplate
 							? `"${argTemplate}" isn't a valid template. Please choose from below: `
 							: 'Select a framework:';
 
@@ -78,14 +78,14 @@ export async function run(options: CliRunOptions = {}): Promise<void> {
 					});
 				},
 				extra: ({ results }) => {
-					const isArgExtraValid
-						= argExtra?.length && !argExtra.filter((element) => !extra.includes(<ExtraLibrariesOption>element)).length;
+					const isArgExtraValid =
+						argExtra?.length && !argExtra.filter((element) => !extra.includes(<ExtraLibrariesOption>element)).length;
 
 					if (!results.uncommittedConfirmed || isArgExtraValid)
 						return;
 
-					const message
-						= !isArgExtraValid && argExtra
+					const message =
+						!isArgExtraValid && argExtra
 							? `"${argExtra}" isn't a valid extra util. Please choose from below: `
 							: 'Select a extra utils:';
 

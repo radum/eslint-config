@@ -1,4 +1,6 @@
 packages:
   - fixtures/*
+
 onlyBuiltDependencies:
   - esbuild
+  - unrs-resolver
