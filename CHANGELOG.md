@@ -1,3 +1,15 @@
+# v10.1.0 (Tue Jul 22 2025)
+
+#### 🚀 Enhancement
+
+- New import module, rules updates, all modules bumped [#233](https://github.com/radum/eslint-config/pull/233) ([@radum](https://github.com/radum))
+
+#### Authors: 1
+
+- Radu Micu ([@radum](https://github.com/radum))
+
+---
+
 # v10.0.0 (Wed Apr 09 2025)
 
 #### 💥 Breaking Change
