@@ -66,6 +66,7 @@ export async function stylistic(options: StylisticOptions = {}): Promise<TypedFl
 						}),
 
 				'style/generator-star-spacing': ['error', { after: true, before: false }],
+				'style/operator-linebreak': ['error', 'before', { overrides: { '=': 'after' } }],
 				'style/yield-star-spacing': ['error', { after: true, before: false }],
 
 				...overrides

@@ -14,12 +14,12 @@ import { pluginAntfu } from '../plugins';
 import { interopDefault, renameRules } from '../utils';
 
 export async function typescript(
-	options: OptionsFiles &
-		OptionsComponentExts &
-		OptionsOverrides &
-		OptionsTypeScriptWithTypes &
-		OptionsTypeScriptParserOptions &
-		OptionsProjectType = {}
+	options: OptionsFiles
+		& OptionsComponentExts
+		& OptionsOverrides
+		& OptionsTypeScriptWithTypes
+		& OptionsTypeScriptParserOptions
+		& OptionsProjectType = {}
 ): Promise<TypedFlatConfigItem[]> {
 	const { componentExts = [], overrides = {}, overridesTypeAware = {}, parserOptions = {}, type = 'app' } = options;
 
