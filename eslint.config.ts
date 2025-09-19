@@ -9,10 +9,14 @@ export default radum(
 		solid: true,
 		svelte: true,
 		astro: true,
+		nextjs: true,
 		typescript: true,
 		formatters: true,
 		pnpm: false,
-		type: 'lib'
+		type: 'lib',
+		jsx: {
+			a11y: true
+		}
 	},
 	{
 		ignores: ['fixtures', '_fixtures', '**/constants-generated.ts']
