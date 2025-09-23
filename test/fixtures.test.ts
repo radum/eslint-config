@@ -7,6 +7,9 @@ import { glob } from 'tinyglobby';
 
 import { afterAll, beforeAll, it } from 'vitest';
 
+const isWindows = process.platform === 'win32';
+const timeout = isWindows ? 300_000 : 30_000;
+
 beforeAll(async () => {
 	await fs.rm('_fixtures', { recursive: true, force: true });
 });
@@ -157,6 +160,6 @@ export default radum(
 				})
 			);
 		},
-		30_000
+		timeout
 	);
 }

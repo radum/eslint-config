@@ -1,6 +1,11 @@
 packages:
   - fixtures/*
 
+strictPeerDependencies: false
+shamefullyHoist: true
+ignoreWorkspaceRootCheck: true
+shellEmulator: true
+
 onlyBuiltDependencies:
   - esbuild
   - unrs-resolver
