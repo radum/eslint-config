@@ -1,3 +1,19 @@
+# v11.0.0 (Tue Sep 30 2025)
+
+#### 💥 Breaking Change
+
+- Major updates [#238](https://github.com/radum/eslint-config/pull/238) ([@radum](https://github.com/radum))
+
+#### 🔩 Dependency Updates
+
+- Bump deps to latest versions [#236](https://github.com/radum/eslint-config/pull/236) ([@radum](https://github.com/radum))
+
+#### Authors: 1
+
+- Radu Micu ([@radum](https://github.com/radum))
+
+---
+
 # v10.1.0 (Tue Jul 22 2025)
 
 #### 🚀 Enhancement
