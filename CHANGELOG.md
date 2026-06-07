@@ -1,3 +1,15 @@
+# v11.0.1 (Sun Jun 07 2026)
+
+#### 🐛 Bug Fix
+
+- Added new plugins and refactored some files [#244](https://github.com/radum/eslint-config/pull/244) ([@radum](https://github.com/radum))
+
+#### Authors: 1
+
+- Radu Micu ([@radum](https://github.com/radum))
+
+---
+
 # v11.0.0 (Tue Sep 30 2025)
 
 #### 💥 Breaking Change
