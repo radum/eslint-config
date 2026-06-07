@@ -549,6 +549,10 @@ export default radum({
 		overrides: {
 			'ts/consistent-type-definitions': ['error', 'interface'],
 		},
+		// Type aware rules overrides should write here
+		overridesTypeAware: {
+			'ts/no-unsafe-assignment': ['warn'],
+		}
 	},
 	yaml: {
 		overrides: {
