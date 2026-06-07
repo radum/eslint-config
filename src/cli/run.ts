@@ -1,5 +1,5 @@
 /* eslint-disable perfectionist/sort-objects */
-import type { ExtraLibrariesOption, FrameworkOption, PromItem, PromptResult } from './types';
+import type { ExtraLibrariesOption, FrameworkOption, PromptResult } from './types';
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -48,72 +48,64 @@ export async function run(options: CliRunOptions = {}): Promise<void> {
 	};
 
 	if (!argSkipPrompt) {
-		result = (await p.group(
-			{
-				uncommittedConfirmed: () => {
-					if (argSkipPrompt || isGitClean())
-						return Promise.resolve(true);
+		result = await p.group({
+			uncommittedConfirmed: () => {
+				if (argSkipPrompt || isGitClean())
+					return Promise.resolve(true);
 
-					return p.confirm({
-						initialValue: false,
-						message: 'There are uncommitted changes in the current repository, are you sure to continue?'
-					});
-				},
-				frameworks: ({ results }) => {
-					const isArgTemplateValid = typeof argTemplate === 'string' && !!frameworks.includes(<FrameworkOption>argTemplate);
-
-					if (!results.uncommittedConfirmed || isArgTemplateValid)
-						return;
-
-					const message =
-						!isArgTemplateValid && argTemplate
-							? `"${argTemplate}" isn't a valid template. Please choose from below: `
-							: 'Select a framework:';
-
-					// @ts-expect-error I dunno why it's not working
-					return p.multiselect<PromItem<FrameworkOption>[], FrameworkOption>({
-						message: c.reset(message),
-						options: frameworkOptions,
-						required: false
-					});
-				},
-				extra: ({ results }) => {
-					const isArgExtraValid =
-						argExtra?.length && !argExtra.filter((element) => !extra.includes(<ExtraLibrariesOption>element)).length;
-
-					if (!results.uncommittedConfirmed || isArgExtraValid)
-						return;
-
-					const message =
-						!isArgExtraValid && argExtra
-							? `"${argExtra}" isn't a valid extra util. Please choose from below: `
-							: 'Select a extra utils:';
-
-					// @ts-expect-error I dunno why it's not working
-					return p.multiselect<PromItem<ExtraLibrariesOption>[], ExtraLibrariesOption>({
-						message: c.reset(message),
-						options: extraOptions,
-						required: false
-					});
-				},
-
-				updateVscodeSettings: ({ results }) => {
-					if (!results.uncommittedConfirmed)
-						return;
-
-					return p.confirm({
-						initialValue: true,
-						message: 'Update .vscode/settings.json for better VS Code experience?'
-					});
-				}
+				return p.confirm({
+					initialValue: false,
+					message: 'There are uncommitted changes in the current repository, are you sure to continue?'
+				});
 			},
-			{
-				onCancel: () => {
-					p.cancel('Operation cancelled.');
-					process.exit(0);
-				}
+			frameworks: ({ results }) => {
+				const isArgTemplateValid = typeof argTemplate === 'string' && !!frameworks.includes(<FrameworkOption>argTemplate);
+
+				if (!results.uncommittedConfirmed || isArgTemplateValid)
+					return;
+
+				const message = !isArgTemplateValid && argTemplate
+					? `"${argTemplate}" isn't a valid template. Please choose from below: `
+					: 'Select a framework:';
+
+				return p.multiselect<FrameworkOption>({
+					message: c.reset(message),
+					options: frameworkOptions,
+					required: false
+				});
+			},
+			extra: ({ results }) => {
+				const isArgExtraValid = argExtra?.length && !argExtra.some((element) => !extra.includes(<ExtraLibrariesOption>element));
+
+				if (!results.uncommittedConfirmed || isArgExtraValid)
+					return;
+
+				const message = !isArgExtraValid && argExtra
+					? `"${argExtra}" isn't a valid extra util. Please choose from below: `
+					: 'Select a extra utils:';
+
+				return p.multiselect<ExtraLibrariesOption>({
+					message: c.reset(message),
+					options: extraOptions,
+					required: false
+				});
+			},
+
+			updateVscodeSettings: ({ results }) => {
+				if (!results.uncommittedConfirmed)
+					return;
+
+				return p.confirm({
+					initialValue: true,
+					message: 'Update .vscode/settings.json for better VS Code experience?'
+				});
 			}
-		)) as PromptResult;
+		}, {
+			onCancel: () => {
+				p.cancel('Operation cancelled.');
+				process.exit(0);
+			}
+		}) as PromptResult;
 
 		if (!result.uncommittedConfirmed)
 			return process.exit(1);

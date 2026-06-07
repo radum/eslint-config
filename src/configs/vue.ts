@@ -11,7 +11,7 @@ export async function vue(
 
 	const sfcBlocks = options.sfcBlocks === true ? {} : (options.sfcBlocks ?? {});
 
-	const { indent = 2 } = typeof stylistic === 'boolean' ? {} : stylistic;
+	const { braceStyle = 'stroustrup', indent = 2 } = typeof stylistic === 'boolean' ? {} : stylistic;
 
 	if (a11y) {
 		await ensurePackages([
@@ -163,7 +163,7 @@ export async function vue(
 									singleline: 'always'
 								}
 							],
-							'vue/brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
+							'vue/brace-style': ['error', braceStyle, { allowSingleLine: true }],
 							'vue/comma-dangle': ['error', 'never'],
 							'vue/comma-spacing': ['error', { after: true, before: false }],
 							'vue/comma-style': ['error', 'last'],

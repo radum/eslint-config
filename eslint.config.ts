@@ -9,10 +9,18 @@ export default radum(
 		solid: true,
 		svelte: true,
 		astro: true,
-		nextjs: true,
-		typescript: true,
+		nextjs: false,
+		typescript: {
+			erasableOnly: true
+		},
+		markdown: {
+			overrides: {
+				'no-dupe-keys': 'off'
+			}
+		},
 		formatters: true,
-		pnpm: false,
+		perfectionist: true,
+		pnpm: true,
 		type: 'lib',
 		jsx: {
 			a11y: true

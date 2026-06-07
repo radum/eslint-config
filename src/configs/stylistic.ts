@@ -4,7 +4,9 @@ import { interopDefault } from '../utils';
 
 export const StylisticConfigDefaults: StylisticConfig = {
 	arrowParens: true,
+	braceStyle: 'stroustrup',
 	commaDangle: 'never',
+	experimental: false,
 	indent: 'tab',
 	jsx: true,
 	quotes: 'single',
@@ -18,7 +20,9 @@ export interface StylisticOptions extends StylisticConfig, OptionsOverrides {
 export async function stylistic(options: StylisticOptions = {}): Promise<TypedFlatConfigItem[]> {
 	const {
 		arrowParens,
+		braceStyle,
 		commaDangle,
+		experimental,
 		indent,
 		jsx,
 		lessOpinionated = false,
@@ -34,7 +38,9 @@ export async function stylistic(options: StylisticOptions = {}): Promise<TypedFl
 
 	const config = pluginStylistic.configs.customize({
 		arrowParens,
+		braceStyle,
 		commaDangle,
+		experimental,
 		indent,
 		jsx,
 		pluginName: 'style',
@@ -52,8 +58,13 @@ export async function stylistic(options: StylisticOptions = {}): Promise<TypedFl
 			rules: {
 				...config.rules,
 
+				...experimental
+					? {}
+					: {
+							'antfu/consistent-list-newline': 'error'
+						},
+
 				'antfu/consistent-chaining': 'error',
-				'antfu/consistent-list-newline': 'error',
 
 				...(lessOpinionated
 					? {

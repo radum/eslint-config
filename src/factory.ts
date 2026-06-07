@@ -3,8 +3,10 @@ import type { RuleOptions } from './typegen';
 import type { Awaitable, ConfigNames, OptionsConfig, TypedFlatConfigItem } from './types';
 
 import { FlatConfigComposer } from 'eslint-flat-config-utils';
+import { findUpSync } from 'find-up-simple';
 import { isPackageExists } from 'local-pkg';
 import {
+	angular,
 	astro,
 	command,
 	comments,
@@ -35,8 +37,10 @@ import {
 	vue,
 	yaml
 } from './configs';
+import { e18e } from './configs/e18e';
 import { formatters } from './configs/formatters';
 import { regexp } from './configs/regexp';
+import { GLOB_MARKDOWN } from './globs';
 import { interopDefault, isInEditorEnv } from './utils';
 
 const flatConfigProps = [
@@ -49,13 +53,15 @@ const flatConfigProps = [
 	'settings'
 ] satisfies (keyof TypedFlatConfigItem)[];
 
-const VuePackages = ['vue', 'nuxt', 'vitepress', '@slidev/cli'];
+const VuePackages = [
+	'vue',
+	'nuxt',
+	'vitepress',
+	'@slidev/cli'
+];
 
 export const defaultPluginRenaming = {
 	'@eslint-react': 'react',
-	'@eslint-react/dom': 'react-dom',
-	'@eslint-react/hooks-extra': 'react-hooks-extra',
-	'@eslint-react/naming-convention': 'react-naming-convention',
 
 	'@next/next': 'next',
 	'@stylistic': 'style',
@@ -78,23 +84,30 @@ export const defaultPluginRenaming = {
  *  The merged ESLint configurations.
  */
 export function radum(
-	options: OptionsConfig & Omit<TypedFlatConfigItem, 'files'> = {},
+	options: OptionsConfig & Omit<TypedFlatConfigItem, 'files' | 'ignores'> = {},
 	...userConfigs: Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[] | FlatConfigComposer<any, any> | Linter.Config[]>[]
 ): FlatConfigComposer<TypedFlatConfigItem, ConfigNames> {
 	const {
+		angular: enableAngular = false,
 		astro: enableAstro = false,
 		autoRenamePlugins = true,
 		componentExts = [],
+		e18e: enableE18e = true,
 		gitignore: enableGitignore = true,
+		ignores: userIgnores = [],
 		imports: enableImports = true,
+		jsdoc: enableJsdoc = true,
 		jsx: enableJsx = true,
 		nextjs: enableNextjs = false,
-		pnpm: enableCatalogs = false, // TODO: smart detect
+		node: enableNode = true,
+		perfectionist: enablePerfectionist = true,
+		pnpm: enableCatalogs = !!findUpSync('pnpm-workspace.yaml'),
 		react: enableReact = false,
 		regexp: enableRegexp = true,
 		solid: enableSolid = false,
 		svelte: enableSvelte = false,
-		typescript: enableTypeScript = isPackageExists('typescript'),
+		type: appType = 'app',
+		typescript: enableTypeScript = isPackageExists('typescript') || isPackageExists('@typescript/native-preview'),
 		unicorn: enableUnicorn = true,
 		unocss: enableUnoCSS = false,
 		vue: enableVue = VuePackages.some((i) => isPackageExists(i))
@@ -108,7 +121,11 @@ export function radum(
 			console.log('[@radum/eslint-config] Detected running in editor, some rules are disabled.');
 	}
 
-	const stylisticOptions = options.stylistic === false ? false : typeof options.stylistic === 'object' ? options.stylistic : {};
+	const stylisticOptions = options.stylistic === false
+		? false
+		: typeof options.stylistic === 'object'
+			? options.stylistic
+			: {};
 
 	if (stylisticOptions && !('jsx' in stylisticOptions))
 		stylisticOptions.jsx = typeof enableJsx === 'object' ? true : enableJsx;
@@ -118,22 +135,18 @@ export function radum(
 	if (enableGitignore) {
 		if (typeof enableGitignore !== 'boolean') {
 			configs.push(
-				interopDefault(import('eslint-config-flat-gitignore')).then((r) => [
-					r({
-						name: 'radum/gitignore',
-						...enableGitignore
-					})
-				])
+				interopDefault(import('eslint-config-flat-gitignore')).then((r) => [r({
+					name: 'radum/gitignore',
+					...enableGitignore
+				})])
 			);
 		}
 		else {
 			configs.push(
-				interopDefault(import('eslint-config-flat-gitignore')).then((r) => [
-					r({
-						name: 'radum/gitignore',
-						strict: false
-					})
-				])
+				interopDefault(import('eslint-config-flat-gitignore')).then((r) => [r({
+					name: 'radum/gitignore',
+					strict: false
+				})])
 			);
 		}
 	}
@@ -143,41 +156,60 @@ export function radum(
 
 	// Base configs
 	configs.push(
-		ignores(options.ignores),
+		ignores(userIgnores, !enableTypeScript),
 		javascript({
 			isInEditor,
 			overrides: getOverrides(options, 'javascript')
 		}),
 		comments(),
-		node(),
-		jsdoc({
-			stylistic: stylisticOptions
-		}),
-		imports({
-			stylistic: stylisticOptions
-		}),
 		command(),
-
-		// Optional plugins (installed but not enabled by default)
-		perfectionist(),
 		promise()
 	);
 
+	if (enablePerfectionist) {
+		configs.push(
+			perfectionist({
+				overrides: getOverrides(options, 'perfectionist')
+			})
+		);
+	}
+
+	if (enableNode) {
+		configs.push(
+			node()
+		);
+	}
+
+	if (enableJsdoc) {
+		configs.push(
+			jsdoc({
+				stylistic: stylisticOptions
+			})
+		);
+	}
+
 	if (enableImports) {
 		configs.push(
-			imports(enableImports === true
-				? {
-						stylistic: stylisticOptions
-					}
-				: {
-						stylistic: stylisticOptions,
-						...enableImports
-					})
+			imports({
+				stylistic: stylisticOptions,
+				...resolveSubOptions(options, 'imports')
+			})
+		);
+	}
+
+	if (enableE18e) {
+		configs.push(
+			e18e({
+				isInEditor,
+				...enableE18e === true ? {} : enableE18e
+			})
 		);
 	}
 
 	if (enableUnicorn) {
-		configs.push(unicorn(enableUnicorn === true ? {} : enableUnicorn));
+		configs.push(
+			unicorn(enableUnicorn === true ? {} : enableUnicorn)
+		);
 	}
 
 	if (enableVue) {
@@ -185,7 +217,9 @@ export function radum(
 	}
 
 	if (enableJsx) {
-		configs.push(jsx(enableJsx === true ? {} : enableJsx));
+		configs.push(
+			jsx(enableJsx === true ? {} : enableJsx)
+		);
 	}
 
 	if (enableTypeScript) {
@@ -194,7 +228,7 @@ export function radum(
 				...typescriptOptions,
 				componentExts,
 				overrides: getOverrides(options, 'typescript'),
-				type: options.type
+				type: appType
 			})
 		);
 	}
@@ -210,7 +244,9 @@ export function radum(
 	}
 
 	if (enableRegexp) {
-		configs.push(regexp(typeof enableRegexp === 'boolean' ? {} : enableRegexp));
+		configs.push(
+			regexp(typeof enableRegexp === 'boolean' ? {} : enableRegexp)
+		);
 	}
 
 	if (options.test ?? true) {
@@ -237,6 +273,7 @@ export function radum(
 		configs.push(
 			react({
 				...typescriptOptions,
+				...resolveSubOptions(options, 'react'),
 				overrides: getOverrides(options, 'react'),
 				tsconfigPath
 			})
@@ -244,9 +281,11 @@ export function radum(
 	}
 
 	if (enableNextjs) {
-		configs.push(nextjs({
-			overrides: getOverrides(options, 'nextjs')
-		}));
+		configs.push(
+			nextjs({
+				overrides: getOverrides(options, 'nextjs')
+			})
+		);
 	}
 
 	if (enableSolid) {
@@ -287,6 +326,12 @@ export function radum(
 		);
 	}
 
+	if (enableAngular) {
+		configs.push(angular({
+			overrides: getOverrides(options, 'angular')
+		}));
+	}
+
 	if (options.jsonc ?? true) {
 		configs.push(
 			jsonc({
@@ -299,8 +344,14 @@ export function radum(
 	}
 
 	if (enableCatalogs) {
+		const optionsPnpm = resolveSubOptions(options, 'pnpm');
 		configs.push(
-			pnpm()
+			pnpm({
+				isInEditor,
+				json: options.jsonc !== false,
+				yaml: options.yaml !== false,
+				...optionsPnpm
+			})
 		);
 	}
 
@@ -332,15 +383,20 @@ export function radum(
 	}
 
 	if (options.formatters) {
-		configs.push(formatters(options.formatters, typeof stylisticOptions === 'boolean' ? {} : stylisticOptions));
+		configs.push(
+			formatters(
+				options.formatters,
+				typeof stylisticOptions === 'boolean' ? {} : stylisticOptions
+			)
+		);
 	}
 
-	configs.push(disables());
+	configs.push(
+		disables()
+	);
 
 	if ('files' in options) {
-		throw new Error(
-			'[@radum/eslint-config] The first argument should not contain the "files" property as the options are supposed to be global. Place it in the second or later config instead.'
-		);
+		throw new Error('[@radum/eslint-config] The first argument should not contain the "files" property as the options are supposed to be global. Place it in the second or later config instead.');
 	}
 
 	// User can optionally pass a flat config item to the first argument
@@ -355,10 +411,23 @@ export function radum(
 
 	let composer = new FlatConfigComposer<TypedFlatConfigItem, ConfigNames>();
 
-	composer = composer.append(...configs, ...(userConfigs as any));
+	composer = composer
+		.append(
+			...configs,
+			...userConfigs as any
+		);
+
+	// Markdown uses the `markdown/gfm` language, whose `SourceCode` lacks JS-only
+	// methods like `getAllComments`. Without this, any rule override registered
+	// without a `files` constraint would apply globally and crash on `.md` files.
+	// See https://github.com/antfu/eslint-config/issues/837.
+	if (options.markdown ?? true) {
+		composer = composer.setDefaultIgnores((prev) => [...prev, GLOB_MARKDOWN]);
+	}
 
 	if (autoRenamePlugins) {
-		composer = composer.renamePlugins(defaultPluginRenaming);
+		composer = composer
+			.renamePlugins(defaultPluginRenaming);
 	}
 
 	if (isInEditor) {
@@ -375,16 +444,28 @@ export function radum(
 	return composer;
 }
 
-export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>;
+export type ResolvedOptions<T> = T extends boolean
+	? never
+	: NonNullable<T>;
 
-export function resolveSubOptions<K extends keyof OptionsConfig>(options: OptionsConfig, key: K): ResolvedOptions<OptionsConfig[K]> {
-	return typeof options[key] === 'boolean' ? ({} as any) : options[key] || {} as any;
+export function resolveSubOptions<K extends keyof OptionsConfig>(
+	options: OptionsConfig,
+	key: K
+): ResolvedOptions<OptionsConfig[K]> {
+	return typeof options[key] === 'boolean'
+		? {} as any
+		: options[key] || {} as any;
 }
 
-export function getOverrides<K extends keyof OptionsConfig>(options: OptionsConfig, key: K): Partial<Linter.RulesRecord & RuleOptions> {
+export function getOverrides<K extends keyof OptionsConfig>(
+	options: OptionsConfig,
+	key: K
+): Partial<Linter.RulesRecord & RuleOptions> {
 	const sub = resolveSubOptions(options, key);
 	return {
 		...(options.overrides as any)?.[key],
-		...('overrides' in sub ? sub.overrides : {})
+		...'overrides' in sub
+			? sub.overrides
+			: {}
 	};
 }

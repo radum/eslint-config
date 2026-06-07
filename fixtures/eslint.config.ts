@@ -1,4 +1,4 @@
-import { radum } from './src';
+import { radum } from '../src';
 
 export default radum(
   {

@@ -8,7 +8,7 @@ import { glob } from 'tinyglobby';
 import { afterAll, beforeAll, it } from 'vitest';
 
 const isWindows = process.platform === 'win32';
-const timeout = isWindows ? 300_000 : 30_000;
+const timeout = isWindows ? 300_000 : 60_000;
 
 beforeAll(async () => {
 	await fs.rm('_fixtures', { recursive: true, force: true });
@@ -41,6 +41,7 @@ runWithConfig(
 	{
 		typescript: true,
 		vue: true,
+		toml: true,
 		stylistic: {
 			indent: 'tab',
 			quotes: 'double'
@@ -109,6 +110,20 @@ runWithConfig('no-markdown-with-formatters', {
 		markdown: true
 	}
 });
+
+// https://github.com/antfu/eslint-config/issues/837
+runWithConfig(
+	'issue-837',
+	{
+		typescript: false,
+		vue: false
+	},
+	{
+		rules: {
+			'no-irregular-whitespace': ['warn', { skipStrings: true, skipTemplates: true }]
+		}
+	}
+);
 
 function runWithConfig(name: string, configs: OptionsConfig, ...items: TypedFlatConfigItem[]) {
 	it.concurrent(

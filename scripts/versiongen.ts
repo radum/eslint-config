@@ -13,7 +13,7 @@ const names = new Set([
 const packageJsonPath = path.resolve(__dirname, '../package.json');
 const packageJson = JSON.parse(await fs.readFile(packageJsonPath, 'utf-8'));
 
-const versions = Object.fromEntries(Array.from(names).map((name) => {
+const versions = Object.fromEntries(Array.from(names, (name) => {
 	const version = packageJson.dependencies?.[name] || packageJson.devDependencies?.[name];
 	if (!version)
 		throw new Error(`Package ${name} not found`);

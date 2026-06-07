@@ -1,9 +1,6 @@
 import type { ExtraLibrariesOption, FrameworkOption, PromItem } from './types';
 
 import c from 'ansis';
-import pkgJson from '../../package.json';
-
-export { pkgJson };
 
 export const vscodeSettingsString = `
   // Disable the default formatter, use eslint instead
@@ -16,7 +13,7 @@ export const vscodeSettingsString = `
     "source.organizeImports": "never"
   },
 
-  // Silent the stylistic rules in you IDE, but still auto fix them
+  // Silent the stylistic rules in your IDE, but still auto fix them
   "eslint.rules.customizations": [
     { "rule": "style/*", "severity": "off", "fixable": true },
     { "rule": "format/*", "severity": "off", "fixable": true },
@@ -105,7 +102,7 @@ export const dependenciesMap = {
 	formatter: ['eslint-plugin-format'],
 	formatterAstro: ['prettier-plugin-astro'],
 	nextjs: ['@next/eslint-plugin-next'],
-	react: ['@eslint-react/eslint-plugin', 'eslint-plugin-react-hooks', 'eslint-plugin-react-refresh'],
+	react: ['@eslint-react/eslint-plugin', 'eslint-plugin-react-refresh'],
 	slidev: ['prettier-plugin-slidev'],
 	solid: ['eslint-plugin-solid'],
 	svelte: ['eslint-plugin-svelte', 'svelte-eslint-parser'],

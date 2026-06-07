@@ -3,7 +3,7 @@
 [![npm](https://img.shields.io/npm/v/@radum/eslint-config?color=444&label=)](https://npmjs.com/package/@radum/eslint-config)
 
 > Personal recommended shareable config for eslint.
-> Started as a rip-off of [Anthony's ESLint config preset](https://github.com/antfu/eslint-config/releases/tag/v5.4.1) amazing config but added my own flavour to it.
+> Started as a rip-off of [Anthony's ESLint config preset](https://github.com/antfu/eslint-config/releases/tag/v9.0.0) amazing config but added my own flavour to it.
 > Use it as is or as a foundation for your own config. You can extend or clone and change.
 
 - Auto fix for formatting (aimed to be used standalone **without** Prettier)
@@ -19,11 +19,6 @@
   - Using [ESLint Stylistic](https://github.com/eslint-stylistic/eslint-stylistic)
 - Respects `.gitignore` by default
 - Requires ESLint v9.5.0+
-
-> [!NOTE]
-> Since v7.0.0, this config is rewritten to the new [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new), check the [release note](https://github.com/radum/eslint-config/releases/tag/v1.0.0) for more details.
->
-> Since v8.0.0, ESLint v9.5.0+ is now required.
 
 > [!WARNING]
 > Please keep in mind that this is **_a personal config_** with a lot opinions. Changes might not always be pleased by everyone and every use cases.
@@ -101,10 +96,10 @@ For example:
 
 ```json
 {
-	"scripts": {
-		"lint": "eslint",
-		"lint:fix": "eslint --fix"
-	}
+  "scripts": {
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
+  }
 }
 ```
 
@@ -121,54 +116,120 @@ Add the following settings to your `.vscode/settings.json`:
 
 ```jsonc
 {
-	// Disable the default formatter, use eslint instead
-	"prettier.enable": false,
-	"editor.formatOnSave": false,
+  // Disable the default formatter, use eslint instead
+  "prettier.enable": false,
+  "editor.formatOnSave": false,
 
-	// Auto fix
-	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": "explicit",
-		"source.organizeImports": "never"
-	},
+  // Auto fix
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
 
-	// Silent the stylistic rules in you IDE, but still auto fix them
-	"eslint.rules.customizations": [
-		{ "rule": "style/*", "severity": "off", "fixable": true },
-		{ "rule": "format/*", "severity": "off", "fixable": true },
-		{ "rule": "*-indent", "severity": "off", "fixable": true },
-		{ "rule": "*-spacing", "severity": "off", "fixable": true },
-		{ "rule": "*-spaces", "severity": "off", "fixable": true },
-		{ "rule": "*-order", "severity": "off", "fixable": true },
-		{ "rule": "*-dangle", "severity": "off", "fixable": true },
-		{ "rule": "*-newline", "severity": "off", "fixable": true },
-		{ "rule": "*quotes", "severity": "off", "fixable": true },
-		{ "rule": "*semi", "severity": "off", "fixable": true }
-	],
+  // Silent the stylistic rules in your IDE, but still auto fix them
+  "eslint.rules.customizations": [
+    { "rule": "style/*", "severity": "off", "fixable": true },
+    { "rule": "format/*", "severity": "off", "fixable": true },
+    { "rule": "*-indent", "severity": "off", "fixable": true },
+    { "rule": "*-spacing", "severity": "off", "fixable": true },
+    { "rule": "*-spaces", "severity": "off", "fixable": true },
+    { "rule": "*-order", "severity": "off", "fixable": true },
+    { "rule": "*-dangle", "severity": "off", "fixable": true },
+    { "rule": "*-newline", "severity": "off", "fixable": true },
+    { "rule": "*quotes", "severity": "off", "fixable": true },
+    { "rule": "*semi", "severity": "off", "fixable": true }
+  ],
 
-	// Enable eslint for all supported languages
-	"eslint.validate": [
-		"javascript",
-		"javascriptreact",
-		"typescript",
-		"typescriptreact",
-		"vue",
-		"html",
-		"markdown",
-		"json",
-		"jsonc",
-		"yaml",
-		"toml",
-		"xml",
-		"gql",
-		"graphql",
-		"astro",
-		"svelte",
-		"css",
-		"less",
-		"scss",
-		"pcss",
-		"postcss"
-	]
+  // Enable eslint for all supported languages
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "yaml",
+    "toml",
+    "xml",
+    "gql",
+    "graphql",
+    "astro",
+    "svelte",
+    "css",
+    "less",
+    "scss",
+    "pcss",
+    "postcss"
+  ]
+}
+```
+
+</details>
+
+<details>
+<summary>🔲 Zed support</summary>
+
+<br>
+
+Add the following settings to your `.zed/settings.json`:
+
+```jsonc
+{
+  // Use ESLint's --fix:
+  "code_actions_on_format": {
+    "source.fixAll.eslint": true
+  },
+  "formatter": [],
+  // Enable eslint for all supported languages
+  // Defaults only include https://github.com/search?q=repo%3Azed-industries%2Fzed%20eslint_languages&type=code
+  "languages": {
+    "HTML": {
+      "language_servers": ["...", "eslint"]
+    },
+    "Markdown": {
+      "language_servers": ["...", "eslint"]
+    },
+    "Markdown-Inline": {
+      "language_servers": ["...", "eslint"]
+    },
+    "JSON": {
+      "language_servers": ["...", "eslint"]
+    },
+    "JSONC": {
+      "language_servers": ["...", "eslint"]
+    },
+    "YAML": {
+      "language_servers": ["...", "eslint"]
+    },
+    "CSS": {
+      "language_servers": ["...", "eslint"]
+    }
+    // Add other languages as needed
+  },
+  "lsp": {
+    "eslint": {
+      "settings": {
+        "workingDirectories": ["./"],
+
+        // Silent the stylistic rules in your IDE, but still auto fix them
+        "rulesCustomizations": [
+          { "rule": "style/*", "severity": "off", "fixable": true },
+          { "rule": "format/*", "severity": "off", "fixable": true },
+          { "rule": "*-indent", "severity": "off", "fixable": true },
+          { "rule": "*-spacing", "severity": "off", "fixable": true },
+          { "rule": "*-spaces", "severity": "off", "fixable": true },
+          { "rule": "*-order", "severity": "off", "fixable": true },
+          { "rule": "*-dangle", "severity": "off", "fixable": true },
+          { "rule": "*-newline", "severity": "off", "fixable": true },
+          { "rule": "*quotes", "severity": "off", "fixable": true },
+          { "rule": "*semi", "severity": "off", "fixable": true }
+        ]
+      }
+    }
+  }
 }
 ```
 
@@ -225,7 +286,7 @@ lspconfig.eslint.setup(
       "postcss"
     },
     settings = {
-      -- Silent the stylistic rules in you IDE, but still auto fix them
+      -- Silent the stylistic rules in your IDE, but still auto fix them
       rulesCustomizations = customizations,
     },
   }
@@ -276,8 +337,20 @@ And that's it! Or you can configure each integration individually, for example:
 import radum from '@radum/eslint-config';
 
 export default radum({
-// Type of the project. 'lib' for libraries, the default is 'app'
+	// Type of the project. 'lib' for libraries, the default is 'app'
 	type: 'lib',
+
+	// `.eslintignore` is no longer supported in Flat config, use `ignores` instead
+	// The `ignores` option in the option (first argument) is specifically treated to always be global ignores
+	// And will **extend** the config's default ignores, not override them
+	// You can also pass a function to modify the default ignores
+	ignores: [
+		'**/fixtures',
+		// ...globs
+	],
+
+	// Parse the `.gitignore` file to get the ignores, on by default
+	gitignore: true,
 
 	// Enable stylistic formatting rules
 	// stylistic: true,
@@ -286,6 +359,7 @@ export default radum({
 	stylistic: {
 		indent: 2, // 4, or 'tab'
 		quotes: 'single', // or 'double'
+		braceStyle: 'stroustrup', // '1tbs', or 'allman'
 	},
 
 	// TypeScript and Vue are autodetected, you can also explicitly enable them:
@@ -295,12 +369,6 @@ export default radum({
 	// Disable jsonc and yaml support
 	jsonc: false,
 	yaml: false,
-
-	// `.eslintignore` is no longer supported in Flat config, use `ignores` instead
-	ignores: [
-		'**/fixtures',
-		// ...globs
-	]
 });
 ```
 
@@ -404,11 +472,11 @@ type foo = { bar: 2 }
 ```
 
 > [!NOTE]
-> About plugin renaming - it is actually rather a dangerous move that might leading to potential naming collisions, pointed out [here](https://github.com/eslint/eslint/discussions/17766) and [here](https://github.com/prettier/eslint-config-prettier#eslintconfigjs-flat-config-plugin-caveat). As this config also very **personal** and **opinionated**, I ambitiously position this config as the only **"top-level"** config per project, that might pivots the taste of how rules are named.
+> About plugin renaming - it is actually rather a dangerous move that might lead to potential naming collisions, pointed out [here](https://github.com/eslint/eslint/discussions/17766) and [here](https://github.com/prettier/eslint-config-prettier#eslintconfigjs-flat-config-plugin-caveat). As this config also very **personal** and **opinionated**, I ambitiously position this config as the only **"top-level"** config per project, that might pivots the taste of how rules are named.
 >
 > This config cares more about the user-facings DX, and try to ease out the implementation details. For example, users could keep using the semantic `import/order` without ever knowing the underlying plugin has migrated thrice to `eslint-plugin-i` and then to `eslint-plugin-import-x` and then to `eslint-plugin-import-lite`. User are also not forced to migrate to the implicit `i/order` halfway only because we swapped the implementation to a fork.
 >
-> That said, it's probably still not a good idea. You might not want to doing this if you are maintaining your own eslint config.
+> That said, it's probably still not a good idea. You might not want to do this if you are maintaining your own eslint config.
 >
 > Feel free to open issues if you want to combine this config with some other config presets but faced naming collisions. I am happy to figure out a way to make them work. But at this moment I have no plan to revert the renaming.
 
@@ -454,13 +522,16 @@ export default radum(
 		},
 	},
 	{
-		// Without `files`, they are general rules for all files
+		// Without `files`, they are general rules for all files (Markdown excluded — see note below)
 		rules: {
 			'style/semi': ['error', 'never'],
 		},
 	}
 );
 ```
+
+> [!NOTE]
+> Rule overrides without an explicit `files` constraint are automatically excluded from Markdown files, via [`composer.setDefaultIgnores`](https://github.com/antfu/eslint-flat-config-utils#composersetdefaultignores). This prevents JS-only rules (e.g. `no-irregular-whitespace`, `perfectionist/sort-imports`) from crashing on `@eslint/markdown`'s `SourceCode`, which doesn't expose JS-specific methods like `getAllComments()`. If you want a rule to apply to Markdown, scope it explicitly with `files: ['**/*.md']`.
 
 We also provided the `overrides` options in each integration to make it easier:
 
@@ -617,7 +688,7 @@ export default radum({
 Running `npx eslint` should prompt you to install the required dependencies, otherwise, you can install them manually:
 
 ```bash
-npm i -D @eslint-react/eslint-plugin eslint-plugin-react-hooks eslint-plugin-react-refresh
+npm i -D @eslint-react/eslint-plugin eslint-plugin-react-refresh
 ```
 
 #### Next.js
@@ -715,6 +786,25 @@ Running `npx eslint` should prompt you to install the required dependencies, oth
 npm i -D @unocss/eslint-plugin
 ```
 
+#### Angular
+
+To enable Angular support, you need to explicitly turn it on:
+
+```js
+// eslint.config.js
+import radum from '@radum/eslint-config';
+
+export default radum({
+	angular: true,
+});
+```
+
+Running `npx eslint` should prompt you to install the required dependencies, otherwise, you can install them manually:
+
+```bash
+npm i -D @angular-eslint/eslint-plugin @angular-eslint/eslint-plugin-template @angular-eslint/template-parser
+```
+
 ### Optional Rules
 
 This config also provides some optional plugins/rules for extended usage.
@@ -768,6 +858,21 @@ export default radum({
 });
 ```
 
+### Prettier
+
+If you're using prettier outside eslint, you can disable the config via etc:
+
+```js
+import radum from '@radum/eslint-config';
+import prettierConflicts from 'eslint-config-prettier';
+
+export default radum({
+	rules: {
+		'some-rule': 'off'
+	}
+}, prettierConflicts);
+```
+
 ### Editor Specific Disables
 
 Auto-fixing for the following rules are disabled when ESLint is running in a code editor:
@@ -775,8 +880,11 @@ Auto-fixing for the following rules are disabled when ESLint is running in a cod
 - [`prefer-const`](https://eslint.org/docs/rules/prefer-const)
 - [`test/no-only-tests`](https://github.com/levibuzolic/eslint-plugin-no-only-tests)
 - [`unused-imports/no-unused-imports`](https://www.npmjs.com/package/eslint-plugin-unused-imports)
+- [`pnpm/json-enforce-catalog`](https://github.com/antfu/pnpm-workspace-utils/tree/main/packages/eslint-plugin-pnpm#rules)
+- [`pnpm/json-prefer-workspace-settings`](https://github.com/antfu/pnpm-workspace-utils/tree/main/packages/eslint-plugin-pnpm#rules)
+- [`pnpm/json-valid-catalog`](https://github.com/antfu/pnpm-workspace-utils/tree/main/packages/eslint-plugin-pnpm#rules)
 
-They are non-fixable using [this helper](https://github.com/antfu/eslint-flat-config-utils#composerdisablerulesfix).
+> They are not disabled, but made non-fixable using [this helper](https://github.com/antfu/eslint-flat-config-utils#composerdisablerulesfix).
 
 This is to prevent unused imports from getting removed by the editor during refactoring to get a better developer experience. Those rules will be applied when you run ESLint in the terminal or [Lint Staged](#lint-staged). If you don't want this behavior, you can disable them:
 
@@ -795,12 +903,12 @@ If you want to apply lint and auto-fix before every commit, you can add the foll
 
 ```json
 {
-	"simple-git-hooks": {
-		"pre-commit": "pnpm lint-staged"
-	},
-	"lint-staged": {
-		"*": "eslint --fix"
-	}
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
 }
 ```
 
@@ -847,6 +955,10 @@ This project follows [Semantic Versioning](https://semver.org/) for releases. Ho
 I pretty much agree with everything Antfu says here: [Why I don't use Prettier](https://antfu.me/posts/why-not-prettier).
 
 Well, you can still use Prettier to format files that are not supported well by ESLint yet, such as `.css`, `.html`, etc. See [formatters](#formatters) for more details.
+
+### oxlint?
+
+We do have a plan to integrate [oxlint](https://github.com/oxc-project/oxc) in someway to speed up the linting process. However there are still some blocks we are waiting for. Track the progress [in this issue: **Oxlint Integration Plan**](https://github.com/antfu/eslint-config/issues/767).
 
 ### dprint?
 
