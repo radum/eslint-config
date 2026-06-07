@@ -1,11 +1,20 @@
+strictPeerDependencies: false
+ignoreWorkspaceRootCheck: true
+minimumReleaseAgeExclude:
+  - vue-eslint-parser@10.4.1
+shamefullyHoist: true
+shellEmulator: true
+
+trustPolicy: no-downgrade
+
 packages:
   - fixtures/*
 
-strictPeerDependencies: false
-shamefullyHoist: true
-ignoreWorkspaceRootCheck: true
-shellEmulator: true
-
 onlyBuiltDependencies:
   - esbuild
+  - simple-git-hooks
   - unrs-resolver
+
+allowBuilds:
+  esbuild: true
+  simple-git-hooks: true

@@ -1,5 +1,6 @@
 import type { OptionsStylistic, TypedFlatConfigItem } from '../types';
 
+import { GLOB_SRC } from '../globs';
 import { interopDefault } from '../utils';
 
 export async function jsdoc(options: OptionsStylistic = {}): Promise<TypedFlatConfigItem[]> {
@@ -7,10 +8,14 @@ export async function jsdoc(options: OptionsStylistic = {}): Promise<TypedFlatCo
 
 	return [
 		{
-			name: 'radum/jsdoc/rules',
+			name: 'radum/jsdoc/setup',
 			plugins: {
 				jsdoc: await interopDefault(import('eslint-plugin-jsdoc'))
-			},
+			}
+		},
+		{
+			files: [GLOB_SRC],
+			name: 'radum/jsdoc/rules',
 			rules: {
 				'jsdoc/check-access': 'warn',
 				'jsdoc/check-param-names': 'warn',

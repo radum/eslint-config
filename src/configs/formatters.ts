@@ -19,7 +19,7 @@ import {
 import { ensurePackages, interopDefault, isPackageInScope, parserPlain } from '../utils';
 import { StylisticConfigDefaults } from './stylistic';
 
-function mergePrettierOptions(options: VendoredPrettierOptions, overrides: VendoredPrettierRuleOptions = {}): VendoredPrettierRuleOptions {
+function mergePrettierOptions(options: VendoredPrettierOptions, overrides: VendoredPrettierRuleOptions): VendoredPrettierRuleOptions {
 	return {
 		...options,
 		...overrides,
@@ -77,14 +77,14 @@ export async function formatters(options: OptionsFormatters | true = {}, stylist
 		xmlWhitespaceSensitivity: 'ignore'
 	};
 
-	const dprintOptions = Object.assign(
-		{
-			indentWidth: typeof indent === 'number' ? indent : 2,
-			quoteStyle: quotes === 'single' ? 'preferSingle' : 'preferDouble',
-			useTabs: indent === 'tab'
-		},
-		options.dprintOptions || {}
-	);
+	const dprintOptions = {
+		indentWidth: typeof indent === 'number' ? indent : 2,
+		quoteStyle: quotes === 'single' ? 'preferSingle' : 'preferDouble',
+		useTabs: indent === 'tab',
+		// TODO: refine the type of `options.dprintOptions` in the future to avoid this ts comment.
+		// @ts-expect-error - `options.dprintOptions` is boolean
+		...options.dprintOptions || {}
+	};
 
 	const pluginFormat = await interopDefault(import('eslint-plugin-format'));
 

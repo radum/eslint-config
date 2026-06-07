@@ -1,4 +1,4 @@
-import type { TypedFlatConfigItem } from '../types';
+import type { OptionsOverrides, TypedFlatConfigItem } from '../types';
 
 import { pluginPerfectionist } from '../plugins';
 
@@ -7,7 +7,11 @@ import { pluginPerfectionist } from '../plugins';
  *
  * @see https://github.com/azat-io/eslint-plugin-perfectionist
  */
-export async function perfectionist(): Promise<TypedFlatConfigItem[]> {
+export async function perfectionist(options: OptionsOverrides): Promise<TypedFlatConfigItem[]> {
+	const {
+		overrides = {}
+	} = options;
+
 	return [
 		{
 			name: 'radum/perfectionist/setup',
@@ -16,28 +20,28 @@ export async function perfectionist(): Promise<TypedFlatConfigItem[]> {
 			},
 			rules: {
 				'perfectionist/sort-exports': ['error', { order: 'asc', type: 'natural' }],
-				'perfectionist/sort-imports': [
-					'error',
-					{
-						groups: [
-							'type',
-							['parent-type', 'sibling-type', 'index-type', 'internal-type'],
+				'perfectionist/sort-imports': ['error', {
+					groups: [
+						'type-import',
+						['type-parent', 'type-sibling', 'type-index', 'type-internal'],
 
-							'builtin',
-							'external',
-							'internal',
-							['parent', 'sibling', 'index'],
-							'side-effect',
-							'object',
-							'unknown'
-						],
-						newlinesBetween: 'ignore',
-						order: 'asc',
-						type: 'natural'
-					}
-				],
+						'value-builtin',
+						'value-external',
+						'value-internal',
+						['value-parent', 'value-sibling', 'value-index'],
+						'side-effect',
+						'ts-equals-import',
+						'unknown'
+					],
+					newlinesBetween: 'ignore',
+					newlinesInside: 'ignore',
+					order: 'asc',
+					type: 'natural'
+				}],
 				'perfectionist/sort-named-exports': ['error', { order: 'asc', type: 'natural' }],
-				'perfectionist/sort-named-imports': ['error', { order: 'asc', type: 'natural' }]
+				'perfectionist/sort-named-imports': ['error', { order: 'asc', type: 'natural' }],
+
+				...overrides
 			}
 		}
 	];

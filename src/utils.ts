@@ -54,15 +54,19 @@ export async function combine(...configs: Awaitable<TypedFlatConfigItem | TypedF
  * }]
  * ```
  */
-export function renameRules(rules: Record<string, any>, map: Record<string, string>): Record<string, any> {
+export function renameRules(
+	rules: Record<string, any>,
+	map: Record<string, string>
+): Record<string, any> {
 	return Object.fromEntries(
-		Object.entries(rules).map(([key, value]) => {
-			for (const [from, to] of Object.entries(map)) {
-				if (key.startsWith(`${from}/`))
-					return [to + key.slice(from.length), value];
-			}
-			return [key, value];
-		})
+		Object.entries(rules)
+			.map(([key, value]) => {
+				for (const [from, to] of Object.entries(map)) {
+					if (key.startsWith(`${from}/`))
+						return [to + key.slice(from.length), value];
+				}
+				return [key, value];
+			})
 	);
 }
 
@@ -76,7 +80,7 @@ export function renameRules(rules: Record<string, any>, map: Record<string, stri
  *
  * export default renamePluginInConfigs(someConfigs, {
  *   '@typescript-eslint': 'ts',
- *   '@stylistic': 'style'
+ *   '@stylistic': 'style',
  * })
  * ```
  */
@@ -87,11 +91,12 @@ export function renamePluginInConfigs(configs: TypedFlatConfigItem[], map: Recor
 			clone.rules = renameRules(clone.rules, map);
 		if (clone.plugins) {
 			clone.plugins = Object.fromEntries(
-				Object.entries(clone.plugins).map(([key, value]) => {
-					if (key in map)
-						return [map[key], value];
-					return [key, value];
-				})
+				Object.entries(clone.plugins)
+					.map(([key, value]) => {
+						if (key in map)
+							return [map[key], value];
+						return [key, value];
+					})
 			);
 		}
 		return clone;
@@ -121,9 +126,7 @@ export async function ensurePackages(packages: (string | undefined)[]): Promise<
 
 	const p = await import('@clack/prompts');
 	const result = await p.confirm({
-		message: `${nonExistingPackages.length === 1 ? 'Package is' : 'Packages are'} required for this config: ${nonExistingPackages.join(
-			', '
-		)}. Do you want to install them?`
+		message: `${nonExistingPackages.length === 1 ? 'Package is' : 'Packages are'} required for this config: ${nonExistingPackages.join(', ')}. Do you want to install them?`
 	});
 	if (result)
 		await import('@antfu/install-pkg').then((i) => i.installPackage(nonExistingPackages, { dev: true }));
@@ -134,9 +137,20 @@ export function isInEditorEnv(): boolean {
 		return false;
 	if (isInGitHooksOrLintStaged())
 		return false;
-	return !!(false || process.env.VSCODE_PID || process.env.VSCODE_CWD || process.env.JETBRAINS_IDE || process.env.VIM || process.env.NVIM);
+	return !!(false
+		|| process.env.VSCODE_PID
+		|| process.env.VSCODE_CWD
+		|| process.env.JETBRAINS_IDE
+		|| process.env.VIM
+		|| process.env.NVIM
+		|| (process.env.ZED_ENVIRONMENT && !process.env.ZED_TERM)
+	);
 }
 
 export function isInGitHooksOrLintStaged(): boolean {
-	return !!(false || process.env.GIT_PARAMS || process.env.VSCODE_GIT_COMMAND || process.env.npm_lifecycle_script?.startsWith('lint-staged'));
+	return !!(false
+		|| process.env.GIT_PARAMS
+		|| process.env.VSCODE_GIT_COMMAND
+		|| process.env.npm_lifecycle_script?.startsWith('lint-staged')
+	);
 }

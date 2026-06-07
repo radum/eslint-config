@@ -44,7 +44,7 @@ export async function toml(options: OptionsOverrides & OptionsStylistic & Option
 							'toml/array-bracket-newline': 'error',
 							'toml/array-bracket-spacing': 'error',
 							'toml/array-element-newline': 'error',
-							'toml/indent': ['error', indent === 'tab' ? 2 : indent],
+							'toml/indent': ['error', typeof indent === 'number' ? indent : indent === 'tab' ? 'tab' : 2],
 							'toml/inline-table-curly-spacing': 'error',
 							'toml/key-spacing': 'error',
 							'toml/padding-line-between-pairs': 'error',

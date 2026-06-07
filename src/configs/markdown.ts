@@ -1,12 +1,12 @@
-import type { OptionsComponentExts, OptionsFiles, OptionsOverrides, TypedFlatConfigItem } from '../types';
+import type { OptionsComponentExts, OptionsFiles, OptionsMarkdown, TypedFlatConfigItem } from '../types';
 
 import { mergeProcessors, processorPassThrough } from 'eslint-merge-processors';
 import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE, GLOB_MARKDOWN_IN_MARKDOWN } from '../globs';
 
-import { interopDefault, parserPlain } from '../utils';
+import { interopDefault } from '../utils';
 
-export async function markdown(options: OptionsFiles & OptionsComponentExts & OptionsOverrides = {}): Promise<TypedFlatConfigItem[]> {
-	const { componentExts = [], files = [GLOB_MARKDOWN], overrides = {} } = options;
+export async function markdown(options: OptionsFiles & OptionsComponentExts & OptionsMarkdown = {}): Promise<TypedFlatConfigItem[]> {
+	const { componentExts = [], files = [GLOB_MARKDOWN], gfm = true, overrides = {}, overridesMarkdown = {} } = options;
 
 	const markdown = await interopDefault(import('@eslint/markdown'));
 
@@ -28,10 +28,19 @@ export async function markdown(options: OptionsFiles & OptionsComponentExts & Op
 		},
 		{
 			files,
-			languageOptions: {
-				parser: parserPlain
-			},
+			language: gfm ? 'markdown/gfm' : 'markdown/commonmark',
 			name: 'radum/markdown/parser'
+		},
+		{
+			files,
+			name: 'radum/markdown/rules',
+			rules: {
+				...markdown.configs.recommended.at(0)?.rules,
+				'markdown/fenced-code-language': 'off',
+				// https://github.com/eslint/markdown/issues/294
+				'markdown/no-missing-label-refs': 'off',
+				...overridesMarkdown
+			}
 		},
 		{
 			files: [GLOB_MARKDOWN_CODE, ...componentExts.map((ext) => `${GLOB_MARKDOWN}/**/*.${ext}`)],
@@ -42,9 +51,11 @@ export async function markdown(options: OptionsFiles & OptionsComponentExts & Op
 					}
 				}
 			},
-			name: 'radum/markdown/disables',
+			name: 'radum/markdown/disables/code',
 			rules: {
 				'antfu/no-top-level-await': 'off',
+
+				'e18e/prefer-static-regex': 'off',
 
 				'no-alert': 'off',
 				'no-console': 'off',
@@ -54,6 +65,7 @@ export async function markdown(options: OptionsFiles & OptionsComponentExts & Op
 				'no-undef': 'off',
 				'no-unused-expressions': 'off',
 				'no-unused-labels': 'off',
+
 				'no-unused-vars': 'off',
 
 				'node/prefer-global/process': 'off',

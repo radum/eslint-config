@@ -6,7 +6,7 @@ Please contribute to this repository if any of the following is true:
 - You want open source communities to be more collaborative and inclusive
 - You want to help lower the burden to first time contributors
 
-# How to contribute
+## How to contribute
 
 Prerequisites:
 
@@ -23,6 +23,6 @@ In particular, I look for the following types of contributions:
 - formatting: help keep content easy to read with consistent formatting
 - code: Fix issues or contribute new features to this or any related projects
 
-# Contributor Code of Conduct
+## Contributor Code of Conduct
 
 See [CODE_OF_CONDUCT.md](/CODE_OF_CONDUCT.md)

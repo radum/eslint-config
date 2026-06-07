@@ -3,16 +3,20 @@ import type { OptionsFiles, OptionsOverrides, OptionsStylistic, TypedFlatConfigI
 import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../globs';
 import { interopDefault } from '../utils';
 
-export async function jsonc(options: OptionsFiles & OptionsStylistic & OptionsOverrides = {}): Promise<TypedFlatConfigItem[]> {
-	const { files = [GLOB_JSON, GLOB_JSON5, GLOB_JSONC], overrides = {}, stylistic = true } = options;
+export async function jsonc(
+	options: OptionsFiles & OptionsStylistic & OptionsOverrides = {}
+): Promise<TypedFlatConfigItem[]> {
+	const {
+		files = [GLOB_JSON, GLOB_JSON5, GLOB_JSONC],
+		overrides = {},
+		stylistic = true
+	} = options;
 
-	const { indent = 'tab' } = typeof stylistic === 'boolean' ? {} : stylistic;
-	const indentSpecialFile = 2; // This is a special case for package.json
+	const {
+		indent = 2
+	} = typeof stylistic === 'boolean' ? {} : stylistic;
 
-	const [pluginJsonc, parserJsonc] = await Promise.all([
-		interopDefault(import('eslint-plugin-jsonc')),
-		interopDefault(import('jsonc-eslint-parser'))
-	] as const);
+	const pluginJsonc = await interopDefault(import('eslint-plugin-jsonc'));
 
 	return [
 		{
@@ -23,9 +27,7 @@ export async function jsonc(options: OptionsFiles & OptionsStylistic & OptionsOv
 		},
 		{
 			files,
-			languageOptions: {
-				parser: parserJsonc
-			},
+			language: 'jsonc/x',
 			name: 'radum/jsonc/rules',
 			rules: {
 				'jsonc/no-bigint-literals': 'error',
@@ -55,12 +57,12 @@ export async function jsonc(options: OptionsFiles & OptionsStylistic & OptionsOv
 				'jsonc/valid-json-number': 'error',
 				'jsonc/vue-custom-block/no-parsing-error': 'error',
 
-				...(stylistic
+				...stylistic
 					? {
 							'jsonc/array-bracket-spacing': ['error', 'never'],
 							'jsonc/comma-dangle': ['error', 'never'],
 							'jsonc/comma-style': ['error', 'last'],
-							'jsonc/indent': ['error', indent],
+							'jsonc/indent': ['error', typeof indent === 'number' ? indent : indent === 'tab' ? 'tab' : 2],
 							'jsonc/key-spacing': ['error', { afterColon: true, beforeColon: false }],
 							'jsonc/object-curly-newline': ['error', { consistent: true, multiline: true }],
 							'jsonc/object-curly-spacing': ['error', 'always'],
@@ -68,19 +70,9 @@ export async function jsonc(options: OptionsFiles & OptionsStylistic & OptionsOv
 							'jsonc/quote-props': 'error',
 							'jsonc/quotes': 'error'
 						}
-					: {}),
+					: {},
 
 				...overrides
-			}
-		},
-		{
-			files: ['package.json'],
-			languageOptions: {
-				parser: parserJsonc
-			},
-			name: 'radum/jsonc/package-json',
-			rules: {
-				'jsonc/indent': ['error', indentSpecialFile]
 			}
 		}
 	];
