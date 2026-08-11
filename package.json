@@ -179,6 +179,7 @@
     "@radum/eslint-config": "workspace:*",
     "@types/eslint-plugin-jsx-a11y": ">=6.10.1",
     "@types/node": "^26.2.0",
+    "@typescript-eslint/types": "^8.67.0",
     "@unocss/eslint-plugin": "^66.7.5",
     "astro-eslint-parser": "^3.0.0",
     "auto": "^11.3.6",
