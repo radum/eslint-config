@@ -16,13 +16,13 @@ jobs:
     if: '!contains(github.event.head_commit.message, "ci skip") && !contains(github.event.head_commit.message, "skip ci")'
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           persist-credentials: false
       - name: Prepare repository
         run: git fetch --unshallow --tags
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 14
       - name: Install dependencies

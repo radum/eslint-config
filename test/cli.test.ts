@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import process from 'node:process';
 
 import { fileURLToPath } from 'node:url';
-import { execa } from 'execa';
+import { x } from 'tinyexec';
 
 import { afterAll, beforeEach, expect, it } from 'vitest';
 
@@ -21,11 +21,14 @@ async function run(
 		NO_COLOR: '1'
 	}
 ) {
-	return execa('node', [CLI_PATH, ...params], {
-		cwd: genPath,
-		env: {
-			...process.env,
-			...env
+	return x('node', [CLI_PATH, ...params], {
+		throwOnError: true,
+		nodeOptions: {
+			cwd: genPath,
+			env: {
+				...process.env,
+				...env
+			}
 		}
 	});
 }

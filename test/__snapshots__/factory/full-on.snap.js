@@ -291,13 +291,16 @@
     ],
   },
   {
-    "ignores": [
-      "**/*.md",
-    ],
-    "name": "radum/unicorn/rules",
+    "name": "radum/unicorn/setup",
     "plugins": [
       "unicorn",
     ],
+  },
+  {
+    "files": [
+      "**/*.?([cm])[jt]s?(x)",
+    ],
+    "name": "radum/unicorn/rules",
     "rules": [
       "unicorn/consistent-empty-array-spread",
       "unicorn/error-message",
@@ -1023,6 +1026,7 @@
       "react/dom-no-void-elements-with-children",
       "react/web-api-no-leaked-event-listener",
       "react/web-api-no-leaked-fetch",
+      "react/web-api-no-leaked-intersection-observer",
       "react/web-api-no-leaked-interval",
       "react/web-api-no-leaked-resize-observer",
       "react/web-api-no-leaked-timeout",
@@ -1086,6 +1090,7 @@
       "next/no-head-element",
       "next/no-html-link-for-pages",
       "next/no-img-element",
+      "next/no-location-assign-relative-destination",
       "next/no-page-custom-font",
       "next/no-styled-jsx-in-document",
       "next/no-sync-scripts",
