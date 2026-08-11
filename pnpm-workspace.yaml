@@ -2,6 +2,19 @@ strictPeerDependencies: false
 ignoreWorkspaceRootCheck: true
 minimumReleaseAgeExclude:
   - vue-eslint-parser@10.4.1
+  - '@es-joy/jsdoccomment@0.95.0'
+  - '@typescript-eslint/eslint-plugin@8.67.0'
+  - '@typescript-eslint/parser@8.67.0'
+  - '@typescript-eslint/project-service@8.67.0'
+  - '@typescript-eslint/scope-manager@8.67.0'
+  - '@typescript-eslint/tsconfig-utils@8.67.0'
+  - '@typescript-eslint/type-utils@8.67.0'
+  - '@typescript-eslint/types@8.67.0'
+  - '@typescript-eslint/typescript-estree@8.67.0'
+  - '@typescript-eslint/utils@8.67.0'
+  - '@typescript-eslint/visitor-keys@8.67.0'
+  - eslint-plugin-jsdoc@64.1.0
+  - jsdoc-type-pratt-parser@9.1.1
 shamefullyHoist: true
 shellEmulator: true
 

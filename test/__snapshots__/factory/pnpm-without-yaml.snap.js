@@ -291,13 +291,16 @@
     ],
   },
   {
-    "ignores": [
-      "**/*.md",
-    ],
-    "name": "radum/unicorn/rules",
+    "name": "radum/unicorn/setup",
     "plugins": [
       "unicorn",
     ],
+  },
+  {
+    "files": [
+      "**/*.?([cm])[jt]s?(x)",
+    ],
+    "name": "radum/unicorn/rules",
     "rules": [
       "unicorn/consistent-empty-array-spread",
       "unicorn/error-message",
