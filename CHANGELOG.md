@@ -1,3 +1,19 @@
+# v11.1.0 (Wed Aug 12 2026)
+
+#### 🚀 Enhancement
+
+- Docs updates [#246](https://github.com/radum/eslint-config/pull/246) ([@radum](https://github.com/radum))
+
+#### 🔩 Dependency Updates
+
+- Bumped deps and updated sort order [#245](https://github.com/radum/eslint-config/pull/245) ([@radum](https://github.com/radum))
+
+#### Authors: 1
+
+- Radu Micu ([@radum](https://github.com/radum))
+
+---
+
 # v11.1.0 (Tue Aug 11 2026)
 
 #### 🚀 Enhancement
